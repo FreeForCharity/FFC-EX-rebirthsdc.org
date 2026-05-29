@@ -116,8 +116,8 @@ The site features two primary CTAs accessible throughout the experience via glob
 
 ## Deployment
 
-- **Live Site**: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- **GitHub Pages**: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- **Live Site**: [https://rebirthsdc.org](https://rebirthsdc.org)
+- **GitHub Pages**: [https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/](https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/)
 - **Hosting**: GitHub Pages
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
 
@@ -136,7 +136,7 @@ The site is live and fully functional with the following features:
 - Social media links configured (Facebook, Twitter/X, LinkedIn, GitHub)
 - Footer links fully functional with proper destinations
 - Contact information complete (email, phone, addresses)
-- Deployed to live domain: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+- Deployed to live domain: [https://rebirthsdc.org](https://rebirthsdc.org)
 - Dual deployment: Custom domain and GitHub Pages
 
 ⚠️ **Known Limitations:**
@@ -515,7 +515,7 @@ Both platforms provide identical workflows:
 
 **Coexistence with GitHub Pages:**
 
-- Keep GitHub Pages for production (ffcworkingsite1.org)
+- Keep GitHub Pages for production (rebirthsdc.org)
 - Use Cloudflare Pages or Vercel for PR previews only
 - No conflicts between systems
 
@@ -535,7 +535,7 @@ Both platforms provide identical workflows:
    - Build command: `npm run build`
    - Build output directory: `out`
    - Environment variables: Leave `NEXT_PUBLIC_BASE_PATH` unset
-     - GitHub Pages needs `/FFC_Single_Page_Template` for subdirectory routing
+     - GitHub Pages serves at the `rebirthsdc.org` custom domain root (no basePath needed)
      - Cloudflare Pages deploys to root, no basePath needed
 
 4. **Enable Preview Deployments**
@@ -686,8 +686,8 @@ The site is configured for static export and deployed to GitHub Pages:
 
 **Production:**
 
-- Live at: [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
-- GitHub Pages URL: [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
+- Live at: [https://rebirthsdc.org](https://rebirthsdc.org)
+- GitHub Pages URL: [https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/](https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/)
 - Deployment: Automatic via GitHub Actions (`.github/workflows/deploy.yml`)
 - Trigger: Push to `main` branch
 - Build output: Static files in `./out` directory
@@ -724,7 +724,7 @@ We welcome new contributors and believe fresh perspectives are invaluable! **You
 
 #### How to Get Started
 
-1. **Explore the live site:** [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+1. **Explore the live site:** [https://rebirthsdc.org](https://rebirthsdc.org)
 2. **Test thoroughly:** Try all features, navigation, and responsive behavior
 3. **Document findings:** Create a review issue using our template
 4. **Report issues:** File separate issues for bugs and enhancements you discover
