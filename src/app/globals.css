@@ -2,12 +2,24 @@
 @import 'tailwindcss';
 
 :root {
-  /* Brand tokens */
-  --ffc-primary: #2a6682;
-  --ffc-accent: #f58629;
-  --ffc-yellow: #f5c045;
-  --ffc-black: #000000;
-  --ffc-white: #ffffff;
+  /* Project Rebirth brand tokens */
+  --pr-maroon: #7c1f2e; /* primary headings, borders, buttons */
+  --pr-maroon-dark: #5a141f;
+  --pr-flame: #e8531f; /* phoenix accent */
+  --pr-flame-dark: #c0271a;
+  --pr-ink: #0e0e10; /* hero / footer / dark bands */
+  --pr-charcoal: #1c1c20;
+  --pr-paper: #ffffff;
+  --pr-blueprint: #eef2f7; /* light blueprint background */
+  --pr-blueprint-line: rgba(124, 31, 46, 0.08);
+  --pr-blueprint-line-blue: rgba(42, 102, 130, 0.08);
+  --pr-body: #20242e; /* default body text on light */
+
+  /* Legacy aliases kept so existing components don't break */
+  --ffc-primary: var(--pr-maroon);
+  --ffc-accent: var(--pr-flame);
+  --ffc-black: var(--pr-ink);
+  --ffc-white: var(--pr-paper);
 
   /* Layout */
   --ffc-container: 1248px;
@@ -21,25 +33,28 @@ body {
 
 @theme inline {
   /* Tailwind design tokens mapped to brand variables */
-  --color-primary: var(--ffc-primary);
-  --color-accent: var(--ffc-accent);
-  --color-yellow: var(--ffc-yellow);
-  --color-ink: var(--ffc-black);
-  --color-paper: var(--ffc-white);
+  --color-primary: var(--pr-maroon);
+  --color-primary-dark: var(--pr-maroon-dark);
+  --color-accent: var(--pr-flame);
+  --color-accent-dark: var(--pr-flame-dark);
+  --color-ink: var(--pr-ink);
+  --color-charcoal: var(--pr-charcoal);
+  --color-paper: var(--pr-paper);
+  --color-blueprint: var(--pr-blueprint);
 
   --radius-xl: var(--ffc-radius-xl);
   --container: var(--ffc-container);
 
   /* Fonts (provided via next/font and CSS variables on <body>) */
-  --font-serif-display: var(--font-faustina);
-  --font-serif: var(--font-fauna-one);
-  --font-sans: var(--font-lato);
+  --font-display: var(--font-cinzel);
+  --font-nav: var(--font-montserrat);
+  --font-sans: var(--font-open-sans);
 }
 
 body {
-  font-family: var(--font-faustina), serif !important;
+  font-family: var(--font-open-sans), system-ui, sans-serif !important;
   background: var(--color-paper);
-  color: var(--color-ink);
+  color: var(--pr-body);
 }
 #header {
   font-family: var(--font-open-sans), sans-serif !important;
@@ -159,4 +174,107 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ===== Project Rebirth design system ===== */
+
+/* Font helpers */
+.font-display {
+  font-family: var(--font-cinzel), Georgia, serif !important;
+  letter-spacing: 0.02em;
+}
+.font-nav {
+  font-family: var(--font-montserrat), system-ui, sans-serif !important;
+}
+.font-body {
+  font-family: var(--font-open-sans), system-ui, sans-serif !important;
+}
+
+/* Maroon display headings */
+.pr-heading {
+  font-family: var(--font-cinzel), Georgia, serif !important;
+  color: var(--pr-maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Layout container */
+.pr-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* Blueprint grid background (light) */
+.bp-grid {
+  background-color: var(--pr-blueprint);
+  background-image:
+    linear-gradient(var(--pr-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line) 1px, transparent 1px),
+    linear-gradient(var(--pr-blueprint-line-blue) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line-blue) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+}
+
+/* Dark blueprint band (mandate / hero footer bands) */
+.bp-grid-dark {
+  background-color: var(--pr-ink);
+  background-image:
+    linear-gradient(rgba(124, 31, 46, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.18) 1px, transparent 1px);
+  background-size:
+    60px 60px,
+    60px 60px;
+}
+
+/* Glossy maroon "Partner With Us" style button */
+.btn-rebirth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #9a2a3a 0%, var(--pr-maroon) 45%, var(--pr-maroon-dark) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 6px 16px rgba(124, 31, 46, 0.35);
+  transition: all 0.25s ease;
+}
+.btn-rebirth:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 10px 22px rgba(124, 31, 46, 0.45);
+}
+
+/* Flame-accent variant */
+.btn-flame {
+  background: linear-gradient(180deg, #f5733a 0%, var(--pr-flame) 45%, var(--pr-flame-dark) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 6px 16px rgba(232, 83, 31, 0.35);
+}
+
+/* White content card with soft shadow */
+.pr-card {
+  background: var(--pr-paper);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(14, 14, 16, 0.12);
+  border: 1px solid rgba(14, 14, 16, 0.06);
+}
+.pr-card--maroon {
+  border: 2px solid var(--pr-maroon);
 }
