@@ -16,7 +16,7 @@ This document provides a comprehensive list of all external dependencies and thi
 
 Free For Charity's website uses various third-party services to provide functionality, analytics, and enhanced user experience. All services are carefully selected to align with our mission while respecting user privacy.
 
-**Privacy Notice:** Users can control analytics and marketing cookies through our cookie consent banner. See our [Privacy Policy](/privacy-policy) and [Cookie Policy](/cookie-policy) for details.
+**Privacy Notice:** Users can control analytics and marketing cookies through our cookie consent banner. See our [Privacy Policy](/privacy-policy) for details.
 
 ## Direct Integrations
 
@@ -298,8 +298,7 @@ For questions about our external dependencies or privacy practices:
 
 ## Related Documentation
 
-- [Privacy Policy](/privacy-policy) - How we handle user data
-- [Privacy Policy](/privacy-policy) - Detailed cookie and data information
+- [Privacy Policy](/privacy-policy) - How we handle user data and cookies
 - [Security Policy](./SECURITY.md) - Security practices and reporting
 
 ## Updates to This Document
