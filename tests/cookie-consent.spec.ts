@@ -43,9 +43,8 @@ test.describe('Cookie Consent Banner', () => {
       banner.getByRole('button', { name: testConfig.cookieConsent.buttons.acceptAll })
     ).toBeVisible()
 
-    // Verify policy links are present
+    // Verify the policy link is present (cookie details live in the Privacy Policy)
     await expect(banner.getByRole('link', { name: 'Privacy Policy' })).toBeVisible()
-    await expect(banner.getByRole('link', { name: 'Cookie Policy' })).toBeVisible()
   })
 
   test('should hide banner after clicking Accept All', async ({ page }) => {
