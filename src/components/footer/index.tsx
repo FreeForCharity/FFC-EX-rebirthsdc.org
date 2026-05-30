@@ -1,28 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
-import { SITE, LINKS } from '@/data/project-rebirth/site'
+import { assetPath } from '@/lib/assetPath'
+import { SITE } from '@/data/project-rebirth/site'
 
-/** Simple inline Equal Housing Opportunity mark. */
+/** Equal Housing Opportunity mark. */
 const EqualHousingMark: React.FC = () => (
-  <svg
-    viewBox="0 0 64 64"
-    className="h-12 w-12 text-white/80"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    aria-hidden="true"
-  >
-    <path d="M32 10 6 30h6v22h40V30h6L32 10z" strokeLinejoin="round" />
-    <line x1="24" y1="38" x2="40" y2="38" />
-    <line x1="24" y1="45" x2="40" y2="45" />
-  </svg>
+  <img
+    src={assetPath('/Images/project-rebirth/equal-housing.png')}
+    alt="Equal Housing Opportunity"
+    className="h-12 w-12 shrink-0 object-contain"
+  />
 )
 
 const legalLinks = [
-  { name: 'Privacy Policy', href: LINKS.privacyPolicy },
-  { name: 'Terms of Use', href: LINKS.termsOfUse },
-  { name: 'Legal Disclosures', href: LINKS.legalDisclosures },
-  { name: 'Regulatory & 501(c)(3)', href: LINKS.legalDisclosures },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms of Use', href: '/terms-of-use' },
+  { name: 'Legal Disclosures', href: '/legal-disclosures' },
+  { name: 'Regulatory & 501(c)(3)', href: '/legal-disclosures' },
 ]
 
 const Footer: React.FC = () => {
@@ -65,14 +59,12 @@ const Footer: React.FC = () => {
           <ul className="space-y-2 text-sm">
             {legalLinks.map((link) => (
               <li key={link.name}>
-                <a
+                <Link
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-white/80 hover:text-[var(--pr-flame)] transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -87,17 +79,15 @@ const Footer: React.FC = () => {
           <h3 className="font-display text-lg uppercase tracking-wide text-white">
             Fair Housing / Gov
           </h3>
-          <a
-            href={LINKS.fairHousing}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/fair-housing"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <EqualHousingMark />
             <span className="text-sm text-white/80">
               We do business in accordance with the Federal Fair Housing Law.
             </span>
-          </a>
+          </Link>
           <div className="pt-2 text-xs text-white/60">
             <p className="font-semibold text-white/80">Fiscal Sponsorship</p>
             <p>

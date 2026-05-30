@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading, PhotoPlaceholder } from '@/components/project-rebirth/Primitives'
+import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { assetPath } from '@/lib/assetPath'
 import { DIRECTOR } from '@/data/project-rebirth/content'
 
 export const metadata: Metadata = {
@@ -15,10 +16,10 @@ export default function DirectorPage() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[360px_1fr] md:items-start">
           <div>
             <div className="rounded-lg border-4 border-[var(--pr-maroon)] p-1.5">
-              <PhotoPlaceholder
-                label="Director portrait"
-                className="aspect-[3/4]"
-                rounded={false}
+              <img
+                src={assetPath('/Images/project-rebirth/director-portrait.jpg')}
+                alt={`${DIRECTOR.name}, ${DIRECTOR.title}`}
+                className="aspect-[3/4] w-full object-cover"
               />
             </div>
             <h2 className="pr-heading mt-5 text-2xl">{DIRECTOR.name}</h2>

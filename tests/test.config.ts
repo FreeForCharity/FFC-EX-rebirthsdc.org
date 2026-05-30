@@ -30,6 +30,10 @@ export const testConfig = {
     '/resources',
     '/community',
     '/portal',
+    '/privacy-policy',
+    '/terms-of-use',
+    '/legal-disclosures',
+    '/fair-housing',
   ],
 
   /**
