@@ -8,7 +8,7 @@ const EqualHousingMark: React.FC = () => (
   <img
     src={assetPath('/Images/project-rebirth/equal-housing.png')}
     alt="Equal Housing Opportunity"
-    className="h-12 w-12 shrink-0"
+    className="h-12 w-12 shrink-0 object-contain"
   />
 )
 

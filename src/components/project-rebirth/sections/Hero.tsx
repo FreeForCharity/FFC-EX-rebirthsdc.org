@@ -7,13 +7,22 @@ import { HOME } from '@/data/project-rebirth/content'
 const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[var(--pr-ink)]">
-      {/* Background video */}
-      <video
+      {/* Static poster background — the sole background for reduced-motion users */}
+      <img
+        src={assetPath('/Images/project-rebirth/hero-poster.jpg')}
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      {/* Background video — only plays for users who haven't requested reduced motion */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
         poster={assetPath('/Images/project-rebirth/hero-poster.jpg')}
         aria-hidden="true"
       >
