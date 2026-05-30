@@ -164,6 +164,8 @@ export default function CookieConsent() {
           analytics_consent: prefs.analytics ? 'granted' : 'denied',
           marketing_consent: prefs.marketing ? 'granted' : 'denied',
         })
+        // Notify consent-gated integrations (e.g. Google Tag Manager) of the change.
+        window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: prefs }))
       }
 
       // Load scripts based on consent independently
