@@ -54,7 +54,7 @@ Kebab-case is the industry standard for SEO-friendly URLs and is explicitly reco
 ```
 ✅ Good: https://rebirthsdc.org/privacy-policy
 ❌ Bad:  https://rebirthsdc.org/PrivacyPolicy
-❌ Bad:  https://ffcworkingsite1.org/cookiepolicy
+❌ Bad:  https://rebirthsdc.org/privacypolicy
 ```
 
 ### 3. Industry Standards
