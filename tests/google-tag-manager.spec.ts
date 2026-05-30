@@ -4,14 +4,19 @@ import { testConfig } from './test.config'
 /**
  * Google Tag Manager (GTM) Tests
  *
- * The GTM bootstrap is an inline snippet injected by Next.js <Script strategy="lazyOnload">,
- * which runs after the page load event during browser idle time. Tests therefore wait for the
- * `gtm-script` element and for `dataLayer` to be initialized rather than checking immediately.
+ * GTM is consent-gated: the container is only injected after the user grants
+ * analytics consent via the cookie banner. Tests therefore accept consent first,
+ * then wait for the `gtm-script` element + `dataLayer`.
  */
 
 const GTM_TIMEOUT = 15000
 
-// Wait until the lazyOnload GTM script has been injected and dataLayer initialized.
+// Click "Accept All" on the cookie banner to grant analytics consent.
+async function acceptConsent(page: Page) {
+  await page.getByRole('button', { name: 'Accept All' }).click({ timeout: GTM_TIMEOUT })
+}
+
+// Wait until the consent-gated GTM script has been injected and dataLayer initialized.
 async function waitForGtm(page: Page) {
   await expect(page.locator('script#gtm-script')).toHaveCount(1, { timeout: GTM_TIMEOUT })
   await expect
@@ -22,8 +27,17 @@ async function waitForGtm(page: Page) {
 }
 
 test.describe('Google Tag Manager Integration', () => {
-  test('should initialize dataLayer on page load', async ({ page }) => {
+  test('should NOT load GTM before consent', async ({ page }) => {
     await page.goto('/')
+    // Banner is shown; no consent yet -> GTM must not be injected.
+    await expect(page.locator('[role="region"][aria-label="Cookie consent notice"]')).toBeVisible()
+    await page.waitForTimeout(2000)
+    await expect(page.locator('script#gtm-script')).toHaveCount(0)
+  })
+
+  test('should initialize dataLayer after consent', async ({ page }) => {
+    await page.goto('/')
+    await acceptConsent(page)
     await waitForGtm(page)
 
     const hasDataLayer = await page.evaluate(() => {
@@ -32,8 +46,9 @@ test.describe('Google Tag Manager Integration', () => {
     expect(hasDataLayer).toBe(true)
   })
 
-  test('should load GTM script with correct ID', async ({ page }) => {
+  test('should load GTM script with correct ID after consent', async ({ page }) => {
     await page.goto('/')
+    await acceptConsent(page)
     await waitForGtm(page)
 
     const gtmScript = page.locator('script#gtm-script')
@@ -47,14 +62,15 @@ test.describe('Google Tag Manager Integration', () => {
   test('should have GTM noscript fallback in body', async ({ page }) => {
     await page.goto('/')
 
-    // The noscript iframe is server-rendered, so it is present in the HTML immediately.
+    // The noscript iframe is server-rendered, so it is present regardless of consent.
     const pageContent = await page.content()
     expect(pageContent).toContain('googletagmanager.com/ns.html')
     expect(pageContent).toContain('noscript')
   })
 
-  test('should push events to dataLayer', async ({ page }) => {
+  test('should push events to dataLayer after consent', async ({ page }) => {
     await page.goto('/')
+    await acceptConsent(page)
     await waitForGtm(page)
 
     const canPushToDataLayer = await page.evaluate(() => {
@@ -66,33 +82,17 @@ test.describe('Google Tag Manager Integration', () => {
     expect(canPushToDataLayer).toBe(true)
   })
 
-  test('should load GTM script after page interaction', async ({ page }) => {
-    await page.goto('/')
-    await waitForGtm(page)
-
-    const gtmScript = await page.evaluate(() => {
-      const script = document.querySelector('script[id="gtm-script"]')
-      return script !== null
-    })
-    expect(gtmScript).toBe(true)
-
-    const dataLayerInitialized = await page.evaluate(() => {
-      return typeof window.dataLayer !== 'undefined'
-    })
-    expect(dataLayerInitialized).toBe(true)
-  })
-
   test('should work with cookie consent system', async ({ page, context }) => {
     await context.clearCookies()
     await page.goto('/')
     await page.evaluate(() => localStorage.clear())
     await page.reload()
-    await waitForGtm(page)
 
     const banner = page.locator('[role="region"][aria-label="Cookie consent notice"]')
     await expect(banner).toBeVisible()
 
-    await page.getByRole('button', { name: 'Accept All' }).click()
+    await acceptConsent(page)
+    await waitForGtm(page)
 
     // dataLayer should receive a consent update event after accepting.
     await expect
@@ -111,8 +111,9 @@ test.describe('Google Tag Manager Integration', () => {
 })
 
 test.describe('Google Tag Manager Configuration', () => {
-  test('should load GTM script with configured ID', async ({ page }) => {
+  test('should load GTM script with configured ID after consent', async ({ page }) => {
     await page.goto('/')
+    await acceptConsent(page)
     await waitForGtm(page)
 
     const gtmScript = page.locator('script#gtm-script')
