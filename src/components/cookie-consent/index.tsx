@@ -508,9 +508,6 @@ export default function CookieConsent() {
               <Link href="/privacy-policy" className="text-[var(--pr-maroon)] hover:underline">
                 Privacy Policy
               </Link>
-              <Link href="/privacy-policy" className="text-[var(--pr-maroon)] hover:underline">
-                Cookie Policy
-              </Link>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
