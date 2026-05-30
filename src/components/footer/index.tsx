@@ -1,21 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import { assetPath } from '@/lib/assetPath'
 import { SITE } from '@/data/project-rebirth/site'
 
-/** Simple inline Equal Housing Opportunity mark. */
+/** Equal Housing Opportunity mark. */
 const EqualHousingMark: React.FC = () => (
-  <svg
-    viewBox="0 0 64 64"
-    className="h-12 w-12 text-white/80"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    aria-hidden="true"
-  >
-    <path d="M32 10 6 30h6v22h40V30h6L32 10z" strokeLinejoin="round" />
-    <line x1="24" y1="38" x2="40" y2="38" />
-    <line x1="24" y1="45" x2="40" y2="45" />
-  </svg>
+  <img
+    src={assetPath('/Images/project-rebirth/equal-housing.png')}
+    alt="Equal Housing Opportunity"
+    className="h-12 w-12 shrink-0 object-contain"
+  />
 )
 
 const legalLinks = [

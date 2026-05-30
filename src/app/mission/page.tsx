@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading, PhotoPlaceholder } from '@/components/project-rebirth/Primitives'
+import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { assetPath } from '@/lib/assetPath'
 import { MISSION } from '@/data/project-rebirth/content'
 
 export const metadata: Metadata = {
@@ -20,7 +21,11 @@ export default function MissionPage() {
             <p className="font-display text-xl font-bold text-[var(--pr-maroon)]">{MISSION.lead}</p>
             <p className="mt-5 leading-relaxed text-[var(--pr-body)]">{MISSION.body}</p>
           </div>
-          <PhotoPlaceholder label="3D-printed structure" className="aspect-[4/3]" />
+          <img
+            src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
+            alt="A 3D-printing gantry extruding a continuous concrete wall structure"
+            className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+          />
         </div>
       </Section>
 
