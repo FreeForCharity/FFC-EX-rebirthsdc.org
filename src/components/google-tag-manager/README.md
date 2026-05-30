@@ -1,6 +1,6 @@
 # Google Tag Manager (GTM) Component
 
-This component implements Google Tag Manager integration for the Free For Charity website.
+This component implements Google Tag Manager integration for the Project Rebirth website.
 
 ## Overview
 
@@ -116,7 +116,7 @@ Test coverage includes:
 The site automatically deploys to GitHub Pages via `.github/workflows/nextjs.yml`. The GTM implementation works on both:
 
 1. **Custom domain**: https://rebirthsdc.org
-2. **GitHub Pages**: https://freeforcharity.github.io/FFC_Single_Page_Template/
+2. **GitHub Pages**: https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/
 
 The GTM ID is hardcoded in the component, so no additional configuration is needed for deployment.
 

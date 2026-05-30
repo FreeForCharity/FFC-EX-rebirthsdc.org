@@ -207,7 +207,7 @@ Error: Cannot find module '@/components/Header'
 
    ```bash
    # For GitHub Pages
-   NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template npm run build
+   NEXT_PUBLIC_BASE_PATH=/FFC-EX-rebirthsdc.org npm run build
 
    # For custom domain
    npm run build
@@ -416,7 +416,7 @@ npm run test:e2e
    output: 'export'
 
    // Build should use:
-   NEXT_PUBLIC_BASE_PATH=/FFC_Single_Page_Template
+   NEXT_PUBLIC_BASE_PATH=/FFC-EX-rebirthsdc.org
    ```
 
 3. **Check CNAME file** (if using custom domain):
@@ -674,7 +674,7 @@ See [LIGHTHOUSE.md](./LIGHTHOUSE.md) for detailed guidance. Quick tips:
 
 ### Where do I report bugs?
 
-1. **Check existing issues** first: [GitHub Issues](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues)
+1. **Check existing issues** first: [GitHub Issues](https://github.com/FreeForCharity/FFC-EX-rebirthsdc.org/issues)
 2. **Open a new issue** with:
    - Clear description
    - Steps to reproduce
@@ -700,7 +700,7 @@ If your issue isn't covered here:
 ---
 
 **Last Updated**: 2025-12-03  
-**Repository**: FreeForCharity/FFC_Single_Page_Template  
+**Repository**: FreeForCharity/FFC-EX-rebirthsdc.org  
 **Node.js**: 20.x (validated with v20.19.6)
 
 _This document is continuously updated. If you solve an issue not listed here, please contribute by adding it!_

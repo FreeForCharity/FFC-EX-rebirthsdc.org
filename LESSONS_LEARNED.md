@@ -1,8 +1,8 @@
-# Lessons Learned - FFC Single Page Template
+# Lessons Learned - Project Rebirth
 
 ## Overview
 
-This document captures key lessons learned during the development and evolution of the FFC Single Page Template project. It serves as institutional knowledge for current and future contributors.
+This document captures key lessons learned during the development and evolution of the Project Rebirth website (which began as the Free For Charity single-page template). It serves as institutional knowledge for current and future contributors.
 
 **Last Updated**: 2025-12-03
 
@@ -381,7 +381,7 @@ docs: update README with new deployment instructions
 
 **Challenge**: Images and assets don't load on GitHub Pages deployment
 
-**Root Cause**: GitHub Pages serves the site at `/FFC_Single_Page_Template/` instead of `/`
+**Root Cause**: GitHub Pages serves the site at `/FFC-EX-rebirthsdc.org/` instead of `/`
 
 **Solution**:
 

@@ -19,7 +19,7 @@ If you're using this template, we'd love to hear from you! Add your organization
 1. Fork this repository
 2. Add your entry to the list below
 3. Submit a pull request
-4. Alternatively, [open an issue](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues/new) with your information
+4. Alternatively, [open an issue](https://github.com/FreeForCharity/FFC-EX-rebirthsdc.org/issues/new) with your information
 
 ## Template
 
@@ -72,7 +72,7 @@ Listing your organization here is entirely voluntary. You may:
 
 If you have questions about adopter listings:
 
-- Open a [GitHub Discussion](https://github.com/FreeForCharity/FFC_Single_Page_Template/discussions)
+- Open a [GitHub Discussion](https://github.com/FreeForCharity/FFC-EX-rebirthsdc.org/discussions)
 - Email: clarkemoyer@freeforcharity.org
 
 ## Success Stories
