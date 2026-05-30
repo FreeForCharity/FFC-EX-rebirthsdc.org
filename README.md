@@ -104,7 +104,8 @@ npm run preview    # serve ./out at http://localhost:3000
 npm run format         # Prettier (write)
 npm run lint           # ESLint
 npm test               # Jest unit tests
-npm run test:e2e       # Playwright e2e (builds + serves ./out; needs `npx playwright install chromium` once)
+npm run build          # required before e2e (Playwright serves the existing ./out)
+npm run test:e2e       # Playwright e2e (serves ./out via preview; `npx playwright install chromium` once)
 npm run check-links    # Linkinator over ./out
 ```
 
@@ -123,7 +124,7 @@ issues.
 
 Intentional third‑party integrations only:
 
-- **Google Tag Manager** — analytics (`GTM-…`), loaded on consent
+- **Google Tag Manager** — analytics container (`GTM-…`), injected via Next `<Script strategy="lazyOnload">` in `layout.tsx`
 - **Zeffy** — donation form ("Partner With Us" buttons)
 - **Google Forms** — "Sign Up for Updates" on `/portal`
 
