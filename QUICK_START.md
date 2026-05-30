@@ -1,10 +1,6 @@
 # Quick Start Guide
 
-Get up and running with the FFC Single Page Template in 5 minutes.
-
-> **Using this as a template?** See [TEMPLATE_USAGE.md](./TEMPLATE_USAGE.md) for complete setup instructions including GitHub settings configuration.
-
-> **Quick checklist?** See [TEMPLATE_SETUP_CHECKLIST.md](./TEMPLATE_SETUP_CHECKLIST.md) for a printable checklist of required steps.
+Get the Project Rebirth website running locally in 5 minutes.
 
 ## Prerequisites
 

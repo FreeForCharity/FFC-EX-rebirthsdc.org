@@ -778,7 +778,6 @@ For sensitive matters, contact the maintainers directly:
 - [README.md](./README.md) - Project overview and setup
 - [TESTING.md](./TESTING.md) - Testing documentation
 - [SECURITY.md](./SECURITY.md) - Security policies and procedures
-- [SITE_IMPROVEMENTS.md](./SITE_IMPROVEMENTS.md) - Planned improvements and roadmap
 - [Microsoft Learn: Contribute to an open-source project on GitHub](https://learn.microsoft.com/en-us/training/modules/contribute-open-source/) - Training module for contributing to open source
 
 ---

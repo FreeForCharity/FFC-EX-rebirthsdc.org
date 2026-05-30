@@ -141,7 +141,7 @@ These are third-party services loaded by our direct integrations. We do not dire
 - **Privacy Policy:** https://legal.hubspot.com/privacy-policy
 - **Note:** This is a Microsoft-controlled service, not directly integrated by Free For Charity
 
-**Discovery:** Identified through page speed analysis. See [HUBSPOT_INVESTIGATION.md](./HUBSPOT_INVESTIGATION.md) for full investigation report.
+**Discovery:** Identified through page speed analysis.
 
 ### Other Potential Transitive Dependencies
 
@@ -299,9 +299,8 @@ For questions about our external dependencies or privacy practices:
 ## Related Documentation
 
 - [Privacy Policy](/privacy-policy) - How we handle user data
-- [Cookie Policy](/cookie-policy) - Detailed cookie information
+- [Privacy Policy](/privacy-policy) - Detailed cookie and data information
 - [Security Policy](./SECURITY.md) - Security practices and reporting
-- [HubSpot Investigation](./HUBSPOT_INVESTIGATION.md) - Detailed analysis of HubSpot usage
 
 ## Updates to This Document
 
