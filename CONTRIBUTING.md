@@ -170,7 +170,7 @@ This approach helps you:
 
 Start by exploring the live Free For Charity website:
 
-- **Production Site:** [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+- **Production Site:** [https://rebirthsdc.org](https://rebirthsdc.org)
 - **GitHub Pages:** [https://freeforcharity.github.io/FFC_Single_Page_Template/](https://freeforcharity.github.io/FFC_Single_Page_Template/)
 
 #### Step 2: Comprehensive Evaluation
@@ -333,7 +333,7 @@ Starting your contribution journey with a fresh review:
 
 ### Ready to Review?
 
-1. Visit [https://ffcworkingsite1.org](https://ffcworkingsite1.org)
+1. Visit [https://rebirthsdc.org](https://rebirthsdc.org)
 2. Explore thoroughly and take notes
 3. [Create your review issue](https://github.com/FreeForCharity/FFC_Single_Page_Template/issues/new?assignees=&labels=documentation%2Creview%2Conboarding&template=reviewer-onboarding.md)
 4. Report individual issues you discover
@@ -778,7 +778,6 @@ For sensitive matters, contact the maintainers directly:
 - [README.md](./README.md) - Project overview and setup
 - [TESTING.md](./TESTING.md) - Testing documentation
 - [SECURITY.md](./SECURITY.md) - Security policies and procedures
-- [SITE_IMPROVEMENTS.md](./SITE_IMPROVEMENTS.md) - Planned improvements and roadmap
 - [Microsoft Learn: Contribute to an open-source project on GitHub](https://learn.microsoft.com/en-us/training/modules/contribute-open-source/) - Training module for contributing to open source
 
 ---

@@ -1,8 +1,8 @@
-# Claude Code Instructions: FFC_Single_Page_Template
+# Claude Code Instructions: Project Rebirth (rebirthSDC.org)
 
-Welcome, Claude! This document provides specific instructions for working on FFC_Single_Page_Template.
+Welcome, Claude! This document provides specific instructions for working on the Project Rebirth website.
 
-**Project:** FFC_Single_Page_Template -- a Free For Charity nonprofit website
+**Project:** Project Rebirth — Sustainable Community Development Project (live at https://rebirthsdc.org). A Free For Charity–built 501(c)(3) site; began as the FFC single-page template and was rebranded.
 
 See **AGENTS.md** for the full project reference including architecture, commands, conventions, and security rules. This file covers what is different or specific to your capabilities as Claude Code.
 
