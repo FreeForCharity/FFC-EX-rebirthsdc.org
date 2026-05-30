@@ -110,7 +110,7 @@ Most text content lives in `src/data/` as `.ts` modules or `.json` files in subd
 
 ## Asset Path Helper
 
-The site deploys to `https://freeforcharity.github.io/FFC_Single_Page_Template/` (and your custom domain if configured). The `assetPath()` function from `src/lib/assetPath.ts` handles this automatically.
+The site deploys to the custom domain `https://rebirthsdc.org` (set via `public/CNAME`; the `https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/` project URL redirects to it). `NEXT_PUBLIC_BASE_PATH` is empty in production, but the `assetPath()` function from `src/lib/assetPath.ts` keeps asset references portable — always use it.
 
 ```tsx
 // Always use assetPath() for images and static assets
