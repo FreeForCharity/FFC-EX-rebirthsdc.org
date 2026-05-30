@@ -1,10 +1,10 @@
-# Gemini Instructions: FFC_Single_Page_Template
+# Gemini Instructions: Project Rebirth (rebirthSDC.org)
 
-Hey Gemini! Welcome to FFC_Single_Page_Template.
+Hey Gemini! Welcome to the Project Rebirth website.
 
-**Project:** FFC_Single_Page_Template -- a Free For Charity nonprofit website
+**Project:** Project Rebirth — Sustainable Community Development Project (live at https://rebirthsdc.org).
 
-Free For Charity provides free, professionally built websites for 501(c)(3) nonprofit organizations. This repo is one of ~25 charity sites in the FFC family.
+Built and maintained by Free For Charity, which provides free, professionally built websites for 501(c)(3) nonprofit organizations. This repo began as the FFC single-page template and has been rebranded into the Project Rebirth site.
 
 See **AGENTS.md** for the complete project reference. This file gives you the practical shortcuts you need to be productive fast.
 
@@ -110,7 +110,7 @@ Most text content lives in `src/data/` as `.ts` modules or `.json` files in subd
 
 ## Asset Path Helper
 
-The site deploys to `https://freeforcharity.github.io/FFC_Single_Page_Template/` (and your custom domain if configured). The `assetPath()` function from `src/lib/assetPath.ts` handles this automatically.
+The site deploys to the custom domain `https://rebirthsdc.org` (set via `public/CNAME`; the `https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/` project URL redirects to it). `NEXT_PUBLIC_BASE_PATH` is empty in production, but the `assetPath()` function from `src/lib/assetPath.ts` keeps asset references portable — always use it.
 
 ```tsx
 // Always use assetPath() for images and static assets

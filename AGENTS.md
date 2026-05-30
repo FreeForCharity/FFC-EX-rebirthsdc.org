@@ -1,8 +1,10 @@
-# AI Agent Instructions: FFC_Single_Page_Template
+# AI Agent Instructions: Project Rebirth (rebirthSDC.org)
 
-**Project:** FFC_Single_Page_Template -- a Free For Charity nonprofit website
+**Project:** Project Rebirth — Sustainable Community Development Project. A 501(c)(3) initiative eradicating housing insecurity through scalable, 3D-printed infrastructure and high-impact vocational training. Fiscally sponsored by The Way of Yeshua Ministries.
 
-**Organization:** [Free For Charity](https://freeforcharity.org) provides free, professionally built websites for 501(c)(3) nonprofit organizations. Every repo in this organization serves that mission.
+**Live site:** https://rebirthsdc.org
+
+**Organization:** Built and maintained by [Free For Charity](https://freeforcharity.org), which provides free, professionally built websites for 501(c)(3) nonprofit organizations. This repo began as the FFC single-page template and has been rebranded into the Project Rebirth site.
 
 ---
 
@@ -58,18 +60,33 @@ All changes follow this process:
 
 ```
 src/
-  app/                  # Next.js App Router -- pages and layouts
-    page.tsx            # Home page
-    layout.tsx          # Root layout
-    [route]/page.tsx     # Additional routes (e.g., privacy-policy/)
-  components/           # Reusable UI components
-  data/                 # Content modules (.ts) and JSON data files
-  lib/                  # Utility functions and helpers
-    assetPath.ts        # GitHub Pages asset path helper
-public/                 # Static assets (Images/, Svgs/, fonts, favicons)
-next.config.ts          # Next.js configuration
-tsconfig.json           # TypeScript configuration
+  app/                       # Next.js App Router -- one route per section (kebab-case)
+    page.tsx                 # Home (renders app/home-page)
+    layout.tsx               # Root layout (Header, Footer, GTM, cookie consent, fonts, metadata)
+    home-page/               # Home composition (Hero + FeatureCards)
+    globals.css              # Theme tokens + utilities (maroon/ink/phoenix palette)
+    mission/  director/  technology/  partnerships/        # section routes
+    resources/  community/  portal/                        # section routes
+    privacy-policy/  terms-of-use/  legal-disclosures/  fair-housing/   # legal routes
+    sitemap.ts  robots.ts    # SEO
+  components/
+    header/  footer/  cookie-consent/  google-tag-manager/ # global chrome
+    project-rebirth/         # Logo, PartnerButton, Primitives, PolicyDoc, sections/
+  data/project-rebirth/      # site.ts (org/nav/links), content.ts (copy), legal.ts
+  lib/
+    assetPath.ts             # GitHub Pages asset path helper
+    fonts.ts                 # next/font config (Cinzel, Montserrat, Open Sans)
+public/                      # Static assets: Images/project-rebirth/, videos/, favicons, CNAME
+next.config.ts               # Next.js configuration (output: 'export')
 ```
+
+**Routes (12):** `/`, `/mission`, `/director`, `/technology`, `/partnerships`,
+`/resources`, `/community`, `/portal`, plus legal: `/privacy-policy`,
+`/terms-of-use`, `/legal-disclosures`, `/fair-housing`. When adding/removing a
+route, update `src/app/sitemap.ts` and the `routes` list in `tests/test.config.ts`.
+
+**Content lives in data files** (`src/data/project-rebirth/*`) so copy can be
+edited without touching JSX.
 
 ---
 
@@ -89,7 +106,7 @@ Component files use PascalCase: `HeroSection.tsx`, `DonateButton.tsx`.
 
 ## GitHub Pages & Asset Paths
 
-These sites deploy to `https://freeforcharity.github.io/FFC_Single_Page_Template/` and optionally to a custom domain if one is configured for this repo.
+This site deploys to the custom domain `https://rebirthsdc.org` (set via `public/CNAME`); the project Pages URL `https://freeforcharity.github.io/FFC-EX-rebirthsdc.org/` redirects to it. Because the custom domain serves at the root, `NEXT_PUBLIC_BASE_PATH` is empty in production — but always use `assetPath()` anyway so assets remain portable.
 
 **Always use the `assetPath()` helper** from `src/lib/assetPath.ts` for image and asset references:
 

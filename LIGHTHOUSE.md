@@ -142,9 +142,10 @@ The Lighthouse CI configuration is in `lighthouserc.json`:
       "staticDistDir": "./out",
       "url": [
         "http://localhost/index.html",
-        "http://localhost/cookie-policy.html",
+        "http://localhost/mission.html",
         "http://localhost/privacy-policy.html",
-        "http://localhost/terms-of-service.html"
+        "http://localhost/terms-of-use.html",
+        "http://localhost/legal-disclosures.html"
       ],
       "numberOfRuns": 3
     }

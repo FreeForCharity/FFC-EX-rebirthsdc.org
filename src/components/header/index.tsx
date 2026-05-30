@@ -1,43 +1,19 @@
 'use client'
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { FiMenu } from 'react-icons/fi'
-import { LiaSearchSolid } from 'react-icons/lia'
+import { usePathname } from 'next/navigation'
+import { FiMenu, FiChevronDown } from 'react-icons/fi'
 import { RxCross2 } from 'react-icons/rx'
 import { motion, AnimatePresence } from 'framer-motion'
-
-interface MenuItem {
-  label: string
-  path: string
-}
-
-const SCROLL_OFFSET = 100
+import Logo from '@/components/project-rebirth/Logo'
+import { NAV, type NavItem } from '@/data/project-rebirth/site'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>('')
-
-  const menuItems: MenuItem[] = useMemo(
-    () => [
-      { label: 'Home', path: '/#hero' },
-      { label: 'Mission', path: '/#mission' },
-      { label: 'Programs', path: '/#programs' },
-      { label: 'Volunteer', path: '/#volunteer' },
-      { label: 'Donate', path: '/#donate' },
-      { label: 'FAQ', path: '/#faq' },
-      { label: 'Team', path: '/#team' },
-    ],
-    []
-  )
-
-  const sections = useMemo(
-    () =>
-      menuItems.map((item) => item.path.replace('/#', '')).filter((section) => section !== 'hero'),
-    [menuItems]
-  )
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -45,138 +21,84 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Track active section based on scroll position
+  // Close menus on route change
   useEffect(() => {
-    const handleScrollSpy = () => {
-      const scrollPosition = window.scrollY + SCROLL_OFFSET
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId)
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetBottom = offsetTop + element.offsetHeight
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(sectionId)
-            return
-          }
-        }
-      }
-      // If at the top, set home as active
-      if (window.scrollY < SCROLL_OFFSET) {
-        setActiveSection('')
-      }
-    }
-
-    window.addEventListener('scroll', handleScrollSpy)
-    return () => window.removeEventListener('scroll', handleScrollSpy)
-  }, [sections])
-
-  const handleSearchToggle = () => setIsSearchOpen(!isSearchOpen)
-  const handleLinkClick = () => {
     setIsMobileMenuOpen(false)
-  }
+    setOpenDropdown(null)
+  }, [pathname])
 
-  const isActive = (path: string) => {
-    const sectionId = path.replace('/#', '')
-    if (sectionId === 'hero') return activeSection === ''
-    return activeSection === sectionId
-  }
+  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href))
+
+  const linkClass = (href: string) =>
+    `flex items-center gap-1 px-3 py-2 text-[13px] font-nav font-semibold uppercase tracking-wide transition-colors duration-200 ${
+      isActive(href) ? 'text-[var(--pr-maroon)]' : 'text-[#2a2f3a] hover:text-[var(--pr-maroon)]'
+    }`
 
   return (
     <header
       id="header"
-      className={`w-full bg-white shadow-sm fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-300 ${
-        isScrolled ? 'h-[55px]' : 'h-[80px]'
+      className={`w-full bg-white shadow-sm fixed top-0 left-0 right-0 z-50 flex items-center border-b-2 border-[var(--pr-maroon)] transition-all duration-300 ${
+        isScrolled ? 'h-[64px]' : 'h-[84px]'
       }`}
     >
-      <div className="w-full">
-        <div className="mx-auto max-w-[1080px]">
-          <div className="flex items-center px-2 transition-all duration-300">
-            {/* Logo */}
-            <div
-              className={`transition-all duration-300 ${isScrolled ? 'w-[110px]' : 'w-[150px]'}`}
-            >
-              <Link href="/" onClick={handleLinkClick} className="block">
-                <img
-                  src="https://freeforcharity.org/wp-content/uploads/2024/04/Screenshot_145.png"
-                  alt="Free For Charity"
-                  className={`transition-all duration-300 ${isScrolled ? 'h-7' : 'h-11'}`}
-                />
-              </Link>
-            </div>
+      <div className="pr-container w-full flex items-center justify-between">
+        <Logo compact={isScrolled} />
 
-            {/* Menu or Search */}
-            {!isSearchOpen ? (
-              <div className="flex items-center justify-end sm:pl-[50px] md:pl-[70px] w-full">
-                {/* Desktop Menu */}
-                <nav className="hidden lg:block transition-all duration-300">
-                  <ul className="flex items-center space-x-[1px] font-navbar font-[600]">
-                    {menuItems.map((item, index) => (
-                      <li key={index} className="relative py-6">
-                        <Link
-                          href={item.path}
-                          onClick={handleLinkClick}
-                          className={`flex items-center px-3 py-2 text-[14px] transition-colors duration-200 ${
-                            isActive(item.path)
-                              ? 'text-blue-600'
-                              : 'text-gray-600 hover:text-gray-500'
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+        {/* Desktop nav */}
+        <nav className="hidden lg:block">
+          <ul className="flex items-center">
+            {NAV.map((item: NavItem) => (
+              <li
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                onMouseLeave={() => item.children && setOpenDropdown(null)}
+              >
+                <Link href={item.href} className={linkClass(item.href)}>
+                  {item.label}
+                  {item.children && <FiChevronDown className="h-3.5 w-3.5" />}
+                </Link>
 
-                {/* Search Icon */}
-                <div className="hidden lg:flex items-center">
-                  <button
-                    onClick={handleSearchToggle}
-                    className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
-                    aria-label="Search"
-                  >
-                    <LiaSearchSolid className="h-5 w-5 cursor-pointer" />
-                  </button>
-                </div>
+                {item.children && (
+                  <AnimatePresence>
+                    {openDropdown === item.label && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute left-0 top-full w-72 bg-white shadow-xl border-t-2 border-[var(--pr-maroon)] py-2"
+                      >
+                        {item.children.map((child) => (
+                          <li key={child.label}>
+                            <Link
+                              href={child.href}
+                              className="block px-4 py-2 text-[13px] text-[#2a2f3a] hover:bg-[var(--pr-blueprint)] hover:text-[var(--pr-maroon)] transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-                {/* Mobile Menu Button */}
-                <button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-2 text-gray-600 hover:text-blue-600"
-                  aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                >
-                  {isMobileMenuOpen ? (
-                    <RxCross2 className="h-6 w-6" />
-                  ) : (
-                    <FiMenu className="h-6 w-6" />
-                  )}
-                </button>
-              </div>
-            ) : (
-              // Search Input
-              <div className="w-full max-w-[750px] ml-auto flex items-center justify-between transition-all duration-300">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-full px-4 py-2 focus:outline-none"
-                  autoFocus
-                  aria-label="Search input"
-                />
-                <button
-                  onClick={handleSearchToggle}
-                  className="ml-2 p-2 text-gray-600"
-                  aria-label="Close search"
-                >
-                  <RxCross2 className="cursor-pointer h-5 w-5" />
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden p-2 text-[var(--pr-maroon)]"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isMobileMenuOpen ? <RxCross2 className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -185,26 +107,37 @@ const Header: React.FC = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className={`lg:hidden absolute left-0 w-full overflow-hidden z-40 ${
-              isScrolled ? 'top-[53px]' : 'top-[77px]'
+              isScrolled ? 'top-[62px]' : 'top-[82px]'
             }`}
           >
-            <div
-              className={`max-w-[700px] mx-auto px-6 py-4 bg-white border-t-[3px] border-[#2EA3F2] shadow-[0_2px_5px_rgba(0,0,0,0.1)] max-h-[80vh] overflow-auto`}
-            >
-              <ul className="space-y-2">
-                {menuItems.map((item, index) => (
-                  <li key={index}>
+            <div className="mx-auto px-6 py-4 bg-white border-t-2 border-[var(--pr-maroon)] shadow-lg max-h-[80vh] overflow-auto">
+              <ul className="space-y-1">
+                {NAV.map((item) => (
+                  <li key={item.label}>
                     <Link
-                      href={item.path}
-                      onClick={handleLinkClick}
-                      className={`block px-4 py-2 rounded-lg text-sm font-[600] ${
-                        isActive(item.path)
-                          ? 'bg-blue-50 text-blue-600'
-                          : 'text-gray-700 hover:bg-gray-100'
+                      href={item.href}
+                      className={`block px-4 py-2 rounded text-sm font-nav font-semibold uppercase tracking-wide ${
+                        isActive(item.href)
+                          ? 'bg-[var(--pr-blueprint)] text-[var(--pr-maroon)]'
+                          : 'text-[#2a2f3a] hover:bg-gray-100'
                       }`}
                     >
                       {item.label}
                     </Link>
+                    {item.children && (
+                      <ul className="ml-4 mt-1 space-y-1 border-l border-[var(--pr-maroon)]/30 pl-3">
+                        {item.children.map((child) => (
+                          <li key={child.label}>
+                            <Link
+                              href={child.href}
+                              className="block px-2 py-1.5 text-[13px] text-[#4a4f5a] hover:text-[var(--pr-maroon)]"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>

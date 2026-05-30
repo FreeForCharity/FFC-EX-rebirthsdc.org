@@ -16,7 +16,7 @@ This document provides a comprehensive list of all external dependencies and thi
 
 Free For Charity's website uses various third-party services to provide functionality, analytics, and enhanced user experience. All services are carefully selected to align with our mission while respecting user privacy.
 
-**Privacy Notice:** Users can control analytics and marketing cookies through our cookie consent banner. See our [Privacy Policy](/privacy-policy) and [Cookie Policy](/cookie-policy) for details.
+**Privacy Notice:** Users can control analytics and marketing cookies through our cookie consent banner. See our [Privacy Policy](/privacy-policy) for details.
 
 ## Direct Integrations
 
@@ -141,7 +141,7 @@ These are third-party services loaded by our direct integrations. We do not dire
 - **Privacy Policy:** https://legal.hubspot.com/privacy-policy
 - **Note:** This is a Microsoft-controlled service, not directly integrated by Free For Charity
 
-**Discovery:** Identified through page speed analysis. See [HUBSPOT_INVESTIGATION.md](./HUBSPOT_INVESTIGATION.md) for full investigation report.
+**Discovery:** Identified through page speed analysis.
 
 ### Other Potential Transitive Dependencies
 
@@ -298,10 +298,8 @@ For questions about our external dependencies or privacy practices:
 
 ## Related Documentation
 
-- [Privacy Policy](/privacy-policy) - How we handle user data
-- [Cookie Policy](/cookie-policy) - Detailed cookie information
+- [Privacy Policy](/privacy-policy) - How we handle user data and cookies
 - [Security Policy](./SECURITY.md) - Security practices and reporting
-- [HubSpot Investigation](./HUBSPOT_INVESTIGATION.md) - Detailed analysis of HubSpot usage
 
 ## Updates to This Document
 
