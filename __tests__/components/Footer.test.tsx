@@ -13,46 +13,38 @@ describe('Footer component', () => {
     expect(footer).toBeInTheDocument()
   })
 
-  it('should display Endorsements section', () => {
+  it('should display the Contact & Location section', () => {
     render(<Footer />)
-    expect(screen.getByText('Endorsements')).toBeInTheDocument()
+    expect(screen.getByText('Contact & Location')).toBeInTheDocument()
   })
 
-  it('should display Quick Links section', () => {
+  it('should display the Legal section', () => {
     render(<Footer />)
-    expect(screen.getByText('Quick Links')).toBeInTheDocument()
+    expect(screen.getByText('Legal')).toBeInTheDocument()
   })
 
-  it('should display Contact Us section with contact information', () => {
+  it('should display the Fair Housing section', () => {
     render(<Footer />)
-    expect(screen.getByText('Contact Us')).toBeInTheDocument()
+    expect(screen.getAllByText(/Fair Housing/i).length).toBeGreaterThan(0)
   })
 
-  it('should have social media links', () => {
+  it('should display the Project Rebirth copyright', () => {
     render(<Footer />)
-    // Check for social media links by their aria-labels or visible text
-    const links = screen.getAllByRole('link')
-    expect(links.length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Project Rebirth/i).length).toBeGreaterThan(0)
   })
 
-  it('should display the current year in copyright', () => {
+  it('should have an email contact link', () => {
     render(<Footer />)
-    const currentYear = new Date().getFullYear()
-    expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument()
-  })
-
-  it('should have GuideStar profile link', () => {
-    render(<Footer />)
-    const guidestarLink = screen.getByText(/GuideStar Profile/i)
-    expect(guidestarLink).toBeInTheDocument()
-  })
-
-  it('should have email contact link', () => {
-    render(<Footer />)
-    // Look for email link
     const links = screen.getAllByRole('link')
     const emailLink = links.find((link) => link.getAttribute('href')?.includes('mailto:'))
     expect(emailLink).toBeDefined()
+  })
+
+  it('should have a phone contact link', () => {
+    render(<Footer />)
+    const links = screen.getAllByRole('link')
+    const phoneLink = links.find((link) => link.getAttribute('href')?.includes('tel:'))
+    expect(phoneLink).toBeDefined()
   })
 
   it('should not have accessibility violations', async () => {

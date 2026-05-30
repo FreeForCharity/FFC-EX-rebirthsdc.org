@@ -2,7 +2,7 @@
 
 **Document Purpose:** This document tracks backend and React application technical debt - code quality issues, security vulnerabilities, component fixes, and internal application improvements that are hidden from users but important for maintainability.
 
-**Scope:** This document covers technical items that affect the **internal workings** of the React application, not user-facing features. For UI/UX enhancements and user-visible improvements, see [SITE_IMPROVEMENTS.md](./SITE_IMPROVEMENTS.md).
+**Scope:** This document covers technical items that affect the **internal workings** of the React application, not user-facing features. For UI/UX enhancements and user-visible improvements, see the repository's GitHub issues.
 
 **Last Updated:** December 2025  
 **Status:** Active Tracking  
@@ -413,7 +413,6 @@ These architectural patterns are not needed for this static site:
 - [README.md](./README.md) - Main project documentation
 - [SECURITY.md](./SECURITY.md) - Security policies and vulnerability reporting
 - [DEPENDABOT.md](./DEPENDABOT.md) - Dependency management guide
-- [SITE_IMPROVEMENTS.md](./SITE_IMPROVEMENTS.md) - Capability gap analysis
 - [TESTING.md](./TESTING.md) - Testing strategy and guides
 - [CODE_QUALITY.md](./CODE_QUALITY.md) - Code quality standards
 

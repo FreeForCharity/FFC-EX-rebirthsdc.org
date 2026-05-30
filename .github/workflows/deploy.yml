@@ -62,11 +62,9 @@ jobs:
         run: npm ci
 
       - name: Build with Next.js
+        # No NEXT_PUBLIC_BASE_PATH: the site is served at the root of the
+        # rebirthsdc.org custom domain (see public/CNAME), so assets live at /.
         run: npm run build
-        env:
-          # Set basePath for GitHub Pages deployment
-          # This ensures images and assets work correctly at the subpath
-          NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v4
@@ -84,7 +82,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Post-deploy smoke check
         env:
