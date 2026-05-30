@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading, PhotoPlaceholder } from '@/components/project-rebirth/Primitives'
+import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { assetPath } from '@/lib/assetPath'
 import { TECHNOLOGY } from '@/data/project-rebirth/content'
 
 export const metadata: Metadata = {
@@ -54,7 +55,11 @@ export default function TechnologyPage() {
 
       <Section tone="ink">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
-          <PhotoPlaceholder label="Additive printing nozzle" className="aspect-[4/3]" />
+          <img
+            src={assetPath('/Images/project-rebirth/forge-mix-nozzle.jpg')}
+            alt="A 3D concrete printer nozzle extruding the Forge Mix composite"
+            className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+          />
           <div>
             <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[var(--pr-flame)]">
               {TECHNOLOGY.forgeHeading}
