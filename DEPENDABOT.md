@@ -1,6 +1,6 @@
 # Dependabot Configuration Guide
 
-This document provides comprehensive information about GitHub Dependabot configuration and usage for the FFC Single Page Template project.
+This document provides comprehensive information about GitHub Dependabot configuration and usage for the Project Rebirth website.
 
 ## Overview
 
@@ -539,6 +539,6 @@ For issues or questions about Dependabot:
 
 **Configuration Version**: 1.0  
 **Last Updated**: 2025-12-03  
-**Repository**: FreeForCharity/FFC_Single_Page_Template  
+**Repository**: FreeForCharity/FFC-EX-rebirthsdc.org  
 **Node.js**: 20.x (validated with v20.19.6)  
 **Maintained By**: FreeForCharity Team
