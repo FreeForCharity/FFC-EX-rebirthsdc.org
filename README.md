@@ -143,6 +143,7 @@ See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for details.
 
 ## Documentation
 
+- **[PROJECT_BOARD.md](./PROJECT_BOARD.md)** — kanban project board: status of all issues/PRs, epics, and roadmap
 - **[QUICK_START.md](./QUICK_START.md)** — fast setup
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** — how to contribute
 - **[TESTING.md](./TESTING.md)** — unit + e2e + accessibility testing
