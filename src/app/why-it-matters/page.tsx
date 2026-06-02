@@ -103,7 +103,7 @@ function ImageSection({
 export default function WhyItMattersPage() {
   return (
     <>
-      <Section tone="dark">
+      <Section tone="ink">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
             The Human Cost
