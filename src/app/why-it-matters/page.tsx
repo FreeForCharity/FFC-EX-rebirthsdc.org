@@ -112,7 +112,7 @@ export default function WhyItMattersPage() {
             {WHY_IT_MATTERS.heading}
           </SectionHeading>
           <p className="text-base leading-relaxed text-white/80 max-w-2xl mx-auto italic">
-            "{WHY_IT_MATTERS.subheading}"
+            &ldquo;{WHY_IT_MATTERS.subheading}&rdquo;
           </p>
         </div>
       </Section>
