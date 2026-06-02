@@ -31,10 +31,7 @@ export default function CommunityPage() {
       <Section tone="blueprint">
         <div className="mx-auto max-w-3xl space-y-8">
           {COMMUNITY.items.map((item) => (
-            <div
-              key={item.title}
-              className="pr-card rounded-xl p-8"
-            >
+            <div key={item.title} className="pr-card rounded-xl p-8">
               <h2 className="font-display text-lg font-bold uppercase tracking-widest text-[var(--pr-maroon)] mb-4">
                 {item.title}
               </h2>
@@ -65,7 +62,8 @@ export default function CommunityPage() {
               Register With Project Rebirth
             </h2>
             <p className="text-sm leading-relaxed text-[var(--pr-body)] max-w-xl mx-auto">
-              Fill out the form below to connect with our team. Tell us which program interests you and we will reach out to walk you through the next steps.
+              Fill out the form below to connect with our team. Tell us which program interests you
+              and we will reach out to walk you through the next steps.
             </p>
           </div>
           <div

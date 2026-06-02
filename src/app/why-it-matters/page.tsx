@@ -8,16 +8,41 @@ import { LINKS } from '@/data/project-rebirth/site'
 
 export const metadata: Metadata = {
   title: 'Why It Matters',
-  description: 'Homelessness is not just a personal crisis — it is a communal wound that affects mental health, families, communities, and the economy.',
+  description:
+    'Homelessness is not just a personal crisis — it is a communal wound that affects mental health, families, communities, and the economy.',
 }
 
 const statCards = [
-  { value: '67%', label: 'of unhoused people have a diagnosable mental health disorder', source: 'JAMA, 2024' },
-  { value: '$35,578', label: 'avg annual taxpayer cost per chronically homeless person', source: 'National Alliance to End Homelessness' },
-  { value: '$12,800', label: 'annual cost of permanent supportive housing', source: 'Nearly 3× less than doing nothing' },
-  { value: '3×', label: 'more expensive to criminalize homelessness than house people', source: 'Harvard Law Review, 2023' },
-  { value: '61%', label: 'decrease in ER visits after permanent housing is provided', source: 'Texas Taxpayer Study' },
-  { value: '$30–40B', label: 'total annual US cost of homelessness', source: 'Emergency services, healthcare, incarceration' },
+  {
+    value: '67%',
+    label: 'of unhoused people have a diagnosable mental health disorder',
+    source: 'JAMA, 2024',
+  },
+  {
+    value: '$35,578',
+    label: 'avg annual taxpayer cost per chronically homeless person',
+    source: 'National Alliance to End Homelessness',
+  },
+  {
+    value: '$12,800',
+    label: 'annual cost of permanent supportive housing',
+    source: 'Nearly 3× less than doing nothing',
+  },
+  {
+    value: '3×',
+    label: 'more expensive to criminalize homelessness than house people',
+    source: 'Harvard Law Review, 2023',
+  },
+  {
+    value: '61%',
+    label: 'decrease in ER visits after permanent housing is provided',
+    source: 'Texas Taxpayer Study',
+  },
+  {
+    value: '$30–40B',
+    label: 'total annual US cost of homelessness',
+    source: 'Emergency services, healthcare, incarceration',
+  },
 ]
 
 function StatCard({ value, label, source }: { value: string; label: string; source: string }) {
@@ -39,9 +64,18 @@ interface ImageSectionProps {
   accent?: boolean
 }
 
-function ImageSection({ heading, body, image, imageAlt, reverse = false, accent = false }: ImageSectionProps) {
+function ImageSection({
+  heading,
+  body,
+  image,
+  imageAlt,
+  reverse = false,
+  accent = false,
+}: ImageSectionProps) {
   return (
-    <div className={`rounded-xl overflow-hidden ${accent ? 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5' : 'bg-white/70'}`}>
+    <div
+      className={`rounded-xl overflow-hidden ${accent ? 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5' : 'bg-white/70'}`}
+    >
       <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
         <div className="md:w-2/5 shrink-0">
           <img
@@ -85,10 +119,11 @@ export default function WhyItMattersPage() {
 
       <Section tone="blueprint">
         <div className="mx-auto max-w-4xl space-y-10">
-
           {/* Stat cards */}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {statCards.map((s) => <StatCard key={s.value} {...s} />)}
+            {statCards.map((s) => (
+              <StatCard key={s.value} {...s} />
+            ))}
           </div>
 
           {/* Image sections */}
@@ -127,23 +162,41 @@ export default function WhyItMattersPage() {
               {WHY_IT_MATTERS.callToAction.heading}
             </h2>
             {WHY_IT_MATTERS.callToAction.body.split('\n\n').map((p, i) => (
-              <p key={i} className="mb-4 text-sm leading-relaxed text-white/80 max-w-2xl mx-auto last:mb-0">{p}</p>
+              <p
+                key={i}
+                className="mb-4 text-sm leading-relaxed text-white/80 max-w-2xl mx-auto last:mb-0"
+              >
+                {p}
+              </p>
             ))}
             <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
-              <a href={LINKS.donate} target="_blank" rel="noopener noreferrer"
-                className="rounded-lg border border-[var(--pr-flame)] px-6 py-4 text-center transition-colors hover:bg-[var(--pr-flame)] group">
-                <div className="font-display text-xs font-bold uppercase tracking-widest text-[var(--pr-flame)] group-hover:text-white mb-1">Donate</div>
+              <a
+                href={LINKS.donate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-[var(--pr-flame)] px-6 py-4 text-center transition-colors hover:bg-[var(--pr-flame)] group"
+              >
+                <div className="font-display text-xs font-bold uppercase tracking-widest text-[var(--pr-flame)] group-hover:text-white mb-1">
+                  Donate
+                </div>
                 <div className="text-xs text-white/60">Fund the infrastructure</div>
               </a>
-              <Link href="/volunteers"
-                className="rounded-lg border border-white/20 px-6 py-4 text-center transition-colors hover:bg-white/10 group">
-                <div className="font-display text-xs font-bold uppercase tracking-widest text-white mb-1">Volunteer</div>
+              <Link
+                href="/volunteers"
+                className="rounded-lg border border-white/20 px-6 py-4 text-center transition-colors hover:bg-white/10 group"
+              >
+                <div className="font-display text-xs font-bold uppercase tracking-widest text-white mb-1">
+                  Volunteer
+                </div>
                 <div className="text-xs text-white/60">Give your time</div>
               </Link>
-              <PartnerButton label="Partner With Us" variant="flame" className="rounded-lg px-6 py-4 text-xs" />
+              <PartnerButton
+                label="Partner With Us"
+                variant="flame"
+                className="rounded-lg px-6 py-4 text-xs"
+              />
             </div>
           </div>
-
         </div>
       </Section>
     </>
