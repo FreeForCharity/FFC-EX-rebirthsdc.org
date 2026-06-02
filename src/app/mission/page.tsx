@@ -32,8 +32,8 @@ export default function MissionPage() {
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg">
             <img
-              src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
-              alt="3D concrete printing infrastructure in action"
+              src={assetPath('/Images/project-rebirth/mission-construction-robot.jpg')}
+              alt="3D concrete printing infrastructure"
               className="w-full h-72 object-cover md:h-full"
             />
           </div>
