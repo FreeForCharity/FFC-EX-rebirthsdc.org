@@ -27,12 +27,47 @@ html,
 body {
   font-family: var(--font-open-sans), system-ui, sans-serif !important;
   color: var(--pr-body);
-  /* Blueprint image as the site-wide background */
+  /* Blueprint image fixed in place — same as bp-grid sections so seams are invisible */
   background-image: url('/Images/project-rebirth/blueprint-bg.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
+}
+
+/* Maroon grid on body — matches bp-grid::before exactly */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(124, 31, 46, 0.55) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.55) 2px, transparent 2px),
+    linear-gradient(rgba(124, 31, 46, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.18) 1px, transparent 1px);
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px;
+  z-index: 0;
+}
+
+/* White glare on body — matches bp-grid::after exactly */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 40%,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.08) 75%,
+    transparent 100%
+  );
+  z-index: 0;
 }
 
 /* Prevent gap between header and hero */
@@ -212,11 +247,8 @@ body {
 
 /* Blueprint section — fully transparent so body blueprint grid shows through */
 .bp-grid {
-  /* Blueprint image fills the background completely */
-  background-image: url('/Images/project-rebirth/blueprint-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Transparent — body background (blueprint + grid + glare) shows through */
+  background: transparent;
   position: relative;
 }
 
