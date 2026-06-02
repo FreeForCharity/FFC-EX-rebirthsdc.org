@@ -147,14 +147,31 @@ export default function WhyItMattersPage() {
             image={PAGE_IMAGES.whyItMatters.community}
             imageAlt="Community members working together"
           />
-          <ImageSection
-            heading={WHY_IT_MATTERS.economy.heading}
-            body={WHY_IT_MATTERS.economy.body}
-            image={PAGE_IMAGES.whyItMatters.hospital}
-            imageAlt="Emergency services and healthcare costs"
-            reverse
-            accent
-          />
+          {/* Section 4: Economy — two images side by side */}
+          <div className="rounded-xl overflow-hidden border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <img
+                src={PAGE_IMAGES.whyItMatters.hospital}
+                alt="Ghost town business district in Benton Harbor — economic collapse"
+                className="h-56 w-full object-cover"
+              />
+              <img
+                src={PAGE_IMAGES.whyItMatters.hospital2}
+                alt="Abandoned commercial building in Benton Harbor"
+                className="h-56 w-full object-cover"
+              />
+            </div>
+            <div className="p-8">
+              <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
+                {WHY_IT_MATTERS.economy.heading}
+              </h2>
+              {WHY_IT_MATTERS.economy.body.split('\n\n').map((p: string, i: number) => (
+                <p key={i} className="mb-4 text-sm leading-relaxed text-[var(--pr-body)] last:mb-0">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
 
           {/* CTA */}
           <div className="rounded-xl bg-[var(--pr-ink)] p-8 text-center">
