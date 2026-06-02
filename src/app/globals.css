@@ -26,6 +26,10 @@ html,
 body {
   scroll-behavior: smooth !important;
 }
+/* Prevent blueprint bg from showing between header and hero */
+html {
+  background-color: #0e0e10;
+}
 
 @theme inline {
   --color-primary: var(--pr-maroon);

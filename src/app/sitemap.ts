@@ -16,8 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources',
     '/community',
     '/volunteers',
-    '/housing-crisis',
-    '/why-it-matters',
     '/portal',
     '/privacy-policy',
     '/terms-of-use',
