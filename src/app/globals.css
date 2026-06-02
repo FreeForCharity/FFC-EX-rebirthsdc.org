@@ -49,22 +49,11 @@ html {
   --font-sans: var(--font-open-sans);
 }
 
-/* ── Blueprint background: visible blueprint color + strong maroon grid ── */
+/* ── Base body — blueprint color as fallback ── */
 body {
   font-family: var(--font-open-sans), system-ui, sans-serif !important;
   color: var(--pr-body);
   background-color: var(--pr-blueprint);
-  background-image:
-    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(var(--pr-blueprint-line-sub) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pr-blueprint-line-sub) 1px, transparent 1px);
-  background-size:
-    80px 80px,
-    80px 80px,
-    16px 16px,
-    16px 16px;
-  background-attachment: fixed, fixed, fixed, fixed;
 }
 
 #header {
@@ -201,9 +190,21 @@ body {
   padding-inline: 20px;
 }
 
-/* Blueprint section — fully transparent so body blueprint grid shows through */
+/* Blueprint section — blueprint color + maroon grid DIRECTLY on the section.
+   Do NOT rely on body bg showing through — mobile Safari breaks fixed attachment.
+   The grid is rendered on every bp-grid section so it's always visible. */
 .bp-grid {
-  background-color: transparent;
+  background-color: var(--pr-blueprint);
+  background-image:
+    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(var(--pr-blueprint-line-sub) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line-sub) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
 }
 
 /* Dark band */
@@ -219,13 +220,8 @@ body {
 
 /* Muted silver/grey band for Forge Mix and globe sections */
 .silver-band {
-  background-color: #8a9aaa;
-  background-image:
-    linear-gradient(rgba(124, 31, 46, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.12) 1px, transparent 1px);
-  background-size:
-    60px 60px,
-    60px 60px;
+  background-color: #d4dbe4;
+  border: 2px solid var(--pr-maroon);
 }
 
 .btn-rebirth {

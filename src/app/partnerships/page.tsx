@@ -24,7 +24,6 @@ export default function PartnershipsPage() {
             </p>
           </div>
 
-          {/* All pillar cards — white with maroon border */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {PARTNERSHIPS.pillars.map((pillar) => (
               <div key={pillar.no} className="pr-card rounded-xl p-7">
@@ -51,8 +50,8 @@ export default function PartnershipsPage() {
             ))}
           </div>
 
-          {/* Initiate Collaboration — muted silver/grey box, maroon text, globe inside */}
-          <div className="mt-12 rounded-xl silver-band p-8">
+          {/* Initiate Collaboration — silver-band WITH maroon border, globe image */}
+          <div className="mt-12 silver-band rounded-xl p-8">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-[180px_1fr] md:items-center">
               <div className="flex justify-center">
                 <img

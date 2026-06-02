@@ -28,7 +28,6 @@ export default function DirectorPage() {
               {DIRECTOR.title}
             </p>
           </div>
-
           <div className="space-y-8">
             <div>
               <p className="leading-relaxed text-[var(--pr-body)] mb-6">{DIRECTOR.bio}</p>
@@ -45,7 +44,7 @@ export default function DirectorPage() {
         </div>
       </Section>
 
-      {/* Executive Oversight — muted silver/grey box, not black */}
+      {/* Executive Oversight — silver-band WITH maroon border */}
       <Section tone="blueprint">
         <div className="silver-band rounded-xl p-8 grid grid-cols-1 gap-6 md:grid-cols-[280px_1fr] md:items-center">
           <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[var(--pr-maroon)]">
