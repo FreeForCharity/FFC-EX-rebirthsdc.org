@@ -219,13 +219,8 @@ body {
 
 /* Muted silver/grey band for Forge Mix and globe sections */
 .silver-band {
-  background-color: #8a9aaa;
-  background-image:
-    linear-gradient(rgba(124, 31, 46, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.12) 1px, transparent 1px);
-  background-size:
-    60px 60px,
-    60px 60px;
+  background-color: #d4dbe4;
+  border: 2px solid var(--pr-maroon);
 }
 
 .btn-rebirth {

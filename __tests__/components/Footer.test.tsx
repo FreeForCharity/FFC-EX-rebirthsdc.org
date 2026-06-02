@@ -15,7 +15,7 @@ describe('Footer component', () => {
 
   it('should display the Contact & Location section', () => {
     render(<Footer />)
-    expect(screen.getByText('Contact & Location')).toBeInTheDocument()
+    expect(screen.getByText('Contact Us')).toBeInTheDocument()
   })
 
   it('should display the Legal section', () => {

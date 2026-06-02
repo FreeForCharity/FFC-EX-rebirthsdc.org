@@ -78,7 +78,6 @@ function DataDeepDive() {
           ))}
         </div>
       </div>
-
       <div>
         <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           City-by-City: Unhoused Population (2024–2025)
@@ -103,7 +102,6 @@ function DataDeepDive() {
           ))}
         </div>
       </div>
-
       <div>
         <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           Housing Costs Are Outpacing Everything
@@ -133,7 +131,6 @@ function DataDeepDive() {
           </table>
         </div>
       </div>
-
       <div>
         <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           3D Printing vs. Traditional Construction
@@ -204,23 +201,17 @@ export default function TechnologyPage() {
           </p>
         </div>
 
-        {/* New 3D printer nozzle photo — no black box wrapper */}
         <div className="mx-auto max-w-4xl mb-10">
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img
               src={assetPath('/Images/project-rebirth/nozzle-action.jpg')}
               alt="3D concrete printer nozzle laying continuous concrete layers"
               className="w-full object-cover"
-              style={{
-                maxHeight: '320px',
-                objectPosition: 'center 30%',
-                background: 'transparent',
-              }}
+              style={{ maxHeight: '320px', objectPosition: 'center 30%' }}
             />
           </div>
         </div>
 
-        {/* Additive Construction label above How It Works */}
         <div className="mx-auto max-w-4xl">
           <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)] text-center mb-1">
             Additive Construction
@@ -228,7 +219,6 @@ export default function TechnologyPage() {
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
             {TECHNOLOGY.advantageHeading}
           </h2>
-          {/* All cards white with maroon border */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="pr-card rounded-xl p-7">
               <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
@@ -259,15 +249,18 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* Forge Mix — white card with maroon border */}
+        {/* Forge Mix — white card, new illustration image (white bg, no black border) */}
         <div className="mx-auto max-w-4xl mt-10">
           <div className="pr-card rounded-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-              <img
-                src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
-                alt="A 3D concrete printer nozzle extruding the Forge Mix composite"
-                className="w-full h-64 object-contain p-6"
-              />
+              <div className="flex items-center justify-center p-6 bg-white">
+                <img
+                  src={assetPath('/Images/project-rebirth/forge-mix-illustration.png')}
+                  alt="3D concrete printer nozzle illustration — Forge Mix additive construction"
+                  className="w-full object-contain"
+                  style={{ maxHeight: '220px' }}
+                />
+              </div>
               <div className="p-8">
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                   {TECHNOLOGY.forgeHeading}
@@ -278,7 +271,6 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* Impact cards — all white with maroon border */}
         <div className="mx-auto max-w-4xl mt-14">
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
             {TECHNOLOGY.impactHeading}
@@ -303,7 +295,6 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="mx-auto max-w-3xl mt-12 text-center">
           <p className="text-sm font-semibold text-[var(--pr-maroon)] mb-6">
             Ready to invest in the technology that changes everything?
@@ -319,7 +310,6 @@ export default function TechnologyPage() {
         </div>
       </Section>
 
-      {/* Toggleable housing data — blueprint section, not dark */}
       <Section tone="blueprint">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-6">
