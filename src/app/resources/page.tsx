@@ -1,10 +1,10 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
 import PartnerButton from '@/components/project-rebirth/PartnerButton'
 import { RESOURCES } from '@/data/project-rebirth/content'
+import { LINKS } from '@/data/project-rebirth/site'
 
 export const metadata: Metadata = {
   title: 'Resources',
@@ -24,8 +24,10 @@ export default function ResourcesPage() {
         <ul className="mx-auto grid max-w-4xl grid-cols-1 gap-4">
           {RESOURCES.items.map((item) => (
             <li key={item.title}>
-              <Link
-                href="/portal"
+              <a
+                href={LINKS.updatesForm}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="pr-card group flex items-start gap-4 p-5 transition-transform hover:-translate-y-0.5"
               >
                 <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-[var(--pr-maroon)] transition-transform group-hover:translate-x-1" />
@@ -35,7 +37,7 @@ export default function ResourcesPage() {
                   </span>
                   <span className="mt-1 block text-sm text-[var(--pr-body)]">{item.body}</span>
                 </span>
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

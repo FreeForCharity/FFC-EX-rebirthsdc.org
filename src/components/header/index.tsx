@@ -45,7 +45,7 @@ const Header: React.FC = () => {
         <Logo compact={isScrolled} />
 
         {/* Desktop nav */}
-        <nav className="hidden lg:block">
+        <nav className="hidden lg:flex items-center gap-2">
           <ul className="flex items-center">
             {NAV.map((item: NavItem) => (
               <li

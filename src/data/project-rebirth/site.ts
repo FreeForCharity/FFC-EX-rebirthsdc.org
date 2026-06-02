@@ -25,7 +25,9 @@ export const LINKS = {
   donate:
     'https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness',
   updatesForm:
-    'https://docs.google.com/forms/d/e/1FAIpQLScIuzWpWUwfEzZ2eYhwFPdgu3zCljPmMqW4am2YeGtRKxWUOw/viewform?usp=dialog',
+    'https://www.zeffy.com/en-US/newsletter-form/sign-up-for-our-newsletter-3549',
+  zeffyEmbed:
+    'https://www.zeffy.com/en-US/embed/newsletter-form/sign-up-for-our-newsletter-3549',
   privacyPolicy:
     'https://1drv.ms/b/c/d076761c7cd9edda/IQA_6vNxlcTLR4c2nYS3TMD8AdMXDSvJCEJMlWkGT4eWz4M?e=JOOG8A',
   legalDisclosures:
@@ -34,6 +36,12 @@ export const LINKS = {
     'https://1drv.ms/b/c/d076761c7cd9edda/IQB1xABVwb4IT5ZXKPCiREIMAcXWCFIaI7tqeNOemxYHvak?e=wcWYhg',
   termsOfUse:
     'https://1drv.ms/b/c/d076761c7cd9edda/IQBMyslI9kSkSKydGt3dgy0RAcMAStJqOYrWUyWoS7vqoOE?e=NHyzOy',
+  social: {
+    instagram: 'https://instagram.com/sustainablecommunityproject',
+    facebook: 'https://facebook.com/share/1BYV22rv6k/',
+    x: 'https://x.com/projectrebirth7',
+    tiktok: 'https://tiktok.com/@sustainablecommunity2026',
+  },
 } as const
 
 export type NavChild = { label: string; href: string }
@@ -43,29 +51,32 @@ export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Mission', href: '/mission' },
   { label: 'Director', href: '/director' },
+  { label: 'Our Story', href: '/our-story' },
   { label: 'Technology', href: '/technology' },
   { label: 'Partnerships', href: '/partnerships' },
   {
     label: 'Resources',
     href: '/resources',
     children: [
-      { label: 'Foundry School of Innovation', href: '/portal' },
-      { label: 'Housing Assistance', href: '/portal' },
-      { label: 'Job Placement Assistance', href: '/portal' },
-      { label: 'Entrepreneurial & Business Development', href: '/portal' },
-      { label: 'Financial Literacy & Stability', href: '/portal' },
-      { label: 'Second Chance Resources', href: '/portal' },
+      { label: 'Forge Technology Academy', href: '/resources' },
+      { label: 'Foundry School of Innovation', href: '/resources' },
+      { label: 'Housing Assistance', href: '/resources' },
+      { label: 'Job Placement Assistance', href: '/resources' },
+      { label: 'Entrepreneurial & Business Development', href: '/resources' },
+      { label: 'Financial Literacy & Stability', href: '/resources' },
+      { label: 'Second Chance Resources', href: '/resources' },
     ],
   },
   {
     label: 'Community',
     href: '/community',
     children: [
-      { label: 'Join Our Veterans', href: '/portal' },
-      { label: 'Foundry School Registration', href: '/portal' },
-      { label: 'Forge Technology Academy Registration', href: '/portal' },
-      { label: 'Join Our Mentorship', href: '/portal' },
-      { label: 'Register for Internship', href: '/portal' },
+      { label: 'Veterans Program', href: '/community' },
+      { label: 'Foundry School Registration', href: '/community' },
+      { label: 'Forge Technology Academy', href: '/community' },
+      { label: 'Mentorship Program', href: '/community' },
+      { label: 'Internship Program', href: '/community' },
     ],
   },
+  { label: 'Volunteer', href: '/volunteers' },
 ]
