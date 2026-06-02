@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
 import { SITE, LINKS } from '@/data/project-rebirth/site'
 
-/** Equal Housing Opportunity mark. */
 const EqualHousingMark: React.FC = () => (
   <img
     src={assetPath('/Images/project-rebirth/equal-housing.png')}
@@ -81,61 +80,132 @@ const socialLinks = [
 const Footer: React.FC = () => {
   return (
     <footer className="bp-grid-dark text-white">
-      <div className="pr-container grid grid-cols-1 gap-8 py-14 md:grid-cols-4">
-        {/* Contact & Location */}
-        <div className="space-y-2">
-          <h3 className="font-display text-lg uppercase tracking-wide text-white">
-            Contact &amp; Location
-          </h3>
+      <div className="pr-container grid grid-cols-1 gap-8 py-14 md:grid-cols-2 lg:grid-cols-5">
+        {/* Contact Us */}
+        <div className="space-y-3">
+          <h3 className="font-display text-base uppercase tracking-wide text-white">Contact Us</h3>
           <p className="text-sm text-white/80">{SITE.legalName}</p>
-          <p className="text-sm text-white/70">
-            Physical Mailing Address
-            <br />
-            {SITE.address.line1}
-            <br />
-            {SITE.address.city}, {SITE.address.state} {SITE.address.zip}
-          </p>
-          <div className="pt-2 text-sm">
-            <p className="text-white/60">Phone</p>
-            <a href={SITE.phoneHref} className="text-white hover:text-[var(--pr-flame)]">
+          <p className="text-xs text-white/60">Grand Rapids, MI — United States</p>
+          <div className="pt-1 space-y-1">
+            <p className="text-white/50 text-xs uppercase tracking-wide">Phone</p>
+            <a
+              href={SITE.phoneHref}
+              className="text-sm text-white hover:text-[var(--pr-flame)] transition-colors"
+            >
               {SITE.phone}
             </a>
           </div>
-          <div className="text-sm">
-            <p className="text-white/60">Business Email</p>
+          <div className="space-y-1">
+            <p className="text-white/50 text-xs uppercase tracking-wide">Email</p>
             <a
               href={`mailto:${SITE.email}`}
-              className="text-white hover:text-[var(--pr-flame)] break-all"
+              className="text-xs text-white hover:text-[var(--pr-flame)] transition-colors break-all"
             >
               {SITE.email}
             </a>
           </div>
         </div>
 
+        {/* Support & FAQ */}
+        <div className="space-y-3">
+          <h3 className="font-display text-base uppercase tracking-wide text-white">Support</h3>
+          <ul className="space-y-2">
+            <li>
+              <a
+                href={`mailto:${SITE.email}?subject=Support Request`}
+                className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                Get Help / Support
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/portal"
+                className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                Innovation Portal
+              </Link>
+            </li>
+            <li>
+              <a
+                href={`mailto:${SITE.email}?subject=General Inquiry`}
+                className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                General Inquiries
+              </a>
+            </li>
+          </ul>
+          <h3 className="font-display text-base uppercase tracking-wide text-white pt-2">FAQ</h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/mission"
+                className="text-xs text-white/70 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                What is Project Rebirth?
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/technology"
+                className="text-xs text-white/70 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                How does 3D printing work?
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/partnerships"
+                className="text-xs text-white/70 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                How do I become a partner?
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/community"
+                className="text-xs text-white/70 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                How do I get involved?
+              </Link>
+            </li>
+            <li>
+              <a
+                href={LINKS.donate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white/70 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                How do I donate?
+              </a>
+            </li>
+          </ul>
+        </div>
+
         {/* Legal */}
         <div className="space-y-3">
-          <h3 className="font-display text-lg uppercase tracking-wide text-white">Legal</h3>
-          <ul className="space-y-2 text-sm">
+          <h3 className="font-display text-base uppercase tracking-wide text-white">Legal</h3>
+          <ul className="space-y-2">
             {legalLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+                  className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
           </ul>
-          <p className="pt-2 text-xs text-white/60">
+          <p className="pt-2 text-xs text-white/50">
             Project Rebirth is a 501(c)(3) tax-exempt organization. Donations are tax-deductible to
             the extent allowed by law.
           </p>
         </div>
 
-        {/* Social Media — #40 */}
+        {/* Follow Us */}
         <div className="space-y-4">
-          <h3 className="font-display text-lg uppercase tracking-wide text-white">Follow Us</h3>
+          <h3 className="font-display text-base uppercase tracking-wide text-white">Follow Us</h3>
           <ul className="space-y-3">
             {socialLinks.map((s) => (
               <li key={s.name}>
@@ -154,9 +224,9 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Fair Housing + Fiscal Sponsorship */}
+        {/* Fair Housing */}
         <div className="space-y-4">
-          <h3 className="font-display text-lg uppercase tracking-wide text-white">
+          <h3 className="font-display text-base uppercase tracking-wide text-white">
             Fair Housing / Gov
           </h3>
           <Link
@@ -164,12 +234,12 @@ const Footer: React.FC = () => {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <EqualHousingMark />
-            <span className="text-sm text-white/80">
+            <span className="text-xs text-white/80">
               We do business in accordance with the Federal Fair Housing Law.
             </span>
           </Link>
-          <div className="pt-2 text-xs text-white/60">
-            <p className="font-semibold text-white/80">Fiscal Sponsorship</p>
+          <div className="pt-2 text-xs text-white/50">
+            <p className="font-semibold text-white/70 mb-1">Fiscal Sponsorship</p>
             <p>
               Fiscally sponsored by {SITE.fiscalSponsor}. All financial contributions are processed
               in accordance with governing fiscal sponsorship agreements.
@@ -178,10 +248,9 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10 py-5 text-center text-xs text-white/60">
+      <div className="border-t border-white/10 py-5 text-center text-xs text-white/50">
         <p>
-          Copyright Notice © {SITE.copyrightYear} {SITE.name}. All rights reserved.{' '}
+          Copyright © {SITE.copyrightYear} {SITE.name}. All rights reserved.{' '}
           <Link href="/portal" className="text-[var(--pr-flame)] hover:underline">
             {SITE.domain}
           </Link>

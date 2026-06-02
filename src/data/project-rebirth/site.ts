@@ -43,7 +43,7 @@ export type NavItem = { label: string; href: string; children?: NavChild[] }
 
 export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Mission', href: '/mission' },
+  { label: 'Missions', href: '/mission' },
   { label: 'Director', href: '/director' },
   { label: 'Our Story', href: '/our-story' },
   { label: 'Technology', href: '/technology' },

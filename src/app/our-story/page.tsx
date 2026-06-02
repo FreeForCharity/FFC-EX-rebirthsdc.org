@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
 import PartnerButton from '@/components/project-rebirth/PartnerButton'
+import { assetPath } from '@/lib/assetPath'
 import { OUR_STORY } from '@/data/project-rebirth/content'
 
 export const metadata: Metadata = {
@@ -31,31 +32,9 @@ function renderBody(body: string) {
   })
 }
 
-function StorySection({
-  heading,
-  body,
-  accent = false,
-}: {
-  heading: string
-  body: string
-  accent?: boolean
-}) {
-  return (
-    <div
-      className={`rounded-xl p-8 ${accent ? 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5' : 'bg-white/70'}`}
-    >
-      <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
-        {heading}
-      </h2>
-      {renderBody(body)}
-    </div>
-  )
-}
-
 export default function OurStoryPage() {
   return (
     <>
-      {/* Start directly on blueprint — no dark box at top */}
       <Section tone="blueprint">
         <div className="mx-auto max-w-3xl text-center mb-10">
           <SectionHeading as="h1" center className="mb-6">
@@ -67,15 +46,60 @@ export default function OurStoryPage() {
         </div>
 
         <div className="mx-auto max-w-3xl space-y-8">
-          <StorySection heading={OUR_STORY.thePeople.heading} body={OUR_STORY.thePeople.body} />
-          <StorySection
-            heading={OUR_STORY.theStory.heading}
-            body={OUR_STORY.theStory.body}
-            accent
-          />
-          <StorySection heading={OUR_STORY.theVision.heading} body={OUR_STORY.theVision.body} />
+          {/* Section 1: Let's Start at the Root — volunteers image (img 3) + img 4 side by side */}
+          <div className="pr-card rounded-xl overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <img
+                src={assetPath('/Images/project-rebirth/our-story-root-1.jpg')}
+                alt="Project Rebirth volunteers serving the community"
+                className="w-full h-52 object-cover"
+              />
+              <img
+                src={assetPath('/Images/project-rebirth/our-story-root-2.jpg')}
+                alt="Project Rebirth volunteer community outreach"
+                className="w-full h-52 object-cover"
+              />
+            </div>
+            <div className="p-8">
+              <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
+                {OUR_STORY.thePeople.heading}
+              </h2>
+              {renderBody(OUR_STORY.thePeople.body)}
+            </div>
+          </div>
 
-          <div className="rounded-xl border border-[var(--pr-maroon)]/30 bg-[var(--pr-maroon)]/5 p-8 text-center">
+          {/* Section 2: The Story Behind Project Rebirth — Benton Harbor neighborhood */}
+          <div className="pr-card rounded-xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1564419431702-7f1fe5bfb7ee?w=900&q=80"
+              alt="Urban neighborhood — the communities Project Rebirth was built to serve"
+              className="w-full h-52 object-cover"
+              style={{ objectPosition: 'center 60%' }}
+            />
+            <div className="p-8">
+              <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
+                {OUR_STORY.theStory.heading}
+              </h2>
+              {renderBody(OUR_STORY.theStory.body)}
+            </div>
+          </div>
+
+          {/* Section 3: Where Are We Going — engineering blueprints photo (img 5) */}
+          <div className="pr-card rounded-xl overflow-hidden">
+            <img
+              src={assetPath('/Images/project-rebirth/our-story-vision.jpg')}
+              alt="Engineering blueprints and construction tools — building the future"
+              className="w-full h-52 object-cover"
+            />
+            <div className="p-8">
+              <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
+                {OUR_STORY.theVision.heading}
+              </h2>
+              {renderBody(OUR_STORY.theVision.body)}
+            </div>
+          </div>
+
+          <div className="rounded-xl border-2 border-[var(--pr-maroon)]/30 bg-[var(--pr-maroon)]/5 p-8 text-center">
             <p className="text-sm leading-relaxed text-[var(--pr-body)] mb-6">
               Want to understand the full scale of the housing crisis — the data, the human cost,
               and why 3D-printed construction is the most viable solution?
