@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 export default function CommunityPage() {
   return (
     <>
-      {/* Hero band */}
       <Section tone="ink">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
@@ -27,7 +26,7 @@ export default function CommunityPage() {
         </div>
       </Section>
 
-      {/* Program cards */}
+      {/* Program cards with arrow links only — no embedded form */}
       <Section tone="blueprint">
         <div className="mx-auto max-w-3xl space-y-8">
           {COMMUNITY.items.map((item) => (
@@ -50,42 +49,6 @@ export default function CommunityPage() {
               </a>
             </div>
           ))}
-        </div>
-
-        {/* Zeffy registration form */}
-        <div className="mx-auto mt-16 max-w-3xl">
-          <div className="mb-8 text-center">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)] mb-3">
-              Ready to Join?
-            </p>
-            <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-3">
-              Register With Project Rebirth
-            </h2>
-            <p className="text-sm leading-relaxed text-[var(--pr-body)] max-w-xl mx-auto">
-              Fill out the form below to connect with our team. Tell us which program interests you
-              and we will reach out to walk you through the next steps.
-            </p>
-          </div>
-          <div
-            className="rounded-xl overflow-hidden shadow-xl"
-            style={{ position: 'relative', height: '600px' }}
-          >
-            <iframe
-              title="Signup form powered by Zeffy"
-              style={{
-                position: 'absolute',
-                border: 0,
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0,
-                width: '100%',
-                height: '100%',
-              }}
-              src={LINKS.zeffyEmbed}
-              allowTransparency={true}
-            />
-          </div>
         </div>
       </Section>
     </>

@@ -6,8 +6,7 @@ import { HOME } from '@/data/project-rebirth/content'
 /** Home hero with the 3D-printing video as a background layer. */
 const Hero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-[var(--pr-ink)]">
-      {/* Static poster background — fallback for reduced-motion users */}
+    <section className="relative overflow-hidden bg-[var(--pr-ink)]" style={{ marginTop: '-2px' }}>
       <img
         src={assetPath('/Images/project-rebirth/hero-poster.jpg')}
         alt=""
@@ -15,7 +14,6 @@ const Hero: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Background video — autoplay, muted, looped, cropped to fill */}
       <video
         className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
         aria-hidden="true"
@@ -28,7 +26,6 @@ const Hero: React.FC = () => {
         <source src={assetPath('/videos/hero-3d-printing.mp4')} type="video/mp4" />
       </video>
 
-      {/* Subtle dark overlay for text legibility */}
       <div
         className="absolute inset-0"
         style={{

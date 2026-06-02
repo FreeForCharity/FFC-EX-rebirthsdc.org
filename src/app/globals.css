@@ -2,26 +2,22 @@
 @import 'tailwindcss';
 
 :root {
-  /* Project Rebirth brand tokens */
-  --pr-maroon: #7c1f2e; /* primary headings, borders, buttons */
+  --pr-maroon: #7c1f2e;
   --pr-maroon-dark: #5a141f;
-  --pr-flame: #e8531f; /* phoenix accent */
+  --pr-flame: #e8531f;
   --pr-flame-dark: #c0271a;
-  --pr-ink: #0e0e10; /* hero / footer / dark bands */
+  --pr-ink: #0e0e10;
   --pr-charcoal: #1c1c20;
   --pr-paper: #ffffff;
-  --pr-blueprint: #eef2f7; /* light blueprint background */
-  --pr-blueprint-line: rgba(124, 31, 46, 0.08);
+  --pr-blueprint: #dde6f0;
+  --pr-blueprint-line: rgba(124, 31, 46, 0.15);
   --pr-blueprint-line-blue: rgba(42, 102, 130, 0.08);
-  --pr-body: #20242e; /* default body text on light */
+  --pr-body: #20242e;
 
-  /* Legacy aliases kept so existing components don't break */
   --ffc-primary: var(--pr-maroon);
   --ffc-accent: var(--pr-flame);
   --ffc-black: var(--pr-ink);
   --ffc-white: var(--pr-paper);
-
-  /* Layout */
   --ffc-container: 1248px;
   --ffc-radius-xl: 20px;
 }
@@ -32,7 +28,6 @@ body {
 }
 
 @theme inline {
-  /* Tailwind design tokens mapped to brand variables */
   --color-primary: var(--pr-maroon);
   --color-primary-dark: var(--pr-maroon-dark);
   --color-accent: var(--pr-flame);
@@ -41,35 +36,31 @@ body {
   --color-charcoal: var(--pr-charcoal);
   --color-paper: var(--pr-paper);
   --color-blueprint: var(--pr-blueprint);
-
   --radius-xl: var(--ffc-radius-xl);
   --container: var(--ffc-container);
-
-  /* Fonts (provided via next/font and CSS variables on <body>) */
   --font-display: var(--font-cinzel);
   --font-nav: var(--font-montserrat);
   --font-sans: var(--font-open-sans);
 }
 
+/* Full-page blueprint background — maroon grid, transparent so it shows through everything */
 body {
   font-family: var(--font-open-sans), system-ui, sans-serif !important;
-  background-color: var(--color-paper);
-  background-image:
-    url('/Images/project-rebirth/blueprint-bg.png'),
-    linear-gradient(rgba(124, 31, 46, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.06) 1px, transparent 1px);
-  background-size:
-    cover,
-    60px 60px,
-    60px 60px;
-  background-attachment: fixed, fixed, fixed;
-  background-position:
-    center,
-    0 0,
-    0 0;
-  background-blend-mode: normal;
   color: var(--pr-body);
+  background-color: var(--pr-blueprint);
+  background-image:
+    linear-gradient(var(--pr-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line) 1px, transparent 1px),
+    linear-gradient(var(--pr-blueprint-line-blue) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line-blue) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+  background-attachment: fixed, fixed, fixed, fixed;
 }
+
 #header {
   font-family: var(--font-open-sans), sans-serif !important;
 }
@@ -85,7 +76,6 @@ body {
 #abeezee {
   font-family: var(--font-open-sans), sans-serif !important;
 }
-/* Segoe UI is a system font - use native system font stack for best performance (only used 2x) */
 #segoe-font {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
 }
@@ -108,7 +98,6 @@ body {
   font-family: var(--font-faustina), serif !important;
 }
 
-/* Screen reader only utility class for accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -131,7 +120,6 @@ body {
     transform: translateY(0);
   }
 }
-
 @keyframes fadeLeft {
   0% {
     opacity: 0;
@@ -142,7 +130,6 @@ body {
     transform: translateX(0);
   }
 }
-
 @keyframes fadeRight {
   0% {
     opacity: 0;
@@ -153,35 +140,27 @@ body {
     transform: translateX(0);
   }
 }
-
 .animate-fadeTop {
   animation: fadeTop 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
 }
-
 .animate-fadeLeft {
   animation: fadeLeft 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
 }
-
 .animate-fadeRight {
   animation: fadeRight 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
 }
 
-/* Utilities aligned to Figma */
 .ffc-container {
   max-width: var(--container);
   margin-inline: auto;
   padding-inline: 16px;
 }
-
 .clip-diagonal {
   clip-path: polygon(0 80%, 100% 50%, 100% 100%, 0% 100%);
 }
-
 .ffc-card {
   @apply bg-paper border-4 rounded-xl shadow;
 }
-
-/* Hide scrollbar globally */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -191,8 +170,6 @@ body {
 }
 
 /* ===== Project Rebirth design system ===== */
-
-/* Font helpers */
 .font-display {
   font-family: var(--font-cinzel), Georgia, serif !important;
   letter-spacing: 0.02em;
@@ -204,7 +181,6 @@ body {
   font-family: var(--font-open-sans), system-ui, sans-serif !important;
 }
 
-/* Maroon display headings */
 .pr-heading {
   font-family: var(--font-cinzel), Georgia, serif !important;
   color: var(--pr-maroon);
@@ -214,29 +190,18 @@ body {
   line-height: 1.1;
 }
 
-/* Layout container */
 .pr-container {
   max-width: var(--container);
   margin-inline: auto;
   padding-inline: 20px;
 }
 
-/* Blueprint grid background (light) */
+/* Blueprint section — transparent bg so full-page grid shows through */
 .bp-grid {
-  background-color: var(--pr-blueprint);
-  background-image:
-    linear-gradient(var(--pr-blueprint-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pr-blueprint-line) 1px, transparent 1px),
-    linear-gradient(var(--pr-blueprint-line-blue) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pr-blueprint-line-blue) 1px, transparent 1px);
-  background-size:
-    80px 80px,
-    80px 80px,
-    16px 16px,
-    16px 16px;
+  background-color: transparent;
 }
 
-/* Dark blueprint band (mandate / hero footer bands) */
+/* Dark blueprint band */
 .bp-grid-dark {
   background-color: var(--pr-ink);
   background-image:
@@ -247,7 +212,6 @@ body {
     60px 60px;
 }
 
-/* Glossy maroon "Partner With Us" style button */
 .btn-rebirth {
   display: inline-flex;
   align-items: center;
@@ -274,7 +238,6 @@ body {
     0 10px 22px rgba(124, 31, 46, 0.45);
 }
 
-/* Flame-accent variant */
 .btn-flame {
   background: linear-gradient(180deg, #f5733a 0%, var(--pr-flame) 45%, var(--pr-flame-dark) 100%);
   box-shadow:
@@ -282,7 +245,6 @@ body {
     0 6px 16px rgba(232, 83, 31, 0.35);
 }
 
-/* White content card with soft shadow */
 .pr-card {
   background: var(--pr-paper);
   border-radius: 10px;

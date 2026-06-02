@@ -17,7 +17,7 @@ export default function DirectorPage() {
           <div>
             <div className="rounded-xl overflow-hidden shadow-2xl" style={{ border: 'none' }}>
               <img
-                src={assetPath('/Images/project-rebirth/director-portrait.webp')}
+                src={assetPath('/Images/project-rebirth/director-portrait.jpg')}
                 alt={`${DIRECTOR.name}, ${DIRECTOR.title}`}
                 className="aspect-[3/4] w-full object-cover object-top"
                 style={{ filter: 'contrast(1.05) brightness(1.02)' }}

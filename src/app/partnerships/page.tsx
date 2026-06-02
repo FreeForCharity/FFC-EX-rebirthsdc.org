@@ -13,29 +13,16 @@ export const metadata: Metadata = {
 export default function PartnershipsPage() {
   return (
     <>
-      <Section tone="ink">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
-            Strategic Alliances
-          </p>
-          <SectionHeading as="h1" center className="mb-6 text-white">
-            {PARTNERSHIPS.heading}
-          </SectionHeading>
-          <p className="text-base leading-relaxed text-white/80 max-w-2xl mx-auto">
-            {PARTNERSHIPS.intro}
-          </p>
-        </div>
-      </Section>
-
+      {/* Start on blueprint — no dark box at top */}
       <Section tone="blueprint">
         <div className="mx-auto max-w-4xl">
-          {/* Globe image */}
-          <div className="flex justify-center mb-12">
-            <img
-              src={assetPath('/Images/project-rebirth/partnership-globe.png')}
-              alt="Global partnership network"
-              className="h-44 w-44 object-contain"
-            />
+          <div className="text-center mb-12">
+            <SectionHeading as="h1" center className="mb-6">
+              {PARTNERSHIPS.heading}
+            </SectionHeading>
+            <p className="text-base leading-relaxed text-[var(--pr-body)] max-w-3xl mx-auto">
+              {PARTNERSHIPS.intro}
+            </p>
           </div>
 
           {/* Partnership pillars */}
