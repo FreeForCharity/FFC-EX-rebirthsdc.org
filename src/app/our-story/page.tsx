@@ -74,8 +74,8 @@ export default function OurStoryPage() {
           <div className="pr-card rounded-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <img
-                src={assetPath('/Images/project-rebirth/mission-volunteers.jpg')}
-                alt="Project Rebirth volunteers serving the community"
+                src={assetPath('/Images/project-rebirth/story-food-handout.jpg')}
+                alt="People receiving food assistance — the human need Project Rebirth addresses"
                 className="w-full h-52 object-cover"
               />
               <img
