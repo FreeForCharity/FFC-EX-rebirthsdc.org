@@ -263,11 +263,14 @@ export default function TechnologyPage() {
         <div className="mx-auto max-w-4xl mt-10">
           <div className="pr-card rounded-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-              <img
-                src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
-                alt="A 3D concrete printer nozzle extruding the Forge Mix composite"
-                className="w-full h-64 object-contain p-6"
-              />
+              <div className="flex items-center justify-center bg-white p-4">
+                <img
+                  src={assetPath('/Images/project-rebirth/forge-mix-illustration.png')}
+                  alt="3D concrete printer nozzle illustration — Forge Mix additive construction"
+                  className="w-full object-contain"
+                  style={{ maxHeight: '220px' }}
+                />
+              </div>
               <div className="p-8">
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                   {TECHNOLOGY.forgeHeading}
