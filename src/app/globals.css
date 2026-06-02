@@ -9,10 +9,11 @@
   --pr-ink: #0e0e10;
   --pr-charcoal: #1c1c20;
   --pr-paper: #ffffff;
-  --pr-blueprint: #dde6f0;
-  --pr-blueprint-line: rgba(124, 31, 46, 0.15);
-  --pr-blueprint-line-blue: rgba(42, 102, 130, 0.08);
+  --pr-blueprint: #cdd8e8;
+  --pr-blueprint-line: rgba(124, 31, 46, 0.22);
+  --pr-blueprint-line-sub: rgba(124, 31, 46, 0.1);
   --pr-body: #20242e;
+  --pr-silver: #b0b8c4;
 
   --ffc-primary: var(--pr-maroon);
   --ffc-accent: var(--pr-flame);
@@ -26,7 +27,8 @@ html,
 body {
   scroll-behavior: smooth !important;
 }
-/* Prevent blueprint bg from showing between header and hero */
+
+/* Prevent blueprint bg gap between header and hero */
 html {
   background-color: #0e0e10;
 }
@@ -47,16 +49,16 @@ html {
   --font-sans: var(--font-open-sans);
 }
 
-/* Full-page blueprint background — maroon grid, transparent so it shows through everything */
+/* ── Blueprint background: visible blueprint color + strong maroon grid ── */
 body {
   font-family: var(--font-open-sans), system-ui, sans-serif !important;
   color: var(--pr-body);
   background-color: var(--pr-blueprint);
   background-image:
-    linear-gradient(var(--pr-blueprint-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pr-blueprint-line) 1px, transparent 1px),
-    linear-gradient(var(--pr-blueprint-line-blue) 1px, transparent 1px),
-    linear-gradient(90deg, var(--pr-blueprint-line-blue) 1px, transparent 1px);
+    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(var(--pr-blueprint-line-sub) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pr-blueprint-line-sub) 1px, transparent 1px);
   background-size:
     80px 80px,
     80px 80px,
@@ -173,7 +175,6 @@ body {
   scrollbar-width: none;
 }
 
-/* ===== Project Rebirth design system ===== */
 .font-display {
   font-family: var(--font-cinzel), Georgia, serif !important;
   letter-spacing: 0.02em;
@@ -200,17 +201,28 @@ body {
   padding-inline: 20px;
 }
 
-/* Blueprint section — transparent bg so full-page grid shows through */
+/* Blueprint section — fully transparent so body blueprint grid shows through */
 .bp-grid {
   background-color: transparent;
 }
 
-/* Dark blueprint band */
+/* Dark band */
 .bp-grid-dark {
   background-color: var(--pr-ink);
   background-image:
-    linear-gradient(rgba(124, 31, 46, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.18) 1px, transparent 1px);
+    linear-gradient(rgba(124, 31, 46, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.2) 1px, transparent 1px);
+  background-size:
+    60px 60px,
+    60px 60px;
+}
+
+/* Muted silver/grey band for Forge Mix and globe sections */
+.silver-band {
+  background-color: #8a9aaa;
+  background-image:
+    linear-gradient(rgba(124, 31, 46, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.12) 1px, transparent 1px);
   background-size:
     60px 60px,
     60px 60px;
@@ -249,32 +261,24 @@ body {
     0 6px 16px rgba(232, 83, 31, 0.35);
 }
 
+/* White card with maroon border — standard card style */
 .pr-card {
-  background: var(--pr-paper);
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(14, 14, 16, 0.12);
-  border: 1px solid rgba(14, 14, 16, 0.06);
+  border: 2px solid var(--pr-maroon);
+  box-shadow: 0 4px 16px rgba(124, 31, 46, 0.1);
 }
 .pr-card--maroon {
   border: 2px solid var(--pr-maroon);
 }
 
-/* ── Accessibility: focus-visible ring for keyboard navigation ── */
 :focus-visible {
   outline: 2px solid var(--pr-maroon);
   outline-offset: 2px;
 }
-
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--pr-maroon);
   outline-offset: 3px;
   border-radius: 3px;
-}
-
-/* Ensure sufficient contrast for body text on blueprint bg */
-.bp-grid p,
-.bp-grid li,
-.bp-grid span {
-  color: var(--pr-body);
 }

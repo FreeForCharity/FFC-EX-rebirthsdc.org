@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import type { Metadata } from 'next'
 import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import type { Metadata } from 'next'
 import { assetPath } from '@/lib/assetPath'
 import { TECHNOLOGY } from '@/data/project-rebirth/content'
 import { LINKS } from '@/data/project-rebirth/site'
@@ -59,43 +59,41 @@ const housingCostData = [
 function DataDeepDive() {
   return (
     <div className="mt-6 space-y-10">
-      {/* Impact stats */}
       <div>
-        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-flame)] mb-6 text-center">
+        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6 text-center">
           The Scale of the Crisis
         </h3>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
           {housingStats.map((stat) => (
             <div
               key={stat.value}
-              className="text-center p-4 rounded-lg bg-white/5 border border-white/10"
+              className="text-center p-4 rounded-lg bg-white border-2 border-[var(--pr-maroon)]"
             >
-              <div className="font-display text-2xl md:text-3xl font-bold text-[var(--pr-flame)] mb-1">
+              <div className="font-display text-2xl md:text-3xl font-bold text-[var(--pr-maroon)] mb-1">
                 {stat.value}
               </div>
-              <div className="text-xs font-semibold text-white mb-1">{stat.label}</div>
-              <div className="text-xs text-white/50">{stat.sub}</div>
+              <div className="text-xs font-semibold text-[var(--pr-body)] mb-1">{stat.label}</div>
+              <div className="text-xs text-[var(--pr-body)]/60">{stat.sub}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* City breakdown */}
       <div>
-        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-flame)] mb-6">
+        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           City-by-City: Unhoused Population (2024–2025)
         </h3>
         <div className="space-y-3">
           {cityData.map((d) => (
             <div key={d.city}>
-              <div className="flex justify-between text-xs text-white/80 mb-1">
+              <div className="flex justify-between text-xs text-[var(--pr-body)] mb-1">
                 <span>{d.city}</span>
                 <span className="font-semibold">
                   {d.count.toLocaleString()}{' '}
-                  <span className="text-[var(--pr-flame)]">{d.change}</span>
+                  <span className="text-[var(--pr-maroon)]">{d.change}</span>
                 </span>
               </div>
-              <div className="h-3 w-full rounded-full bg-white/10 overflow-hidden">
+              <div className="h-3 w-full rounded-full bg-[var(--pr-maroon)]/10 overflow-hidden">
                 <div
                   className="h-full rounded-full bg-[var(--pr-maroon)]"
                   style={{ width: `${(d.count / 12034) * 100}%` }}
@@ -106,16 +104,15 @@ function DataDeepDive() {
         </div>
       </div>
 
-      {/* Housing cost table */}
       <div>
-        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-flame)] mb-6">
+        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           Housing Costs Are Outpacing Everything
         </h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-white/80">
+          <table className="w-full text-sm text-[var(--pr-body)]">
             <thead>
-              <tr className="border-b border-white/20">
-                <th className="py-2 text-left font-semibold text-white">Year</th>
+              <tr className="border-b-2 border-[var(--pr-maroon)]">
+                <th className="py-2 text-left font-semibold">Year</th>
                 <th className="py-2 text-right font-semibold text-[var(--pr-maroon)]">
                   Median Home Price
                 </th>
@@ -126,7 +123,7 @@ function DataDeepDive() {
             </thead>
             <tbody>
               {housingCostData.map((d) => (
-                <tr key={d.year} className="border-b border-white/10">
+                <tr key={d.year} className="border-b border-[var(--pr-maroon)]/20">
                   <td className="py-2">{d.year}</td>
                   <td className="py-2 text-right">${d.medianHome.toLocaleString()}</td>
                   <td className="py-2 text-right">${d.medianRent.toLocaleString()}/mo</td>
@@ -137,14 +134,13 @@ function DataDeepDive() {
         </div>
       </div>
 
-      {/* 3D vs Traditional */}
       <div>
-        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-flame)] mb-6">
+        <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-6">
           3D Printing vs. Traditional Construction
         </h3>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-[var(--pr-maroon)]/70 mb-2">
               Cost / sq ft
             </p>
             {[
@@ -153,10 +149,10 @@ function DataDeepDive() {
             ].map((d) => (
               <div key={d.method}>
                 <div className="flex justify-between text-sm mb-1">
-                  <span className="text-white/80">{d.method}</span>
+                  <span className="text-[var(--pr-body)]">{d.method}</span>
                   <span className="font-bold text-[var(--pr-maroon)]">${d.cost}/sq ft</span>
                 </div>
-                <div className="h-4 w-full rounded bg-white/10 overflow-hidden">
+                <div className="h-4 w-full rounded bg-[var(--pr-maroon)]/10 overflow-hidden">
                   <div
                     className="h-full rounded bg-[var(--pr-maroon)]"
                     style={{ width: `${(d.cost / 225) * 100}%` }}
@@ -166,7 +162,7 @@ function DataDeepDive() {
             ))}
           </div>
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-[var(--pr-maroon)]/70 mb-2">
               Days to structural shell
             </p>
             {[
@@ -175,10 +171,10 @@ function DataDeepDive() {
             ].map((d) => (
               <div key={d.method}>
                 <div className="flex justify-between text-sm mb-1">
-                  <span className="text-white/80">{d.method}</span>
+                  <span className="text-[var(--pr-body)]">{d.method}</span>
                   <span className="font-bold text-[var(--pr-flame)]">{d.days} days</span>
                 </div>
-                <div className="h-4 w-full rounded bg-white/10 overflow-hidden">
+                <div className="h-4 w-full rounded bg-[var(--pr-maroon)]/10 overflow-hidden">
                   <div
                     className="h-full rounded bg-[var(--pr-flame)]"
                     style={{ width: `${(d.days / 120) * 100}%` }}
@@ -208,14 +204,14 @@ export default function TechnologyPage() {
           </p>
         </div>
 
-        {/* Nozzle image at top — not the portrait */}
+        {/* New 3D printer nozzle photo — cropped, no border */}
         <div className="mx-auto max-w-4xl mb-10">
-          <div className="rounded-xl overflow-hidden shadow-lg bg-[var(--pr-ink)]">
+          <div className="rounded-xl overflow-hidden shadow-lg">
             <img
-              src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
-              alt="3D concrete printer nozzle — Forge Mix additive construction"
-              className="w-full object-contain p-4"
-              style={{ maxHeight: '320px' }}
+              src={assetPath('/Images/project-rebirth/nozzle-action.jpg')}
+              alt="3D concrete printer nozzle laying continuous concrete layers"
+              className="w-full object-cover"
+              style={{ maxHeight: '320px', objectPosition: 'center 30%' }}
             />
           </div>
         </div>
@@ -228,21 +224,22 @@ export default function TechnologyPage() {
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
             {TECHNOLOGY.advantageHeading}
           </h2>
+          {/* All cards white with maroon border */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="pr-card rounded-xl p-7">
-              <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-body)] mb-4">
+              <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                 {TECHNOLOGY.traditional.title}
               </h3>
               <ul className="space-y-3">
                 {TECHNOLOGY.traditional.points.map((pt, i) => (
                   <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gray-300" />
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]/40" />
                     <span>{pt}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl border-2 border-[var(--pr-maroon)] bg-white/80 p-7">
+            <div className="pr-card rounded-xl p-7">
               <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                 {TECHNOLOGY.additive.title}
               </h3>
@@ -258,36 +255,35 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* Forge Mix */}
+        {/* Forge Mix — muted silver/grey box, maroon text */}
         <div className="mx-auto max-w-4xl mt-10">
-          <div className="rounded-xl overflow-hidden bg-[var(--pr-ink)]">
+          <div className="rounded-xl overflow-hidden silver-band">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center">
               <img
-                src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
-                alt="3D concrete printing in action"
-                className="w-full h-64 object-cover"
+                src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
+                alt="A 3D concrete printer nozzle extruding the Forge Mix composite"
+                className="w-full h-64 object-contain p-6"
               />
               <div className="p-8">
-                <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-flame)] mb-4">
+                <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                   {TECHNOLOGY.forgeHeading}
                 </h2>
-                <p className="text-sm leading-relaxed text-white/85">{TECHNOLOGY.forge}</p>
+                <p className="text-sm leading-relaxed text-[var(--pr-maroon)]">
+                  {TECHNOLOGY.forge}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Impact sections */}
+        {/* Impact cards — all white with maroon border */}
         <div className="mx-auto max-w-4xl mt-14">
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
             {TECHNOLOGY.impactHeading}
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {TECHNOLOGY.impacts.map((impact, i) => (
-              <div
-                key={impact.title}
-                className={`rounded-xl p-7 ${i % 2 === 0 ? 'bg-white/70' : 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5'}`}
-              >
+            {TECHNOLOGY.impacts.map((impact) => (
+              <div key={impact.title} className="pr-card rounded-xl p-7">
                 <div className="text-2xl mb-3">{impactIcons[impact.title]}</div>
                 <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-4">
                   {impact.title}
@@ -321,22 +317,21 @@ export default function TechnologyPage() {
         </div>
       </Section>
 
-      {/* Toggleable housing data section — not in nav */}
-      <Section tone="ink">
+      {/* Toggleable housing data — blueprint section, not dark */}
+      <Section tone="blueprint">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-6">
             <button
               onClick={() => setShowData(!showData)}
-              className="inline-flex items-center gap-3 rounded-lg border-2 border-[var(--pr-flame)] px-8 py-3 font-display text-sm font-bold uppercase tracking-widest text-[var(--pr-flame)] transition-all hover:bg-[var(--pr-flame)] hover:text-white focus-visible:outline-2 focus-visible:outline-[var(--pr-flame)]"
+              className="inline-flex items-center gap-3 rounded-lg border-2 border-[var(--pr-maroon)] px-8 py-3 font-display text-sm font-bold uppercase tracking-widest text-[var(--pr-maroon)] transition-all hover:bg-[var(--pr-maroon)] hover:text-white focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)]"
               aria-expanded={showData}
             >
               {showData ? '▲ Hide the Data' : '▼ Explore the Housing Crisis Data'}
             </button>
-            <p className="mt-3 text-xs text-white/50">
+            <p className="mt-3 text-xs text-[var(--pr-body)]/60">
               The numbers behind why this technology matters
             </p>
           </div>
-
           {showData && <DataDeepDive />}
         </div>
       </Section>
