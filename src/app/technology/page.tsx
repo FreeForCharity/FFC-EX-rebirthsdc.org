@@ -208,8 +208,8 @@ export default function TechnologyPage() {
         <div className="mx-auto max-w-4xl mb-10">
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img
-              src={assetPath('/Images/project-rebirth/nozzle-action.jpg')}
-              alt="3D concrete printer nozzle laying continuous concrete layers"
+              src={assetPath('/Images/project-rebirth/3d-printing-house-action.jpg')}
+              alt="3D concrete printer building a structural shell — additive construction in action"
               className="w-full object-cover"
               style={{
                 maxHeight: '320px',
