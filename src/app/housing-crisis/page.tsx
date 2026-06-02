@@ -164,12 +164,8 @@ export default function TheCrisisPage() {
                   {housingCostData.map((d) => (
                     <tr key={d.year} className="border-b border-gray-100">
                       <td className="py-2">{d.year}</td>
-                      <td className="py-2 text-right">
-                        ${'{'}d.medianHome.toLocaleString(){'}'}
-                      </td>
-                      <td className="py-2 text-right">
-                        ${'{'}d.medianRent.toLocaleString(){'}'}/mo
-                      </td>
+                      <td className="py-2 text-right">${d.medianHome.toLocaleString()}</td>
+                      <td className="py-2 text-right">${d.medianRent.toLocaleString()}/mo</td>
                     </tr>
                   ))}
                 </tbody>
@@ -196,13 +192,13 @@ export default function TheCrisisPage() {
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-[var(--pr-body)]">{d.method}</span>
                         <span className="font-bold text-[var(--pr-maroon)]">
-                          ${'{'}d.costPerSqFt{'}'}/sq ft
+                          ${d.costPerSqFt}/sq ft
                         </span>
                       </div>
                       <div className="h-5 w-full rounded bg-gray-100 overflow-hidden">
                         <div
                           className="h-full rounded bg-[var(--pr-maroon)]"
-                          style={{ width: `${'{'}(d.costPerSqFt / 225) * 100{'}'}%` }}
+                          style={{ width: `${(d.costPerSqFt / 225) * 100}%` }}
                         />
                       </div>
                     </div>
@@ -225,7 +221,7 @@ export default function TheCrisisPage() {
                       <div className="h-5 w-full rounded bg-gray-100 overflow-hidden">
                         <div
                           className="h-full rounded bg-[var(--pr-flame)]"
-                          style={{ width: `${'{'}(d.timeToShell / 120) * 100{'}'}%` }}
+                          style={{ width: `${(d.timeToShell / 120) * 100}%` }}
                         />
                       </div>
                     </div>
