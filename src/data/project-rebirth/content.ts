@@ -341,9 +341,9 @@ export const PAGE_IMAGES = {
     nozzle: '/Images/project-rebirth/forge-mix-nozzle.png',
   },
   whyItMatters: {
-    veteran: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=900&q=80',
-    family: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=900&q=80',
-    community: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=80',
+    veteran: '/Images/project-rebirth/why-individual.jpg',
+    family: '/Images/project-rebirth/why-family.jpg',
+    community: '/Images/project-rebirth/why-community.jpg',
     hospital: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=80',
   },
   volunteers: {
