@@ -343,8 +343,9 @@ export const PAGE_IMAGES = {
   whyItMatters: {
     veteran: '/Images/project-rebirth/why-individual.jpg',
     family: '/Images/project-rebirth/why-family.jpg',
-    community: '/Images/project-rebirth/why-community.jpg',
-    hospital: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=80',
+    community: '/Images/project-rebirth/why-community-new.jpg',
+    hospital: '/Images/project-rebirth/why-economy-1.jpg',
+    hospital2: '/Images/project-rebirth/why-economy-2.jpg',
   },
   volunteers: {
     team: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=80',
