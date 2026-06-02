@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 export default function PartnershipsPage() {
   return (
     <>
-      {/* Start on blueprint — no dark box at top */}
       <Section tone="blueprint">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
@@ -25,15 +24,12 @@ export default function PartnershipsPage() {
             </p>
           </div>
 
-          {/* Partnership pillars */}
+          {/* All pillar cards — white with maroon border */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {PARTNERSHIPS.pillars.map((pillar, i) => (
-              <div
-                key={pillar.no}
-                className={`rounded-xl p-7 ${i % 2 === 0 ? 'bg-white/70' : 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5'}`}
-              >
+            {PARTNERSHIPS.pillars.map((pillar) => (
+              <div key={pillar.no} className="pr-card rounded-xl p-7">
                 <div className="flex items-start gap-4 mb-4">
-                  <span className="font-display text-3xl font-bold text-[var(--pr-maroon)]/30 leading-none shrink-0">
+                  <span className="font-display text-3xl font-bold text-[var(--pr-maroon)]/25 leading-none shrink-0">
                     {pillar.no}
                   </span>
                   <h2 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mt-1">
@@ -41,7 +37,7 @@ export default function PartnershipsPage() {
                   </h2>
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--pr-body)] mb-4">{pillar.body}</p>
-                <div className="border-t border-[var(--pr-maroon)]/10 pt-4 space-y-2">
+                <div className="border-t-2 border-[var(--pr-maroon)]/20 pt-4 space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)]">
                     Partners
                   </p>
@@ -55,22 +51,33 @@ export default function PartnershipsPage() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="mt-12 rounded-xl bg-[var(--pr-ink)] p-8 text-center">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)] mb-4">
-              {PARTNERSHIPS.ctaHeading}
-            </p>
-            <p className="text-sm leading-relaxed text-white/80 max-w-2xl mx-auto mb-8">
-              {PARTNERSHIPS.cta}
-            </p>
-            <a
-              href={LINKS.updatesForm}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-rebirth inline-block"
-            >
-              Become a Partner
-            </a>
+          {/* Initiate Collaboration — muted silver/grey box, maroon text, globe inside */}
+          <div className="mt-12 rounded-xl silver-band p-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-[180px_1fr] md:items-center">
+              <div className="flex justify-center">
+                <img
+                  src={assetPath('/Images/project-rebirth/partnership-globe.png')}
+                  alt="Global partnership network"
+                  className="h-40 w-40 object-contain"
+                />
+              </div>
+              <div>
+                <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-maroon)] mb-3">
+                  {PARTNERSHIPS.ctaHeading}
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--pr-maroon)] mb-8">
+                  {PARTNERSHIPS.cta}
+                </p>
+                <a
+                  href={LINKS.updatesForm}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-rebirth inline-block"
+                >
+                  Partner With Us
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </Section>

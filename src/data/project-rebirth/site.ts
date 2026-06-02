@@ -1,6 +1,3 @@
-// Central site config for Project Rebirth — Sustainable Community Development Project.
-// Edit copy/links here without touching component JSX.
-
 export const SITE = {
   name: 'Project Rebirth',
   legalName: 'Project Rebirth, Inc.',
@@ -20,7 +17,6 @@ export const SITE = {
   copyrightYear: 2026,
 } as const
 
-// External link targets captured verbatim from the Canva design content.
 export const LINKS = {
   donate:
     'https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness',
@@ -74,7 +70,7 @@ export const NAV: NavItem[] = [
       { label: 'Forge Technology Academy', href: '/community' },
       { label: 'Mentorship Program', href: '/community' },
       { label: 'Internship Program', href: '/community' },
+      { label: 'Volunteer With Us', href: '/volunteers' },
     ],
   },
-  { label: 'Volunteer', href: '/volunteers' },
 ]
