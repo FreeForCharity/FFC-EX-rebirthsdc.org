@@ -10,10 +10,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/',
     '/mission',
     '/director',
+    '/our-story',
     '/technology',
     '/partnerships',
     '/resources',
     '/community',
+    '/volunteers',
+    '/housing-crisis',
+    '/why-it-matters',
     '/portal',
     '/privacy-policy',
     '/terms-of-use',
@@ -24,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: now,
-    changeFrequency: 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: route === '/' ? 1 : 0.7,
   }))
 }

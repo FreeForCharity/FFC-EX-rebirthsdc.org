@@ -254,3 +254,23 @@ body {
 .pr-card--maroon {
   border: 2px solid var(--pr-maroon);
 }
+
+/* ── Accessibility: focus-visible ring for keyboard navigation ── */
+:focus-visible {
+  outline: 2px solid var(--pr-maroon);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--pr-maroon);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Ensure sufficient contrast for body text on blueprint bg */
+.bp-grid p,
+.bp-grid li,
+.bp-grid span {
+  color: var(--pr-body);
+}

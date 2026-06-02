@@ -15,7 +15,6 @@ import {
   cinzel,
 } from '@/lib/fonts'
 
-// Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const metadata: Metadata = {
@@ -58,10 +57,10 @@ export const metadata: Metadata = {
       'Restoring dignity through scalable, 3D-printed infrastructure and high-impact vocational training.',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Project Rebirth',
+        url: '/Images/project-rebirth/hero-poster.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Project Rebirth — Restoring Dignity Through Scalable 3D-Printed Infrastructure',
       },
     ],
   },
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
     title: 'Project Rebirth | Sustainable Community Development Project',
     description:
       'Restoring dignity through scalable, 3D-printed infrastructure and high-impact vocational training.',
-    images: ['/web-app-manifest-512x512.png'],
+    images: ['/Images/project-rebirth/hero-poster.jpg'],
   },
   icons: {
     icon: [
@@ -81,6 +80,7 @@ export const metadata: Metadata = {
   },
   manifest: `${basePath}/site.webmanifest`,
 }
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,12 +89,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.zeffy.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.zeffy.com" />
-
         <GoogleTagManager />
       </head>
       <body
@@ -112,13 +110,13 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
-        {/* <PopupProvider> */}
         <Header />
-        <main className="pt-[84px]">{children}</main>
+        {/* id="main-content" enables the skip-to-content link in the header */}
+        <main id="main-content" className="pt-[84px]">
+          {children}
+        </main>
         <Footer />
         <CookieConsent />
-        {/* <PopupsRootClient /> */}
-        {/* </PopupProvider> */}
       </body>
     </html>
   )
