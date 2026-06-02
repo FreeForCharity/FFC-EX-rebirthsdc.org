@@ -69,6 +69,8 @@ body {
 
 #header {
   font-family: var(--font-open-sans), sans-serif !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
 }
 #aria-font {
   font-family: var(--font-open-sans), sans-serif !important;
