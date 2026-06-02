@@ -45,7 +45,7 @@ describe('Header component', () => {
 
   it('should render the primary nav sections', () => {
     render(<Header />)
-    expect(screen.getAllByText('Mission').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Missions').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Technology').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Partnerships').length).toBeGreaterThan(0)
   })

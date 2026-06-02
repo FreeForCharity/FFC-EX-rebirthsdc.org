@@ -6,7 +6,7 @@ import { MISSION } from '@/data/project-rebirth/content'
 import { LINKS } from '@/data/project-rebirth/site'
 
 export const metadata: Metadata = {
-  title: 'Mission',
+  title: 'Missions',
   description: MISSION.lead,
 }
 
@@ -32,15 +32,15 @@ export default function MissionPage() {
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg">
             <img
-              src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
-              alt="3D concrete printing infrastructure"
+              src={assetPath('/Images/project-rebirth/mission-blueprint-tools.jpg')}
+              alt="Engineering blueprints and construction tools"
               className="w-full h-72 object-cover md:h-full"
             />
           </div>
         </div>
       </Section>
 
-      {/* The Mandate — muted silver/grey box, not black */}
+      {/* The Mandate — silver-band WITH maroon border */}
       <Section tone="blueprint">
         <h2 className="pr-heading text-3xl md:text-4xl text-center mb-12">
           {MISSION.mandateHeading}
