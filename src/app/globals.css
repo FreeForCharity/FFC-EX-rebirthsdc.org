@@ -58,9 +58,15 @@ body {
     url('/Images/project-rebirth/blueprint-bg.png'),
     linear-gradient(rgba(124, 31, 46, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(124, 31, 46, 0.06) 1px, transparent 1px);
-  background-size: cover, 60px 60px, 60px 60px;
+  background-size:
+    cover,
+    60px 60px,
+    60px 60px;
   background-attachment: fixed, fixed, fixed;
-  background-position: center, 0 0, 0 0;
+  background-position:
+    center,
+    0 0,
+    0 0;
   background-blend-mode: normal;
   color: var(--pr-body);
 }

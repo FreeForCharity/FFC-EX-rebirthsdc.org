@@ -24,10 +24,8 @@ export const SITE = {
 export const LINKS = {
   donate:
     'https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness',
-  updatesForm:
-    'https://www.zeffy.com/en-US/newsletter-form/sign-up-for-our-newsletter-3549',
-  zeffyEmbed:
-    'https://www.zeffy.com/en-US/embed/newsletter-form/sign-up-for-our-newsletter-3549',
+  updatesForm: 'https://www.zeffy.com/en-US/newsletter-form/sign-up-for-our-newsletter-3549',
+  zeffyEmbed: 'https://www.zeffy.com/en-US/embed/newsletter-form/sign-up-for-our-newsletter-3549',
   privacyPolicy:
     'https://1drv.ms/b/c/d076761c7cd9edda/IQA_6vNxlcTLR4c2nYS3TMD8AdMXDSvJCEJMlWkGT4eWz4M?e=JOOG8A',
   legalDisclosures:

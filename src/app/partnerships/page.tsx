@@ -29,7 +29,6 @@ export default function PartnershipsPage() {
 
       <Section tone="blueprint">
         <div className="mx-auto max-w-4xl">
-
           {/* Globe image */}
           <div className="flex justify-center mb-12">
             <img
@@ -56,9 +55,13 @@ export default function PartnershipsPage() {
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--pr-body)] mb-4">{pillar.body}</p>
                 <div className="border-t border-[var(--pr-maroon)]/10 pt-4 space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)]">Partners</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)]">
+                    Partners
+                  </p>
                   <p className="text-xs text-[var(--pr-body)]">{pillar.partners}</p>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)] mt-2">What We Need</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)] mt-2">
+                    What We Need
+                  </p>
                   <p className="text-xs text-[var(--pr-body)]">{pillar.need}</p>
                 </div>
               </div>
@@ -82,7 +85,6 @@ export default function PartnershipsPage() {
               Become a Partner
             </a>
           </div>
-
         </div>
       </Section>
     </>

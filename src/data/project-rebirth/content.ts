@@ -50,7 +50,7 @@ export const DIRECTOR = {
   bio: 'LaQuan L. Alexander is a native of Benton Harbor, Michigan — a city that shaped his understanding of what it means to be left behind by a society that keeps moving forward. His vision is to create sustainable pathways for those who have been disenfranchised and left without opportunity — pathways that lead not just to stability, but to self-sufficiency, productivity, and the genuine ability to participate in and benefit from the society advancing around them. He pursues that vision by connecting cutting-edge 3D-printed construction technology and valuable, relevant resources with the communities most in need — not as charity, but as infrastructure and economic opportunity.',
   philosophyHeading: 'Leadership Philosophy',
   philosophy:
-    'True economic empowerment requires combining disciplined design architecture with an unshakeable, ground-level execution strategy. Leadership isn’t about managing structures; it’s about engineering the pipelines that allow individuals and communities to fully realize their latent potential.',
+    "True economic empowerment requires combining disciplined design architecture with an unshakeable, ground-level execution strategy. Leadership isn't about managing structures; it's about engineering the pipelines that allow individuals and communities to fully realize their latent potential.",
   forgedHeading: 'Forged by Design & Grind',
   forged:
     'Built on a foundation that bridges high-end structural design with raw operational hustle, my approach enforces absolute discipline across every phase of community development. By merging technological innovation with structured corporate placement, we transform systemic instability into permanent, generational autonomy.',
@@ -87,7 +87,7 @@ export const TECHNOLOGY = {
   impacts: [
     {
       title: 'For the Individual',
-      body: 'A family without stable housing is a family in crisis — at every level. Children fall behind in school. Adults cannot maintain employment. Mental and physical health deteriorate under the constant pressure of instability. 3D-printed construction changes the timeline from crisis to stability from years to weeks. A permanent, high-quality home — built in under 48 hours — is not just shelter. It is the platform from which every other part of a person\'s life can be rebuilt. Access to housing is access to everything: education, employment, health, dignity, and the future.',
+      body: "A family without stable housing is a family in crisis — at every level. Children fall behind in school. Adults cannot maintain employment. Mental and physical health deteriorate under the constant pressure of instability. 3D-printed construction changes the timeline from crisis to stability from years to weeks. A permanent, high-quality home — built in under 48 hours — is not just shelter. It is the platform from which every other part of a person's life can be rebuilt. Access to housing is access to everything: education, employment, health, dignity, and the future.",
     },
     {
       title: 'For the Community',
@@ -104,7 +104,6 @@ export const TECHNOLOGY = {
   ],
 }
 
-
 export const PARTNERSHIPS = {
   heading: 'Multidisciplinary Partnerships',
   intro:
@@ -120,7 +119,8 @@ export const PARTNERSHIPS = {
     {
       no: '02',
       title: 'Human Capital',
-      partners: 'Vocational Accreditors, Technical Universities, Logic/Software Research Institutes.',
+      partners:
+        'Vocational Accreditors, Technical Universities, Logic/Software Research Institutes.',
       need: 'Curriculum development for the Project Rebirth Technical Academy and AI workforce training.',
       body: 'Our mission is only as strong as the people we develop. We partner with educational institutions, vocational accreditors, and research organizations to build and validate the curriculum delivered at our Forge Technology Academy and Foundry School of Innovation. These partnerships ensure our graduates earn credentials that carry weight in the marketplace and enter the workforce with skills that employers are actively seeking.',
     },
@@ -134,7 +134,8 @@ export const PARTNERSHIPS = {
     {
       no: '04',
       title: 'Economic Governance',
-      partners: 'Institutional Investors, Family Offices, Economic Development Corporations (EDCs).',
+      partners:
+        'Institutional Investors, Family Offices, Economic Development Corporations (EDCs).',
       need: 'Capital deployment for the $1.5M Project Rebirth scaling goal and long-term fiscal stability modeling.',
       body: 'Sustainable impact requires sustainable capital. We partner with institutional investors, family offices, and economic development corporations who understand that investing in affordable housing infrastructure is not charity — it is one of the highest-return social investments available. These partnerships fund our scaling operations, support our workforce development pipeline, and build the long-term fiscal architecture that allows Project Rebirth to grow beyond its founding communities.',
     },
@@ -172,7 +173,7 @@ export const RESOURCES = {
     },
     {
       title: 'Housing Assistance',
-      body: 'Stable housing is not a luxury — it is the foundation upon which every other aspect of a stable life is built. Project Rebirth\'s Housing Assistance program provides direct pathways to sustainable, 3D-printed housing for those who need it most: single individuals, single parents (male and female), single-family households, veterans, and individuals rebuilding after incarceration.\n\nThe numbers tell the story of why this program exists. In 2024, a record 771,480 people experienced homelessness in the United States — an 18% increase over the prior year and the largest single-year jump ever recorded. Nearly 150,000 of them were children. Single parents are three times more likely to face housing instability than two-parent households, and the official poverty rate for single-mother families stands at 31.3% — nearly six times the rate for married-couple families. Formerly incarcerated individuals face even steeper barriers: they are up to 13 times more likely to experience homelessness than those without a criminal record, and nationwide there is already a shortage of 7.3 million affordable rental units available to extremely low-income households.\n\nThe crisis is not abstract — it has a face and an address in every city in America:\n\n• Portland, Oregon: The tri-county region counted 12,034 people experiencing homelessness in January 2025 — a 67% increase since 2023. Over 21,000 school-age children in Oregon experienced some form of homelessness during the 2024–25 school year.\n\n• Phoenix, Arizona: Maricopa County recorded 9,734 people experiencing homelessness in early 2025 — the highest total since national tracking began in 2007. After a brief one-year improvement in 2024, the region reversed all of its gains when federal funding for over 1,000 shelter beds expired. Black residents, who make up just 6% of the county population, comprise 29% of the unhoused.\n\n• Grand Rapids, Michigan: Kent County recorded 1,139 people experiencing homelessness in 2024 — a 70% increase from 2018. Statewide, nearly 10,000 Michigan residents lacked permanent housing in 2024, almost 1,000 more than the year before.\n\n• New Orleans, Louisiana: The city spent $216.3 million on homelessness initiatives between 2019 and 2024 — and still saw a 22% increase in its unhoused population over that same period. Two decades after Hurricane Katrina doubled the city\'s homeless population overnight, the cycle continues. Seniors experiencing homelessness have increased 78% in just six years.\n\n• Hawaii & Maui: The August 2023 Lahaina wildfire destroyed over 2,200 structures, displaced more than 5,000 residents, and nearly doubled Hawaii\'s homeless population in a single year — an 87% increase, making it the highest rate in the nation. Two years later, roughly 90% of Lahaina burn area residents remain displaced, with permanent housing availability remaining the primary bottleneck.\n\nHere is the truth that these numbers demand we say plainly: governments and well-funded organizations have applied band-aids to arterial wounds for decades — spending hundreds of millions of dollars to produce marginal results, only to watch those gains reversed the moment temporary funding expires. Frustrated civilians rightfully demand change, but frustration without a solution changes nothing.\n\nProject Rebirth is the solution. 3D-printed additive construction can deploy permanent, high-resilience housing units in under 48 hours per structure — at a fraction of the cost and timeline of traditional construction. We are not proposing another study, another task force, or another temporary shelter. We are building permanent infrastructure. And it takes all of us.\n\nIf you or your family are in need of stable housing, our team will connect you with the appropriate housing program, application support, and deployment resources.',
+      body: "Stable housing is not a luxury — it is the foundation upon which every other aspect of a stable life is built. Project Rebirth's Housing Assistance program provides direct pathways to sustainable, 3D-printed housing for those who need it most: single individuals, single parents (male and female), single-family households, veterans, and individuals rebuilding after incarceration.\n\nThe numbers tell the story of why this program exists. In 2024, a record 771,480 people experienced homelessness in the United States — an 18% increase over the prior year and the largest single-year jump ever recorded. Nearly 150,000 of them were children. Single parents are three times more likely to face housing instability than two-parent households, and the official poverty rate for single-mother families stands at 31.3% — nearly six times the rate for married-couple families. Formerly incarcerated individuals face even steeper barriers: they are up to 13 times more likely to experience homelessness than those without a criminal record, and nationwide there is already a shortage of 7.3 million affordable rental units available to extremely low-income households.\n\nThe crisis is not abstract — it has a face and an address in every city in America:\n\n• Portland, Oregon: The tri-county region counted 12,034 people experiencing homelessness in January 2025 — a 67% increase since 2023. Over 21,000 school-age children in Oregon experienced some form of homelessness during the 2024–25 school year.\n\n• Phoenix, Arizona: Maricopa County recorded 9,734 people experiencing homelessness in early 2025 — the highest total since national tracking began in 2007. After a brief one-year improvement in 2024, the region reversed all of its gains when federal funding for over 1,000 shelter beds expired. Black residents, who make up just 6% of the county population, comprise 29% of the unhoused.\n\n• Grand Rapids, Michigan: Kent County recorded 1,139 people experiencing homelessness in 2024 — a 70% increase from 2018. Statewide, nearly 10,000 Michigan residents lacked permanent housing in 2024, almost 1,000 more than the year before.\n\n• New Orleans, Louisiana: The city spent $216.3 million on homelessness initiatives between 2019 and 2024 — and still saw a 22% increase in its unhoused population over that same period. Two decades after Hurricane Katrina doubled the city's homeless population overnight, the cycle continues. Seniors experiencing homelessness have increased 78% in just six years.\n\n• Hawaii & Maui: The August 2023 Lahaina wildfire destroyed over 2,200 structures, displaced more than 5,000 residents, and nearly doubled Hawaii's homeless population in a single year — an 87% increase, making it the highest rate in the nation. Two years later, roughly 90% of Lahaina burn area residents remain displaced, with permanent housing availability remaining the primary bottleneck.\n\nHere is the truth that these numbers demand we say plainly: governments and well-funded organizations have applied band-aids to arterial wounds for decades — spending hundreds of millions of dollars to produce marginal results, only to watch those gains reversed the moment temporary funding expires. Frustrated civilians rightfully demand change, but frustration without a solution changes nothing.\n\nProject Rebirth is the solution. 3D-printed additive construction can deploy permanent, high-resilience housing units in under 48 hours per structure — at a fraction of the cost and timeline of traditional construction. We are not proposing another study, another task force, or another temporary shelter. We are building permanent infrastructure. And it takes all of us.\n\nIf you or your family are in need of stable housing, our team will connect you with the appropriate housing program, application support, and deployment resources.",
     },
     {
       title: 'Job Placement Assistance',
@@ -188,7 +189,7 @@ export const RESOURCES = {
     },
     {
       title: 'Second Chance Resources',
-      body: 'Project Rebirth was built with the conviction that a person\'s past does not define their potential. Our Second Chance Resources program is a dedicated reintegration and professional redevelopment pathway open to individuals with prior justice involvement who are ready to build something lasting. This program welcomes those who have completed their sentences and are committed to a new direction — including individuals navigating domestic violence recovery and those who are registered, compliant, and actively working toward stability. We meet you where you are, without judgment, and engineer a structured pathway forward through housing access, vocational training, mentorship, and career placement.',
+      body: "Project Rebirth was built with the conviction that a person's past does not define their potential. Our Second Chance Resources program is a dedicated reintegration and professional redevelopment pathway open to individuals with prior justice involvement who are ready to build something lasting. This program welcomes those who have completed their sentences and are committed to a new direction — including individuals navigating domestic violence recovery and those who are registered, compliant, and actively working toward stability. We meet you where you are, without judgment, and engineer a structured pathway forward through housing access, vocational training, mentorship, and career placement.",
     },
   ],
 }
@@ -212,7 +213,7 @@ export const COMMUNITY = {
     },
     {
       title: 'Mentorship Program',
-      body: 'Every person who has ever made it through a difficult season did so because someone believed in them before they believed in themselves.\n\nProject Rebirth's Mentorship Program connects two kinds of people: those who are ready to give back, and those who are ready to receive. Whether you are a seasoned professional, a community leader, a business owner, or someone who simply has wisdom earned through hard living — we need you as a mentor. And whether you are a young person trying to find direction, an adult navigating a transition, or someone who just needs someone in their corner — we need you to step in as a mentee.\n\nMentorship at Project Rebirth is structured, supported, and intentional. We match mentors and mentees based on industry, goals, and background. We provide the framework — you bring the relationship.\n\nRegister below whether you are coming as a mentor or a mentee. Both matter equally.',
+      body: "Every person who has ever made it through a difficult season did so because someone believed in them before they believed in themselves.\n\nProject Rebirth's Mentorship Program connects two kinds of people: those who are ready to give back, and those who are ready to receive. Whether you are a seasoned professional, a community leader, a business owner, or someone who simply has wisdom earned through hard living — we need you as a mentor. And whether you are a young person trying to find direction, an adult navigating a transition, or someone who just needs someone in their corner — we need you to step in as a mentee.\n\nMentorship at Project Rebirth is structured, supported, and intentional. We match mentors and mentees based on industry, goals, and background. We provide the framework — you bring the relationship.\n\nRegister below whether you are coming as a mentor or a mentee. Both matter equally.",
     },
     {
       title: 'Internship Program',
@@ -223,10 +224,11 @@ export const COMMUNITY = {
 
 export const OUR_STORY = {
   heading: 'Our Story',
-  subheading: 'We believe we were called to this — not by accident, but by purpose. Whatever you call that force — faith, conviction, moral clarity, or the undeniable pull of doing what is right — we answer it every day.',
+  subheading:
+    'We believe we were called to this — not by accident, but by purpose. Whatever you call that force — faith, conviction, moral clarity, or the undeniable pull of doing what is right — we answer it every day.',
 
   thePeople: {
-    heading: 'Let\'s Start at the Root',
+    heading: "Let's Start at the Root",
     body: 'Every crisis has a root. And the root of the housing crisis is not a shortage of lumber or land. It is a shortage of belief — in the value of certain people, in certain communities, and ultimately in the obligation we carry to one another as human beings.\n\nBefore we can build homes for people, we have to address something deeper: how people see themselves, what they believe is possible for their lives, and how they understand their place in the world. Decades of systemic neglect, economic exclusion, and social invisibility do not just leave people without housing — they leave people without hope. They leave people without the internal architecture to imagine a different life, let alone build one.\n\nWe see this in the communities we serve. In Benton Harbor, Flint, and Saginaw. In South and West Phoenix. In the storm-worn corridors of New Orleans and the wildfire-displaced neighborhoods of Maui. In every city where abandoned buildings outnumber opportunity, where children grow up without parks or functioning schools, where an entire generation has been taught — not by words, but by circumstances — that they do not matter.\n\nThey are Black, white, Latino, Native American, Pacific Islander, and everything in between. Veterans. Single parents. Young people who aged out of foster care with nowhere to land. Men and women rebuilding after incarceration who cannot get a landlord to say yes. Seniors priced out of neighborhoods they spent their lives building.\n\n**Project Rebirth is starting at the root because that is the only place lasting change begins. We do not just build homes — we build people.** We invest in how they see themselves, what they believe they deserve, and what they understand themselves to be capable of. A person who knows their value will fight for a future. A person who has been told — explicitly or implicitly — that they have none, will not.\n\nThat is where we start. And everything else we build is built on top of that foundation.',
   },
 
@@ -255,10 +257,10 @@ export const OUR_STORY = {
   },
 }
 
-
 export const WHY_IT_MATTERS = {
   heading: 'Why It Matters',
-  subheading: 'Homelessness is not just a personal crisis. It is a communal wound — and it costs all of us.',
+  subheading:
+    'Homelessness is not just a personal crisis. It is a communal wound — and it costs all of us.',
 
   individual: {
     heading: 'What It Does to a Person',
@@ -288,7 +290,8 @@ export const WHY_IT_MATTERS = {
 
 export const VOLUNTEERS = {
   heading: 'Volunteer With Project Rebirth',
-  intro: 'Some of the most important work in the world gets done by people who simply decided to show up. If you have time, skills, passion, or just a willingness to do whatever needs doing — we need you.',
+  intro:
+    'Some of the most important work in the world gets done by people who simply decided to show up. If you have time, skills, passion, or just a willingness to do whatever needs doing — we need you.',
   roles: [
     {
       title: 'Community Outreach',
@@ -296,7 +299,7 @@ export const VOLUNTEERS = {
     },
     {
       title: 'Mentorship Support',
-      body: 'Work alongside our mentorship team to support participants, facilitate connections, and help build the kind of relationships that change the trajectory of a person's life.',
+      body: "Work alongside our mentorship team to support participants, facilitate connections, and help build the kind of relationships that change the trajectory of a person's life.",
     },
     {
       title: 'Administrative & Operations',
@@ -314,8 +317,7 @@ export const VOLUNTEERS = {
   contactEmail: 'info@rebirthsdc.org',
 }
 
-
-
+export const PORTAL_PAGE = {
   heading: 'Project Rebirth: Coming Soon',
   badge: 'In Development: Innovation Connection Portal',
   lead: 'We are currently refining the systems for our upcoming initiatives.',

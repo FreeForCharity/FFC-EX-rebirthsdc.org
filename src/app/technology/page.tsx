@@ -105,7 +105,12 @@ export default function TechnologyPage() {
                   {impact.title}
                 </h3>
                 {impact.body.split('\n\n').map((p, j) => (
-                  <p key={j} className="mb-3 text-sm leading-relaxed text-[var(--pr-body)] last:mb-0">{p}</p>
+                  <p
+                    key={j}
+                    className="mb-3 text-sm leading-relaxed text-[var(--pr-body)] last:mb-0"
+                  >
+                    {p}
+                  </p>
                 ))}
               </div>
             ))}
@@ -137,7 +142,6 @@ export default function TechnologyPage() {
             Partner With Us
           </a>
         </div>
-
       </Section>
     </>
   )
