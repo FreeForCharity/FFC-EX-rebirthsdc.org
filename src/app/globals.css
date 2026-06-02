@@ -367,11 +367,6 @@ button:focus-visible {
     padding-bottom: 3rem !important;
   }
 
-  /* Container padding on small screens */
-  .pr-container {
-    padding-inline: 16px;
-  }
-
   /* Cards full width on mobile */
   .pr-card {
     border-radius: 8px;
@@ -383,8 +378,8 @@ button:focus-visible {
   }
 }
 
-/* Ensure images never overflow on mobile */
-img {
+/* Ensure images never overflow on mobile — exclude header logo */
+img:not(header img) {
   max-width: 100%;
   height: auto;
 }
