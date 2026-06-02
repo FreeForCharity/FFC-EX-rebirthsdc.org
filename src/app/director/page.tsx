@@ -45,12 +45,13 @@ export default function DirectorPage() {
         </div>
       </Section>
 
-      <Section tone="ink">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[280px_1fr] md:items-center">
-          <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[var(--pr-flame)]">
+      {/* Executive Oversight — muted silver/grey box, not black */}
+      <Section tone="blueprint">
+        <div className="silver-band rounded-xl p-8 grid grid-cols-1 gap-6 md:grid-cols-[280px_1fr] md:items-center">
+          <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[var(--pr-maroon)]">
             {DIRECTOR.oversightHeading}
           </h2>
-          <p className="leading-relaxed text-white/85">{DIRECTOR.oversight}</p>
+          <p className="leading-relaxed text-[var(--pr-body)]">{DIRECTOR.oversight}</p>
         </div>
       </Section>
     </>
