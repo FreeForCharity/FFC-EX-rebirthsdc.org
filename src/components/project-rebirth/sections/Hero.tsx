@@ -7,7 +7,7 @@ import { HOME } from '@/data/project-rebirth/content'
 const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[var(--pr-ink)]">
-      {/* Static poster background — the sole background for reduced-motion users */}
+      {/* Static poster background — fallback for reduced-motion users */}
       <img
         src={assetPath('/Images/project-rebirth/hero-poster.jpg')}
         alt=""
@@ -15,31 +15,20 @@ const Hero: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Background video via Vimeo — autoplay, muted, looped, no controls */}
-      <div
-        className="absolute inset-0 motion-reduce:hidden overflow-hidden"
+      {/* Background video — autoplay, muted, looped, cropped to fill */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
         aria-hidden="true"
-        style={{ pointerEvents: 'none' }}
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={assetPath('/Images/project-rebirth/hero-poster.jpg')}
       >
-        <iframe
-          src="https://player.vimeo.com/video/1197012454?autoplay=1&muted=1&loop=1&background=1&autopause=0"
-          allow="autoplay; fullscreen"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '100vw',
-            height: '56.25vw',
-            minHeight: '100%',
-            minWidth: '177.78vh',
-            transform: 'translate(-50%, -50%)',
-            border: 'none',
-            pointerEvents: 'none',
-          }}
-        />
-      </div>
+        <source src={assetPath('/videos/hero-3d-printing.mp4')} type="video/mp4" />
+      </video>
 
-      {/* Subtle dark overlay for text legibility — no maroon tint */}
+      {/* Subtle dark overlay for text legibility */}
       <div
         className="absolute inset-0"
         style={{
