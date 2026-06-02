@@ -352,3 +352,39 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 3px;
 }
+
+/* ── Mobile responsiveness fixes (#69) ── */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Tighten section padding on mobile */
+  .bp-grid,
+  .bp-grid-dark {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Container padding on small screens */
+  .pr-container {
+    padding-inline: 16px;
+  }
+
+  /* Cards full width on mobile */
+  .pr-card {
+    border-radius: 8px;
+  }
+
+  /* Silver band readable on mobile */
+  .silver-band {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Ensure images never overflow on mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}

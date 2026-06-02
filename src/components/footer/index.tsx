@@ -80,7 +80,7 @@ const socialLinks = [
 const Footer: React.FC = () => {
   return (
     <footer className="bp-grid-dark text-white">
-      <div className="pr-container grid grid-cols-1 gap-8 py-14 md:grid-cols-2 lg:grid-cols-5">
+      <div className="pr-container grid grid-cols-1 gap-8 py-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {/* Contact Us */}
         <div className="space-y-3">
           <h3 className="font-display text-base uppercase tracking-wide text-white">Contact Us</h3>
@@ -201,6 +201,31 @@ const Footer: React.FC = () => {
             Project Rebirth is a 501(c)(3) tax-exempt organization. Donations are tax-deductible to
             the extent allowed by law.
           </p>
+        </div>
+
+        {/* Quick Links — #68 */}
+        <div className="space-y-3">
+          <h3 className="font-display text-base uppercase tracking-wide text-white">Quick Links</h3>
+          <ul className="space-y-2">
+            {[
+              { label: 'Our Mission', href: '/mission' },
+              { label: 'Our Story', href: '/our-story' },
+              { label: 'Technology', href: '/technology' },
+              { label: 'Partnerships', href: '/partnerships' },
+              { label: 'Resources', href: '/resources' },
+              { label: 'Community', href: '/community' },
+              { label: 'Innovation Portal', href: '/portal' },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Follow Us */}
