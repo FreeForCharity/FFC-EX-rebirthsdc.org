@@ -70,8 +70,8 @@ export default function OurStoryPage() {
                 className="w-full h-52 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1564419431702-7f1fe5bfb7ee?w=900&q=80"
-                alt="Urban neighborhood — the communities Project Rebirth was built to serve"
+                src={assetPath('/Images/project-rebirth/benton-harbor-neighborhood.jpg')}
+                alt="Urban neighborhood in Benton Harbor, Michigan — the communities Project Rebirth was built to serve"
                 className="w-full h-52 object-cover"
                 style={{ objectPosition: 'center 60%' }}
               />

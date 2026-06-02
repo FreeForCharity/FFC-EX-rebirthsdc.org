@@ -239,7 +239,23 @@ body {
   z-index: 0;
 }
 
-/* Ensure content inside bp-grid sections sits above the grid overlay */
+/* White glare/wash overlay — soft center glow for text legibility (matches Canva design) */
+.bp-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 40%,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.08) 75%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+/* Ensure content inside bp-grid sections sits above all overlays */
 .bp-grid > * {
   position: relative;
   z-index: 1;
