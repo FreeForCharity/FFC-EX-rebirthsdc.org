@@ -46,20 +46,13 @@ export default function OurStoryPage() {
         </div>
 
         <div className="mx-auto max-w-3xl space-y-8">
-          {/* Section 1: Let's Start at the Root — volunteers image (img 3) + img 4 side by side */}
+          {/* Section 1: Let's Start at the Root — mission volunteers photo */}
           <div className="pr-card rounded-xl overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <img
-                src={assetPath('/Images/project-rebirth/our-story-root-1.jpg')}
-                alt="Project Rebirth volunteers serving the community"
-                className="w-full h-52 object-cover"
-              />
-              <img
-                src={assetPath('/Images/project-rebirth/our-story-root-2.jpg')}
-                alt="Project Rebirth volunteer community outreach"
-                className="w-full h-52 object-cover"
-              />
-            </div>
+            <img
+              src={assetPath('/Images/project-rebirth/mission-volunteers.jpg')}
+              alt="Project Rebirth volunteers serving the community"
+              className="w-full h-52 object-cover"
+            />
             <div className="p-8">
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
                 {OUR_STORY.thePeople.heading}
@@ -68,14 +61,21 @@ export default function OurStoryPage() {
             </div>
           </div>
 
-          {/* Section 2: The Story Behind Project Rebirth — Benton Harbor neighborhood */}
+          {/* Section 2: The Story Behind — volunteer photo + Benton Harbor neighborhood side by side */}
           <div className="pr-card rounded-xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1564419431702-7f1fe5bfb7ee?w=900&q=80"
-              alt="Urban neighborhood — the communities Project Rebirth was built to serve"
-              className="w-full h-52 object-cover"
-              style={{ objectPosition: 'center 60%' }}
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <img
+                src={assetPath('/Images/project-rebirth/our-story-root-1.jpg')}
+                alt="Project Rebirth volunteers in the community"
+                className="w-full h-52 object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1564419431702-7f1fe5bfb7ee?w=900&q=80"
+                alt="Urban neighborhood — the communities Project Rebirth was built to serve"
+                className="w-full h-52 object-cover"
+                style={{ objectPosition: 'center 60%' }}
+              />
+            </div>
             <div className="p-8">
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
                 {OUR_STORY.theStory.heading}
