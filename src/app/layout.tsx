@@ -94,6 +94,42 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.zeffy.com" />
         <GoogleTagManager />
+        {/* Structured data — nonprofit organization for Google Knowledge Panel (#56) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'NGO',
+              name: 'Project Rebirth',
+              legalName: 'Project Rebirth, Inc.',
+              url: 'https://rebirthsdc.org',
+              logo: 'https://rebirthsdc.org/Images/project-rebirth/logo-phoenix.png',
+              description:
+                'Project Rebirth engineers the systemic eradication of housing insecurity through scalable, 3D-printed infrastructure and high-impact vocational training.',
+              foundingDate: '2024',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Grand Rapids',
+                addressRegion: 'MI',
+                addressCountry: 'US',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                email: 'info@rebirthSDC.org',
+                telephone: '+1-480-559-2365',
+                contactType: 'customer support',
+              },
+              sameAs: [
+                'https://facebook.com/share/1BYV22rv6k/',
+                'https://instagram.com/sustainablecommunityproject',
+                'https://x.com/projectrebirth7',
+              ],
+              nonprofitStatus: 'Nonprofit501c3',
+              taxID: 'Available upon request',
+            }),
+          }}
+        />
       </head>
       <body
         className={[
