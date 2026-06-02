@@ -1,18 +1,6 @@
 'use client'
 
 import React from 'react'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  Legend,
-} from 'recharts'
 import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
 import PartnerButton from '@/components/project-rebirth/PartnerButton'
 import { OUR_STORY } from '@/data/project-rebirth/content'
@@ -92,7 +80,7 @@ export default function TheCrisisPage() {
   return (
     <>
       {/* Hero */}
-      <Section tone="dark">
+      <Section tone="ink">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
             The Full Picture
@@ -127,35 +115,25 @@ export default function TheCrisisPage() {
               City-by-City: Unhoused Population
             </h2>
             <p className="text-xs text-[var(--pr-body)] mb-6">Point-in-time counts, 2024–2025</p>
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={cityData} margin={{ top: 0, right: 10, left: 0, bottom: 40 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(124,31,46,0.1)" />
-                <XAxis
-                  dataKey="city"
-                  tick={{ fontSize: 11, fill: INK }}
-                  angle={-20}
-                  textAnchor="end"
-                  interval={0}
-                />
-                <YAxis tick={{ fontSize: 11, fill: INK }} />
-                <Tooltip
-                  formatter={(v: number) => [v.toLocaleString(), 'Unhoused']}
-                  contentStyle={{ fontSize: 12 }}
-                />
-                <Bar
-                  dataKey="count"
-                  fill={MAROON}
-                  radius={[4, 4, 0, 0]}
-                  label={{
-                    position: 'top',
-                    fontSize: 10,
-                    fill: FLAME,
-                    formatter: (_: number, entry: { payload: { change: string } }) =>
-                      entry.payload.change,
-                  }}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+            <div className="space-y-3 pt-2">
+              {cityData.map((d) => (
+                <div key={d.city}>
+                  <div className="flex justify-between text-xs text-[var(--pr-body)] mb-1">
+                    <span>{d.city}</span>
+                    <span className="font-semibold">
+                      {d.count.toLocaleString()}{' '}
+                      <span className="text-[var(--pr-flame)]">{d.change}</span>
+                    </span>
+                  </div>
+                  <div className="h-4 w-full rounded-full bg-gray-100 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-[var(--pr-maroon)]"
+                      style={{ width: `${(d.count / 12034) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
             <p className="text-xs text-[var(--pr-body)] mt-3 text-center">
               % shown above each bar = recent rate of increase
             </p>
@@ -169,50 +147,34 @@ export default function TheCrisisPage() {
             <p className="text-xs text-[var(--pr-body)] mb-6">
               US median home price vs. median monthly rent, 2019–2024
             </p>
-            <ResponsiveContainer width="100%" height={260}>
-              <LineChart data={housingCostData} margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(124,31,46,0.1)" />
-                <XAxis dataKey="year" tick={{ fontSize: 11, fill: INK }} />
-                <YAxis
-                  yAxisId="left"
-                  tick={{ fontSize: 11, fill: INK }}
-                  tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
-                />
-                <YAxis
-                  yAxisId="right"
-                  orientation="right"
-                  tick={{ fontSize: 11, fill: INK }}
-                  tickFormatter={(v) => `$${v}`}
-                />
-                <Tooltip
-                  formatter={(v: number, name: string) => [
-                    name === 'medianHome' ? `$${v.toLocaleString()}` : `$${v}/mo`,
-                    name === 'medianHome' ? 'Median Home Price' : 'Median Monthly Rent',
-                  ]}
-                />
-                <Legend
-                  formatter={(v) =>
-                    v === 'medianHome' ? 'Median Home Price' : 'Median Monthly Rent'
-                  }
-                />
-                <Line
-                  yAxisId="left"
-                  type="monotone"
-                  dataKey="medianHome"
-                  stroke={MAROON}
-                  strokeWidth={2}
-                  dot={{ fill: MAROON }}
-                />
-                <Line
-                  yAxisId="right"
-                  type="monotone"
-                  dataKey="medianRent"
-                  stroke={FLAME}
-                  strokeWidth={2}
-                  dot={{ fill: FLAME }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-[var(--pr-body)]">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="py-2 text-left font-semibold">Year</th>
+                    <th className="py-2 text-right font-semibold text-[var(--pr-maroon)]">
+                      Median Home Price
+                    </th>
+                    <th className="py-2 text-right font-semibold text-[var(--pr-flame)]">
+                      Median Rent/mo
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {housingCostData.map((d) => (
+                    <tr key={d.year} className="border-b border-gray-100">
+                      <td className="py-2">{d.year}</td>
+                      <td className="py-2 text-right">
+                        ${'{'}d.medianHome.toLocaleString(){'}'}
+                      </td>
+                      <td className="py-2 text-right">
+                        ${'{'}d.medianRent.toLocaleString(){'}'}/mo
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           {/* 3D vs Traditional */}
@@ -228,29 +190,47 @@ export default function TheCrisisPage() {
                 <p className="text-xs font-bold uppercase tracking-wider text-[var(--pr-maroon)] mb-3">
                   Cost / sq ft (USD)
                 </p>
-                <ResponsiveContainer width="100%" height={160}>
-                  <BarChart data={constructionData} layout="vertical" margin={{ left: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(124,31,46,0.1)" />
-                    <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-                    <YAxis type="category" dataKey="method" tick={{ fontSize: 11 }} width={90} />
-                    <Tooltip formatter={(v: number) => [`$${v}`, 'Cost/sq ft']} />
-                    <Bar dataKey="costPerSqFt" fill={MAROON} radius={[0, 4, 4, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <div className="space-y-4 pt-2">
+                  {constructionData.map((d) => (
+                    <div key={d.method}>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-[var(--pr-body)]">{d.method}</span>
+                        <span className="font-bold text-[var(--pr-maroon)]">
+                          ${'{'}d.costPerSqFt{'}'}/sq ft
+                        </span>
+                      </div>
+                      <div className="h-5 w-full rounded bg-gray-100 overflow-hidden">
+                        <div
+                          className="h-full rounded bg-[var(--pr-maroon)]"
+                          style={{ width: `${'{'}(d.costPerSqFt / 225) * 100{'}'}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[var(--pr-maroon)] mb-3">
                   Days to structural shell
                 </p>
-                <ResponsiveContainer width="100%" height={160}>
-                  <BarChart data={constructionData} layout="vertical" margin={{ left: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(124,31,46,0.1)" />
-                    <XAxis type="number" tick={{ fontSize: 11 }} />
-                    <YAxis type="category" dataKey="method" tick={{ fontSize: 11 }} width={90} />
-                    <Tooltip formatter={(v: number) => [`${v} days`, 'Time to shell']} />
-                    <Bar dataKey="timeToShell" fill={FLAME} radius={[0, 4, 4, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <div className="space-y-4 pt-2">
+                  {constructionData.map((d) => (
+                    <div key={d.method}>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-[var(--pr-body)]">{d.method}</span>
+                        <span className="font-bold text-[var(--pr-flame)]">
+                          {d.timeToShell} days
+                        </span>
+                      </div>
+                      <div className="h-5 w-full rounded bg-gray-100 overflow-hidden">
+                        <div
+                          className="h-full rounded bg-[var(--pr-flame)]"
+                          style={{ width: `${'{'}(d.timeToShell / 120) * 100{'}'}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="mt-6 grid grid-cols-2 gap-4 text-center">

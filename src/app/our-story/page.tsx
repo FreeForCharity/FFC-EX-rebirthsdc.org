@@ -55,7 +55,7 @@ function StorySection({
 export default function OurStoryPage() {
   return (
     <>
-      <Section tone="dark">
+      <Section tone="ink">
         <div className="mx-auto max-w-3xl text-center">
           <SectionHeading as="h1" center className="mb-6 text-white">
             Our Story
