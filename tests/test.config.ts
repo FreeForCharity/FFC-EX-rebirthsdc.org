@@ -14,7 +14,7 @@ export const testConfig = {
     name: 'PROJECT REBIRTH',
     logoSrcFragment: 'logo-phoenix',
     navHomeAriaLabel: 'Project Rebirth home',
-    navSections: ['Home', 'Mission', 'Director', 'Technology', 'Partnerships'],
+    navSections: ['Home', 'Missions', 'Director', 'Technology', 'Partnerships'],
   },
 
   /**
