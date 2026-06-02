@@ -20,52 +20,63 @@ const impactIcons: Record<string, string> = {
 export default function TechnologyPage() {
   return (
     <>
-      {/* Hero */}
-      <Section tone="ink">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
-            Additive Construction
-          </p>
-          <SectionHeading as="h1" center className="mb-6 text-white">
+      {/* Start on blueprint — no dark box at top */}
+      <Section tone="blueprint">
+        <div className="mx-auto max-w-3xl text-center mb-10">
+          <SectionHeading as="h1" center className="mb-6">
             {TECHNOLOGY.heading}
           </SectionHeading>
-          <p className="text-base leading-relaxed text-white/80 max-w-2xl mx-auto">
+          <p className="text-base leading-relaxed text-[var(--pr-body)] max-w-2xl mx-auto">
             {TECHNOLOGY.intro}
           </p>
         </div>
-      </Section>
 
-      {/* How It Works — Traditional vs Additive */}
-      <Section tone="blueprint">
-        <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
-          {TECHNOLOGY.advantageHeading}
-        </h2>
-        <div className="mx-auto max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="pr-card rounded-xl p-7">
-            <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-body)] mb-4">
-              {TECHNOLOGY.traditional.title}
-            </h3>
-            <ul className="space-y-3">
-              {TECHNOLOGY.traditional.points.map((pt, i) => (
-                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gray-300" />
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
+        {/* Director portrait on technology page */}
+        <div className="mx-auto max-w-4xl mb-10">
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={assetPath('/Images/project-rebirth/director-portrait.jpg')}
+              alt="LaQuan L. Alexander, Founder & Managing Director"
+              className="w-full h-72 object-cover object-top"
+            />
           </div>
-          <div className="rounded-xl border-2 border-[var(--pr-maroon)] bg-white/80 p-7">
-            <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
-              {TECHNOLOGY.additive.title}
-            </h3>
-            <ul className="space-y-3">
-              {TECHNOLOGY.additive.points.map((pt, i) => (
-                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]" />
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
+        </div>
+
+        {/* "Additive Construction" label directly above "How It Works" */}
+        <div className="mx-auto max-w-4xl">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)] text-center mb-1">
+            Additive Construction
+          </p>
+          <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
+            {TECHNOLOGY.advantageHeading}
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="pr-card rounded-xl p-7">
+              <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-body)] mb-4">
+                {TECHNOLOGY.traditional.title}
+              </h3>
+              <ul className="space-y-3">
+                {TECHNOLOGY.traditional.points.map((pt, i) => (
+                  <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gray-300" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border-2 border-[var(--pr-maroon)] bg-white/80 p-7">
+              <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
+                {TECHNOLOGY.additive.title}
+              </h3>
+              <ul className="space-y-3">
+                {TECHNOLOGY.additive.points.map((pt, i) => (
+                  <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -114,17 +125,6 @@ export default function TechnologyPage() {
                 ))}
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* 3D printing house image */}
-        <div className="mx-auto max-w-4xl mt-10">
-          <div className="rounded-xl overflow-hidden shadow-lg">
-            <img
-              src={assetPath('/Images/project-rebirth/3d-printing-house.jpg')}
-              alt="3D printed house construction in progress"
-              className="w-full h-72 object-cover"
-            />
           </div>
         </div>
 

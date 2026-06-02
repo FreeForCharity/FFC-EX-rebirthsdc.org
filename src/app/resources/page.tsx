@@ -23,21 +23,24 @@ export default function ResourcesPage() {
         </p>
         <ul className="mx-auto grid max-w-4xl grid-cols-1 gap-4">
           {RESOURCES.items.map((item) => (
-            <li key={item.title}>
-              <a
-                href={LINKS.updatesForm}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pr-card group flex items-start gap-4 p-5 transition-transform hover:-translate-y-0.5"
-              >
-                <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-[var(--pr-maroon)] transition-transform group-hover:translate-x-1" />
-                <span>
-                  <span className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)]">
+            <li key={item.title} className="pr-card rounded-xl p-6">
+              <div className="flex items-start gap-4">
+                <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-[var(--pr-maroon)]" />
+                <div className="flex-1">
+                  <h2 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-1">
                     {item.title}
-                  </span>
-                  <span className="mt-1 block text-sm text-[var(--pr-body)]">{item.body}</span>
-                </span>
-              </a>
+                  </h2>
+                  <p className="text-sm text-[var(--pr-body)] mb-4">{item.body}</p>
+                  <a
+                    href={LINKS.updatesForm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-xs font-bold uppercase tracking-widest text-[var(--pr-flame)] hover:underline"
+                  >
+                    Learn More / Register →
+                  </a>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

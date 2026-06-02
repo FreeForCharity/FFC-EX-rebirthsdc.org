@@ -55,33 +55,26 @@ function StorySection({
 export default function OurStoryPage() {
   return (
     <>
-      <Section tone="ink">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeading as="h1" center className="mb-6 text-white">
+      {/* Start directly on blueprint — no dark box at top */}
+      <Section tone="blueprint">
+        <div className="mx-auto max-w-3xl text-center mb-10">
+          <SectionHeading as="h1" center className="mb-6">
             Our Story
           </SectionHeading>
           <p className="text-base font-semibold leading-relaxed text-[var(--pr-maroon)]">
             {OUR_STORY.subheading}
           </p>
         </div>
-      </Section>
 
-      <Section tone="blueprint">
         <div className="mx-auto max-w-3xl space-y-8">
-          {/* Let's Start at the Root */}
           <StorySection heading={OUR_STORY.thePeople.heading} body={OUR_STORY.thePeople.body} />
-
-          {/* The Story Behind Project Rebirth */}
           <StorySection
             heading={OUR_STORY.theStory.heading}
             body={OUR_STORY.theStory.body}
             accent
           />
-
-          {/* Where We Are Going */}
           <StorySection heading={OUR_STORY.theVision.heading} body={OUR_STORY.theVision.body} />
 
-          {/* Bridge to data pages */}
           <div className="rounded-xl border border-[var(--pr-maroon)]/30 bg-[var(--pr-maroon)]/5 p-8 text-center">
             <p className="text-sm leading-relaxed text-[var(--pr-body)] mb-6">
               Want to understand the full scale of the housing crisis — the data, the human cost,
