@@ -6,7 +6,10 @@ import { HOME } from '@/data/project-rebirth/content'
 /** Home hero with the 3D-printing video as a background layer. */
 const Hero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-[var(--pr-ink)]">
+    <section
+      className="relative overflow-hidden bg-[var(--pr-ink)]"
+      style={{ marginTop: '-1px' }}
+    >
       {/* Static poster background — fallback for reduced-motion users */}
       <img
         src={assetPath('/Images/project-rebirth/hero-poster.jpg')}
@@ -24,6 +27,7 @@ const Hero: React.FC = () => {
         loop
         playsInline
         poster={assetPath('/Images/project-rebirth/hero-poster.jpg')}
+        style={{ objectPosition: 'center center' }}
       >
         <source src={assetPath('/videos/hero-3d-printing.mp4')} type="video/mp4" />
       </video>

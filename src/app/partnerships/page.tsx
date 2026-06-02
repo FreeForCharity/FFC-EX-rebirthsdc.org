@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { Section } from '@/components/project-rebirth/Primitives'
 import { assetPath } from '@/lib/assetPath'
 import { PARTNERSHIPS } from '@/data/project-rebirth/content'
 import { LINKS } from '@/data/project-rebirth/site'
@@ -13,76 +13,54 @@ export const metadata: Metadata = {
 export default function PartnershipsPage() {
   return (
     <>
-      <Section tone="ink">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
-            Strategic Alliances
-          </p>
-          <SectionHeading as="h1" center className="mb-6 text-white">
-            {PARTNERSHIPS.heading}
-          </SectionHeading>
-          <p className="text-base leading-relaxed text-white/80 max-w-2xl mx-auto">
-            {PARTNERSHIPS.intro}
-          </p>
+      {/* Blueprint section */}
+      <Section tone="blueprint">
+        <h1 className="pr-heading text-3xl md:text-5xl text-center mb-6">{PARTNERSHIPS.heading}</h1>
+        <p className="text-base font-bold leading-relaxed text-[var(--pr-maroon)] text-center max-w-4xl mx-auto mb-12">
+          {PARTNERSHIPS.intro}
+        </p>
+
+        {/* 4-column pillar cards — matches Canva exactly */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PARTNERSHIPS.pillars.map((pillar) => (
+            <div key={pillar.no} className="pillar-card">
+              <h2 className="font-display text-sm font-bold uppercase tracking-wide text-center text-[var(--pr-body)] mb-3">
+                Pillar {pillar.no}:<br />{pillar.title}
+              </h2>
+              <ul className="space-y-3">
+                <li className="text-xs font-bold text-[var(--pr-body)]">
+                  <span className="text-[var(--pr-maroon)]">•</span>{' '}
+                  <strong>Target Partners:</strong> {pillar.partners}
+                </li>
+                <li className="text-xs font-bold text-[var(--pr-body)]">
+                  <span className="text-[var(--pr-maroon)]">•</span>{' '}
+                  <strong>Strategic Need:</strong> {pillar.need}
+                </li>
+              </ul>
+            </div>
+          ))}
         </div>
       </Section>
 
-      <Section tone="blueprint">
-        <div className="mx-auto max-w-4xl">
-          {/* Globe image */}
-          <div className="flex justify-center mb-12">
+      {/* Dark initiate collaboration band */}
+      <Section tone="ink">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:items-center">
+          <div className="flex justify-center">
             <img
               src={assetPath('/Images/project-rebirth/partnership-globe.png')}
               alt="Global partnership network"
               className="h-44 w-44 object-contain"
             />
           </div>
-
-          {/* Partnership pillars */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {PARTNERSHIPS.pillars.map((pillar, i) => (
-              <div
-                key={pillar.no}
-                className={`rounded-xl p-7 ${i % 2 === 0 ? 'bg-white/70' : 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5'}`}
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <span className="font-display text-3xl font-bold text-[var(--pr-maroon)]/30 leading-none shrink-0">
-                    {pillar.no}
-                  </span>
-                  <h2 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mt-1">
-                    {pillar.title}
-                  </h2>
-                </div>
-                <p className="text-sm leading-relaxed text-[var(--pr-body)] mb-4">{pillar.body}</p>
-                <div className="border-t border-[var(--pr-maroon)]/10 pt-4 space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)]">
-                    Partners
-                  </p>
-                  <p className="text-xs text-[var(--pr-body)]">{pillar.partners}</p>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--pr-maroon)] mt-2">
-                    What We Need
-                  </p>
-                  <p className="text-xs text-[var(--pr-body)]">{pillar.need}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-12 rounded-xl bg-[var(--pr-ink)] p-8 text-center">
-            <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)] mb-4">
+          <div>
+            <h2 className="font-display text-3xl font-bold uppercase tracking-wide text-white mb-4">
               {PARTNERSHIPS.ctaHeading}
-            </p>
-            <p className="text-sm leading-relaxed text-white/80 max-w-2xl mx-auto mb-8">
+            </h2>
+            <p className="text-base font-bold leading-relaxed text-white/85 mb-8">
               {PARTNERSHIPS.cta}
             </p>
-            <a
-              href={LINKS.updatesForm}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-rebirth inline-block"
-            >
-              Become a Partner
+            <a href={LINKS.updatesForm} target="_blank" rel="noopener noreferrer" className="btn-rebirth">
+              Partner With Us
             </a>
           </div>
         </div>

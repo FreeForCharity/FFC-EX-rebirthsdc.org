@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { Section } from '@/components/project-rebirth/Primitives'
 import { assetPath } from '@/lib/assetPath'
 import { MISSION } from '@/data/project-rebirth/content'
 
@@ -12,38 +12,43 @@ export const metadata: Metadata = {
 export default function MissionPage() {
   return (
     <>
+      {/* Blueprint section — matches Canva exactly */}
       <Section tone="blueprint">
-        <SectionHeading center as="h1" className="mb-10">
-          {MISSION.heading}
-        </SectionHeading>
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
           <div>
-            <p className="font-display text-xl font-bold text-[var(--pr-maroon)]">{MISSION.lead}</p>
-            <p className="mt-5 leading-relaxed text-[var(--pr-body)]">{MISSION.body}</p>
+            <h1 className="pr-heading text-4xl md:text-5xl mb-6">{MISSION.heading}</h1>
+            <p className="text-base font-bold leading-relaxed text-[var(--pr-maroon)] mb-4">
+              {MISSION.lead}
+            </p>
+            <p className="text-base font-bold leading-relaxed text-[var(--pr-maroon)]">
+              {MISSION.body}
+            </p>
           </div>
-          <img
-            src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
-            alt="A 3D-printing gantry extruding a continuous concrete wall structure"
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg ring-0 outline-none"
-            style={{ border: 'none', background: 'transparent' }}
-          />
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
+              alt="3D concrete printing infrastructure"
+              className="w-full h-72 object-cover md:h-full"
+            />
+          </div>
         </div>
       </Section>
 
+      {/* Dark mandate band */}
       <Section tone="ink">
-        <SectionHeading center className="mb-12 text-[var(--pr-flame)]">
+        <h2 className="pr-heading text-3xl md:text-4xl text-center mb-12" style={{ color: 'var(--pr-flame)' }}>
           {MISSION.mandateHeading}
-        </SectionHeading>
+        </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {MISSION.pillars.map((p) => (
-            <div key={p.title} className="rounded-lg border border-white/15 bg-white/5 p-7">
-              <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">
-                {p.title}
+          {MISSION.pillars.map((pillar) => (
+            <div key={pillar.title} className="pillar-card" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(124,31,46,0.4)' }}>
+              <h3 className="font-display text-base font-bold uppercase tracking-wide mb-1" style={{ color: 'var(--pr-flame)' }}>
+                {pillar.title} —
               </h3>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--pr-flame)]">
-                {p.subtitle}
+              <p className="font-display text-sm font-bold uppercase tracking-wide text-white mb-4">
+                {pillar.subtitle}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-white/80">{p.body}</p>
+              <p className="text-sm leading-relaxed text-white/80">{pillar.body}</p>
             </div>
           ))}
         </div>

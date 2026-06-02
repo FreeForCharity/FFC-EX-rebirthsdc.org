@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Section, SectionHeading } from '@/components/project-rebirth/Primitives'
+import { Section } from '@/components/project-rebirth/Primitives'
 import { assetPath } from '@/lib/assetPath'
 import { TECHNOLOGY } from '@/data/project-rebirth/content'
 import { LINKS } from '@/data/project-rebirth/site'
@@ -10,58 +10,43 @@ export const metadata: Metadata = {
   description: TECHNOLOGY.intro,
 }
 
-const impactIcons: Record<string, string> = {
-  'For the Individual': '🏠',
-  'For the Community': '🤝',
-  'For the Economy': '📈',
-  'For the Environment': '🌱',
-}
-
 export default function TechnologyPage() {
   return (
     <>
-      {/* Hero */}
-      <Section tone="ink">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-display text-xs font-bold uppercase tracking-[0.25em] text-[var(--pr-flame)]">
-            Additive Construction
-          </p>
-          <SectionHeading as="h1" center className="mb-6 text-white">
-            {TECHNOLOGY.heading}
-          </SectionHeading>
-          <p className="text-base leading-relaxed text-white/80 max-w-2xl mx-auto">
-            {TECHNOLOGY.intro}
-          </p>
-        </div>
-      </Section>
-
-      {/* How It Works — Traditional vs Additive */}
+      {/* Blueprint section — heading top left, bold maroon body, exactly as Canva */}
       <Section tone="blueprint">
-        <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
-          {TECHNOLOGY.advantageHeading}
-        </h2>
-        <div className="mx-auto max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="pr-card rounded-xl p-7">
-            <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-body)] mb-4">
-              {TECHNOLOGY.traditional.title}
-            </h3>
-            <ul className="space-y-3">
+        <h1 className="pr-heading text-3xl md:text-5xl mb-6">
+          Deploying High-Resilience Additive Utilities
+        </h1>
+        <p className="text-base font-bold leading-relaxed text-[var(--pr-maroon)] mb-10 max-w-4xl">
+          {TECHNOLOGY.intro}
+        </p>
+
+        {/* Two-column comparison cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-12">
+          {/* Traditional */}
+          <div className="pillar-card">
+            <h2 className="font-display text-base font-bold uppercase tracking-wide text-center text-[var(--pr-body)] mb-5">
+              Traditional Limitations
+            </h2>
+            <ul className="space-y-4">
               {TECHNOLOGY.traditional.points.map((pt, i) => (
-                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gray-300" />
+                <li key={i} className="flex gap-3 text-sm font-bold leading-relaxed text-[var(--pr-body)]">
+                  <span className="text-[var(--pr-maroon)] font-black mt-0.5">•</span>
                   <span>{pt}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border-2 border-[var(--pr-maroon)] bg-white/80 p-7">
-            <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
-              {TECHNOLOGY.additive.title}
-            </h3>
-            <ul className="space-y-3">
+          {/* Additive */}
+          <div className="pillar-card" style={{ background: 'rgba(124,31,46,0.08)', border: '2px solid var(--pr-maroon)' }}>
+            <h2 className="font-display text-base font-bold uppercase tracking-wide text-center text-[var(--pr-maroon)] mb-5">
+              The Additive Advantage
+            </h2>
+            <ul className="space-y-4">
               {TECHNOLOGY.additive.points.map((pt, i) => (
-                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]" />
+                <li key={i} className="flex gap-3 text-sm font-bold leading-relaxed text-[var(--pr-maroon)]">
+                  <span className="text-[var(--pr-maroon)] font-black mt-0.5">•</span>
                   <span>{pt}</span>
                 </li>
               ))}
@@ -69,76 +54,66 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* Forge Mix */}
-        <div className="mx-auto max-w-4xl mt-10">
-          <div className="rounded-xl overflow-hidden bg-[var(--pr-ink)]">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-              <img
-                src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
-                alt="A 3D concrete printer nozzle extruding the Forge Mix composite"
-                className="w-full h-64 object-contain p-6"
-                style={{ background: 'transparent' }}
-              />
-              <div className="p-8">
-                <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-flame)] mb-4">
-                  {TECHNOLOGY.forgeHeading}
-                </h2>
-                <p className="text-sm leading-relaxed text-white/85">{TECHNOLOGY.forge}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact sections */}
-        <div className="mx-auto max-w-4xl mt-14">
-          <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-8 text-center">
-            {TECHNOLOGY.impactHeading}
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {TECHNOLOGY.impacts.map((impact, i) => (
-              <div
-                key={impact.title}
-                className={`rounded-xl p-7 ${i % 2 === 0 ? 'bg-white/70' : 'border border-[var(--pr-maroon)]/25 bg-[var(--pr-maroon)]/5'}`}
-              >
-                <div className="text-2xl mb-3">{impactIcons[impact.title]}</div>
-                <h3 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-4">
-                  {impact.title}
-                </h3>
-                {impact.body.split('\n\n').map((p, j) => (
-                  <p
-                    key={j}
-                    className="mb-3 text-sm leading-relaxed text-[var(--pr-body)] last:mb-0"
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 3D printing house image */}
-        <div className="mx-auto max-w-4xl mt-10">
-          <div className="rounded-xl overflow-hidden shadow-lg">
+        {/* Forge Mix — image left, text right */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center mb-12">
+          <div className="rounded-lg overflow-hidden shadow-lg bg-white/50">
             <img
-              src={assetPath('/Images/project-rebirth/3d-printing-house.jpg')}
-              alt="3D printed house construction in progress"
-              className="w-full h-72 object-cover"
+              src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
+              alt="Forge Mix 3D printing nozzle"
+              className="w-full object-contain p-4"
+              style={{ maxHeight: '320px' }}
+            />
+          </div>
+          <div>
+            <h2 className="pr-heading text-2xl md:text-3xl mb-4">Material Science: {TECHNOLOGY.forgeHeading}</h2>
+            <p className="text-base font-bold leading-relaxed text-[var(--pr-maroon)]">
+              {TECHNOLOGY.forge}
+            </p>
+          </div>
+        </div>
+
+        {/* Volunteer/action photos */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mb-12">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src={assetPath('/Images/project-rebirth/volunteers-1.jpeg')}
+              alt="Project Rebirth volunteers at a community event"
+              className="w-full h-56 object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src={assetPath('/Images/project-rebirth/volunteers-2.jpeg')}
+              alt="Project Rebirth team in action"
+              className="w-full h-56 object-cover"
             />
           </div>
         </div>
+      </Section>
 
-        {/* CTA */}
-        <div className="mx-auto max-w-3xl mt-12 text-center">
-          <p className="text-sm font-semibold text-[var(--pr-maroon)] mb-6">
+      {/* Dark impacts band */}
+      <Section tone="ink">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-center mb-10" style={{ color: 'var(--pr-flame)' }}>
+          {TECHNOLOGY.impactHeading}
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {TECHNOLOGY.impacts.map((impact) => (
+            <div key={impact.title} className="rounded-lg p-6" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(124,31,46,0.35)' }}>
+              <h3 className="font-display text-sm font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--pr-flame)' }}>
+                {impact.title}
+              </h3>
+              {impact.body.split('\n\n').map((p, j) => (
+                <p key={j} className="mb-3 text-sm leading-relaxed text-white/80 last:mb-0">{p}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="font-display text-sm font-bold uppercase tracking-widest text-white mb-6">
             Ready to invest in the technology that changes everything?
           </p>
-          <a
-            href={LINKS.updatesForm}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-rebirth inline-block"
-          >
+          <a href={LINKS.updatesForm} target="_blank" rel="noopener noreferrer" className="btn-rebirth">
             Partner With Us
           </a>
         </div>
