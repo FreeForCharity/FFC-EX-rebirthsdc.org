@@ -31,17 +31,20 @@ export default function PortalPage() {
   return (
     <>
       <Section tone="blueprint">
-        <div className="mx-auto max-w-3xl text-center mb-12">
-          <p className="font-nav text-xs font-semibold uppercase tracking-[0.25em] text-[var(--pr-flame)] mb-3">
-            {PORTAL_PAGE.badge}
-          </p>
-          <SectionHeading as="h1" center className="mb-6">
-            {PORTAL_PAGE.heading}
-          </SectionHeading>
-          <p className="text-base font-semibold leading-relaxed text-[var(--pr-maroon)] mb-4">
-            {PORTAL_PAGE.lead}
-          </p>
-          <p className="leading-relaxed text-[var(--pr-body)]">{PORTAL_PAGE.body}</p>
+        {/* Black banner under the badge and heading */}
+        <div className="mx-auto max-w-3xl mb-12">
+          <div className="rounded-xl bg-[var(--pr-ink)] px-8 py-10 text-center mb-8">
+            <p className="font-nav text-xs font-semibold uppercase tracking-[0.25em] text-[var(--pr-flame)] mb-3">
+              {PORTAL_PAGE.badge}
+            </p>
+            <SectionHeading as="h1" center className="mb-6 text-white">
+              {PORTAL_PAGE.heading}
+            </SectionHeading>
+            <p className="text-base font-semibold leading-relaxed text-[var(--pr-flame)] mb-4">
+              {PORTAL_PAGE.lead}
+            </p>
+            <p className="leading-relaxed text-white/80">{PORTAL_PAGE.body}</p>
+          </div>
         </div>
 
         {/* Upcoming portals — interim value instead of blank coming soon */}
@@ -80,9 +83,6 @@ export default function PortalPage() {
           >
             Sign Up for Updates
           </a>
-          <p className="mt-8 text-xs leading-relaxed text-[var(--pr-body)]/60">
-            {PORTAL_PAGE.regulatory}
-          </p>
         </div>
       </Section>
     </>

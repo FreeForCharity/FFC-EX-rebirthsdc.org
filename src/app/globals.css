@@ -25,20 +25,11 @@
 
 html,
 body {
-  scroll-behavior: smooth !important;
-  /* Blueprint image as full-page background with maroon grid overlay */
-  background-image:
-    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(rgba(124, 31, 46, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.07) 1px, transparent 1px),
-    url('/Images/project-rebirth/blueprint-bg.jpg');
-  background-size:
-    100px 100px,
-    100px 100px,
-    20px 20px,
-    20px 20px,
-    cover;
+  font-family: var(--font-open-sans), system-ui, sans-serif !important;
+  color: var(--pr-body);
+  /* Blueprint image as the site-wide background */
+  background-image: url('/Images/project-rebirth/blueprint-bg.jpg');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -221,21 +212,37 @@ body {
 
 /* Blueprint section — fully transparent so body blueprint grid shows through */
 .bp-grid {
-  /* Blueprint image as actual background, maroon grid lines overlaid on top */
+  /* Blueprint image fills the background completely */
+  background-image: url('/Images/project-rebirth/blueprint-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Maroon grid overlaid ON TOP of the blueprint — grid squares are transparent so blueprint shows through */
+.bp-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background-image:
-    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
-    linear-gradient(rgba(124, 31, 46, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.07) 1px, transparent 1px),
-    url('/Images/project-rebirth/blueprint-bg.jpg');
+    linear-gradient(rgba(124, 31, 46, 0.55) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.55) 2px, transparent 2px),
+    linear-gradient(rgba(124, 31, 46, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.18) 1px, transparent 1px);
   background-size:
     100px 100px,
     100px 100px,
     20px 20px,
-    20px 20px,
-    cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    20px 20px;
+  z-index: 0;
+}
+
+/* Ensure content inside bp-grid sections sits above the grid overlay */
+.bp-grid > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Dark band */
