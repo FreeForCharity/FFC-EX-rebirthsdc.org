@@ -15,26 +15,36 @@ const Hero: React.FC = () => {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Background video — only plays for users who haven't requested reduced motion */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={assetPath('/Images/project-rebirth/hero-poster.jpg')}
+      {/* Background video via Vimeo — autoplay, muted, looped, no controls */}
+      <div
+        className="absolute inset-0 motion-reduce:hidden overflow-hidden"
         aria-hidden="true"
+        style={{ pointerEvents: 'none' }}
       >
-        <source src={assetPath('/videos/hero-3d-printing.mp4')} type="video/mp4" />
-      </video>
+        <iframe
+          src="https://player.vimeo.com/video/1197012454?autoplay=1&muted=1&loop=1&background=1&autopause=0"
+          allow="autoplay; fullscreen"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '100vw',
+            height: '56.25vw',
+            minHeight: '100%',
+            minWidth: '177.78vh',
+            transform: 'translate(-50%, -50%)',
+            border: 'none',
+            pointerEvents: 'none',
+          }}
+        />
+      </div>
 
-      {/* Dark + maroon overlay for legibility */}
+      {/* Subtle dark overlay for text legibility — no maroon tint */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(circle at 70% 30%, rgba(232,83,31,0.12), transparent 55%), linear-gradient(160deg, rgba(14,14,16,0.88) 0%, rgba(28,28,32,0.78) 55%, rgba(42,16,20,0.85) 100%)',
+            'linear-gradient(160deg, rgba(14,14,16,0.72) 0%, rgba(14,14,16,0.55) 55%, rgba(14,14,16,0.65) 100%)',
         }}
       />
 

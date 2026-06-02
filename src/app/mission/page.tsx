@@ -24,7 +24,8 @@ export default function MissionPage() {
           <img
             src={assetPath('/Images/project-rebirth/mission-printing.jpg')}
             alt="A 3D-printing gantry extruding a continuous concrete wall structure"
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+            className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg ring-0 outline-none"
+            style={{ border: 'none', background: 'transparent' }}
           />
         </div>
       </Section>
