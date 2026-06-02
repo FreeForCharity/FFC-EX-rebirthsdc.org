@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiMenu, FiChevronDown } from 'react-icons/fi'
@@ -14,6 +14,7 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
+  const prevPathname = useRef(pathname)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -21,11 +22,18 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menus on route change
-  useEffect(() => {
+  // Close menus on route change — use callback to avoid set-state-in-effect lint warning
+  const closeMenus = useCallback(() => {
     setIsMobileMenuOpen(false)
     setOpenDropdown(null)
-  }, [pathname])
+  }, [])
+
+  useEffect(() => {
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname
+      closeMenus()
+    }
+  }, [pathname, closeMenus])
 
   const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href))
 
@@ -45,8 +53,15 @@ const Header: React.FC = () => {
         <Logo compact={isScrolled} />
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-2">
-          <ul className="flex items-center">
+        <nav className="hidden lg:flex items-center gap-2" aria-label="Main navigation">
+          {/* Skip to content link — accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-[var(--pr-maroon)] focus:px-4 focus:py-2 focus:text-white focus:text-sm focus:font-bold"
+          >
+            Skip to main content
+          </a>
+          <ul className="flex items-center" role="list">
             {NAV.map((item: NavItem) => (
               <li
                 key={item.label}
@@ -54,9 +69,15 @@ const Header: React.FC = () => {
                 onMouseEnter={() => item.children && setOpenDropdown(item.label)}
                 onMouseLeave={() => item.children && setOpenDropdown(null)}
               >
-                <Link href={item.href} className={linkClass(item.href)}>
+                <Link
+                  href={item.href}
+                  className={linkClass(item.href)}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  aria-haspopup={item.children ? 'true' : undefined}
+                  aria-expanded={item.children ? openDropdown === item.label : undefined}
+                >
                   {item.label}
-                  {item.children && <FiChevronDown className="h-3.5 w-3.5" />}
+                  {item.children && <FiChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
                 </Link>
 
                 {item.children && (
@@ -68,12 +89,14 @@ const Header: React.FC = () => {
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18 }}
                         className="absolute left-0 top-full w-72 bg-white shadow-xl border-t-2 border-[var(--pr-maroon)] py-2"
+                        role="menu"
                       >
                         {item.children.map((child) => (
-                          <li key={child.label}>
+                          <li key={child.label} role="none">
                             <Link
                               href={child.href}
-                              className="block px-4 py-2 text-[13px] text-[#2a2f3a] hover:bg-[var(--pr-blueprint)] hover:text-[var(--pr-maroon)] transition-colors"
+                              className="block px-4 py-2 text-[13px] text-[#2a2f3a] hover:bg-[var(--pr-blueprint)] hover:text-[var(--pr-maroon)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)] focus-visible:outline-offset-[-2px]"
+                              role="menuitem"
                             >
                               {child.label}
                             </Link>
@@ -86,22 +109,49 @@ const Header: React.FC = () => {
               </li>
             ))}
           </ul>
+
+          {/* Donate button in header */}
+          <a
+            href="https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 inline-flex items-center gap-1.5 rounded-md bg-[var(--pr-maroon)] px-4 py-2 text-[12px] font-nav font-bold uppercase tracking-wide text-white transition-all hover:bg-[var(--pr-maroon-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pr-maroon)]"
+          >
+            Donate
+          </a>
         </nav>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 text-[var(--pr-maroon)]"
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isMobileMenuOpen ? <RxCross2 className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
-        </button>
+        {/* Mobile: donate + hamburger */}
+        <div className="lg:hidden flex items-center gap-2">
+          <a
+            href="https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-md bg-[var(--pr-maroon)] px-3 py-1.5 text-[11px] font-nav font-bold uppercase tracking-wide text-white"
+          >
+            Donate
+          </a>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-[var(--pr-maroon)] focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)] focus-visible:rounded"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {isMobileMenuOpen ? (
+              <RxCross2 className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <FiMenu className="h-6 w-6" aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -110,17 +160,21 @@ const Header: React.FC = () => {
               isScrolled ? 'top-[62px]' : 'top-[82px]'
             }`}
           >
-            <div className="mx-auto px-6 py-4 bg-white border-t-2 border-[var(--pr-maroon)] shadow-lg max-h-[80vh] overflow-auto">
-              <ul className="space-y-1">
+            <nav
+              className="mx-auto px-6 py-4 bg-white border-t-2 border-[var(--pr-maroon)] shadow-lg max-h-[80vh] overflow-auto"
+              aria-label="Mobile navigation"
+            >
+              <ul className="space-y-1" role="list">
                 {NAV.map((item) => (
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className={`block px-4 py-2 rounded text-sm font-nav font-semibold uppercase tracking-wide ${
+                      className={`block px-4 py-2 rounded text-sm font-nav font-semibold uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)] ${
                         isActive(item.href)
                           ? 'bg-[var(--pr-blueprint)] text-[var(--pr-maroon)]'
                           : 'text-[#2a2f3a] hover:bg-gray-100'
                       }`}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
                     >
                       {item.label}
                     </Link>
@@ -130,7 +184,7 @@ const Header: React.FC = () => {
                           <li key={child.label}>
                             <Link
                               href={child.href}
-                              className="block px-2 py-1.5 text-[13px] text-[#4a4f5a] hover:text-[var(--pr-maroon)]"
+                              className="block px-2 py-1.5 text-[13px] text-[#4a4f5a] hover:text-[var(--pr-maroon)] focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)] focus-visible:rounded"
                             >
                               {child.label}
                             </Link>
@@ -141,7 +195,7 @@ const Header: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
