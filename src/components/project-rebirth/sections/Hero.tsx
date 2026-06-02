@@ -3,10 +3,12 @@ import PartnerButton from '@/components/project-rebirth/PartnerButton'
 import { assetPath } from '@/lib/assetPath'
 import { HOME } from '@/data/project-rebirth/content'
 
-/** Home hero with the 3D-printing video as a background layer. */
 const Hero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-[var(--pr-ink)]" style={{ marginTop: '-2px' }}>
+    <section
+      className="relative overflow-hidden"
+      style={{ backgroundColor: '#0e0e10', marginTop: '-4px', paddingTop: '4px' }}
+    >
       <img
         src={assetPath('/Images/project-rebirth/hero-poster.jpg')}
         alt=""
@@ -22,6 +24,7 @@ const Hero: React.FC = () => {
         loop
         playsInline
         poster={assetPath('/Images/project-rebirth/hero-poster.jpg')}
+        style={{ objectFit: 'cover', objectPosition: 'center center' }}
       >
         <source src={assetPath('/videos/hero-3d-printing.mp4')} type="video/mp4" />
       </video>

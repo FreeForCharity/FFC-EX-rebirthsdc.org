@@ -109,28 +109,10 @@ const Header: React.FC = () => {
               </li>
             ))}
           </ul>
-
-          {/* Donate button in header */}
-          <a
-            href="https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-3 inline-flex items-center gap-1.5 rounded-md bg-[var(--pr-maroon)] px-4 py-2 text-[12px] font-nav font-bold uppercase tracking-wide text-white transition-all hover:bg-[var(--pr-maroon-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pr-maroon)]"
-          >
-            Donate
-          </a>
         </nav>
 
-        {/* Mobile: donate + hamburger */}
+        {/* Mobile: hamburger */}
         <div className="lg:hidden flex items-center gap-2">
-          <a
-            href="https://www.zeffy.com/en-US/donation-form/project-rebirth-uniting-communities-to-eradicate-homelessness"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-md bg-[var(--pr-maroon)] px-3 py-1.5 text-[11px] font-nav font-bold uppercase tracking-wide text-white"
-          >
-            Donate
-          </a>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 text-[var(--pr-maroon)] focus-visible:outline-2 focus-visible:outline-[var(--pr-maroon)] focus-visible:rounded"
