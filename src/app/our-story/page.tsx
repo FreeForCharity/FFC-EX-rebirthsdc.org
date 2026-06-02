@@ -46,13 +46,27 @@ export default function OurStoryPage() {
         </div>
 
         <div className="mx-auto max-w-3xl space-y-8">
-          {/* Section 1: Let's Start at the Root — mission volunteers photo */}
+          {/* Section 1: Let's Start at the Root
+              — food handout + school decay + park decay (3 images) */}
           <div className="pr-card rounded-xl overflow-hidden">
-            <img
-              src={assetPath('/Images/project-rebirth/mission-volunteers.jpg')}
-              alt="Project Rebirth volunteers serving the community"
-              className="w-full h-52 object-cover"
-            />
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              <img
+                src={assetPath('/Images/project-rebirth/root-food-handout.jpg')}
+                alt="People in need receiving food assistance"
+                className="w-full h-52 object-cover"
+              />
+              <img
+                src={assetPath('/Images/project-rebirth/root-school-decay.jpg')}
+                alt="Abandoned school hallway in Benton Harbor — a symbol of community disinvestment"
+                className="w-full h-52 object-cover"
+                style={{ objectPosition: 'center 30%' }}
+              />
+              <img
+                src={assetPath('/Images/project-rebirth/root-park-decay.jpg')}
+                alt="Neglected playground in Benton Harbor"
+                className="w-full h-52 object-cover"
+              />
+            </div>
             <div className="p-8">
               <h2 className="font-display text-sm font-bold uppercase tracking-[0.2em] text-[var(--pr-maroon)] mb-5">
                 {OUR_STORY.thePeople.heading}
@@ -61,19 +75,20 @@ export default function OurStoryPage() {
             </div>
           </div>
 
-          {/* Section 2: The Story Behind — volunteer photo + Benton Harbor neighborhood side by side */}
+          {/* Section 2: The Story Behind Project Rebirth
+              — Benton Harbor neighborhood street (1st), our-story-root-1 volunteer (2nd) */}
           <div className="pr-card rounded-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
+              <img
+                src={assetPath('/Images/project-rebirth/benton-harbor-neighborhood.jpg')}
+                alt="A Benton Harbor neighborhood street — the disinvestment that Project Rebirth was built to reverse"
+                className="w-full h-52 object-cover"
+                style={{ objectPosition: 'center 60%' }}
+              />
               <img
                 src={assetPath('/Images/project-rebirth/our-story-root-1.jpg')}
                 alt="Project Rebirth volunteers in the community"
                 className="w-full h-52 object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1564419431702-7f1fe5bfb7ee?w=900&q=80"
-                alt="Urban neighborhood — the communities Project Rebirth was built to serve"
-                className="w-full h-52 object-cover"
-                style={{ objectPosition: 'center 60%' }}
               />
             </div>
             <div className="p-8">
@@ -84,11 +99,12 @@ export default function OurStoryPage() {
             </div>
           </div>
 
-          {/* Section 3: Where Are We Going — engineering blueprints photo (img 5) */}
+          {/* Section 3: Where Are We Going / We Are Going Home
+              — Benton Harbor street photo (moved from Section 2 above) */}
           <div className="pr-card rounded-xl overflow-hidden">
             <img
-              src={assetPath('/Images/project-rebirth/our-story-vision.jpg')}
-              alt="Engineering blueprints and construction tools — building the future"
+              src={assetPath('/Images/project-rebirth/mission-volunteers.jpg')}
+              alt="Project Rebirth volunteers serving the community — the future we are building"
               className="w-full h-52 object-cover"
             />
             <div className="p-8">
