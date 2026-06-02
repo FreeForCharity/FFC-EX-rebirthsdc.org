@@ -26,9 +26,25 @@
 html,
 body {
   scroll-behavior: smooth !important;
+  /* Blueprint image as full-page background with maroon grid overlay */
+  background-image:
+    linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(124, 31, 46, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 31, 46, 0.07) 1px, transparent 1px),
+    url('/Images/project-rebirth/blueprint-bg.jpg');
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px,
+    cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
-/* Prevent blueprint bg gap between header and hero */
+/* Prevent gap between header and hero */
 html {
   background-color: #0e0e10;
 }
@@ -205,17 +221,21 @@ body {
 
 /* Blueprint section — fully transparent so body blueprint grid shows through */
 .bp-grid {
-  background-color: var(--pr-blueprint);
+  /* Blueprint image as actual background, maroon grid lines overlaid on top */
   background-image:
     linear-gradient(var(--pr-blueprint-line) 1.5px, transparent 1.5px),
     linear-gradient(90deg, var(--pr-blueprint-line) 1.5px, transparent 1.5px),
     linear-gradient(rgba(124, 31, 46, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 31, 46, 0.07) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(124, 31, 46, 0.07) 1px, transparent 1px),
+    url('/Images/project-rebirth/blueprint-bg.jpg');
   background-size:
     100px 100px,
     100px 100px,
     20px 20px,
-    20px 20px;
+    20px 20px,
+    cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Dark band */
@@ -293,3 +313,4 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 3px;
 }
+
