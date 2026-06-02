@@ -40,33 +40,21 @@ export default function MissionPage() {
         </div>
       </Section>
 
-      <Section tone="ink">
-        <h2
-          className="pr-heading text-3xl md:text-4xl text-center mb-12"
-          style={{ color: 'var(--pr-flame)' }}
-        >
+      {/* The Mandate — muted silver/grey box, not black */}
+      <Section tone="blueprint">
+        <h2 className="pr-heading text-3xl md:text-4xl text-center mb-12">
           {MISSION.mandateHeading}
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {MISSION.pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="rounded-lg p-6"
-              style={{
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(124,31,46,0.4)',
-              }}
-            >
-              <h3
-                className="font-display text-base font-bold uppercase tracking-wide mb-1"
-                style={{ color: 'var(--pr-flame)' }}
-              >
+            <div key={pillar.title} className="silver-band rounded-lg p-6">
+              <h3 className="font-display text-base font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-1">
                 {pillar.title} —
               </h3>
-              <p className="font-display text-sm font-bold uppercase tracking-wide text-white mb-4">
+              <p className="font-display text-sm font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                 {pillar.subtitle}
               </p>
-              <p className="text-sm leading-relaxed text-white/80">{pillar.body}</p>
+              <p className="text-sm leading-relaxed text-[var(--pr-body)]">{pillar.body}</p>
             </div>
           ))}
         </div>

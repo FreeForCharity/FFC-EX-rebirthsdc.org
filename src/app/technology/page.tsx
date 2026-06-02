@@ -204,14 +204,18 @@ export default function TechnologyPage() {
           </p>
         </div>
 
-        {/* New 3D printer nozzle photo — cropped, no border */}
+        {/* New 3D printer nozzle photo — no black box wrapper */}
         <div className="mx-auto max-w-4xl mb-10">
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img
               src={assetPath('/Images/project-rebirth/nozzle-action.jpg')}
               alt="3D concrete printer nozzle laying continuous concrete layers"
               className="w-full object-cover"
-              style={{ maxHeight: '320px', objectPosition: 'center 30%' }}
+              style={{
+                maxHeight: '320px',
+                objectPosition: 'center 30%',
+                background: 'transparent',
+              }}
             />
           </div>
         </div>
@@ -233,7 +237,7 @@ export default function TechnologyPage() {
               <ul className="space-y-3">
                 {TECHNOLOGY.traditional.points.map((pt, i) => (
                   <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--pr-body)]">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]/40" />
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--pr-maroon)]" />
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -255,9 +259,9 @@ export default function TechnologyPage() {
           </div>
         </div>
 
-        {/* Forge Mix — muted silver/grey box, maroon text */}
+        {/* Forge Mix — white card with maroon border */}
         <div className="mx-auto max-w-4xl mt-10">
-          <div className="rounded-xl overflow-hidden silver-band">
+          <div className="pr-card rounded-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center">
               <img
                 src={assetPath('/Images/project-rebirth/forge-mix-nozzle.png')}
@@ -268,9 +272,7 @@ export default function TechnologyPage() {
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide text-[var(--pr-maroon)] mb-4">
                   {TECHNOLOGY.forgeHeading}
                 </h2>
-                <p className="text-sm leading-relaxed text-[var(--pr-maroon)]">
-                  {TECHNOLOGY.forge}
-                </p>
+                <p className="text-sm leading-relaxed text-[var(--pr-body)]">{TECHNOLOGY.forge}</p>
               </div>
             </div>
           </div>
