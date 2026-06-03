@@ -138,7 +138,7 @@ Generate the content now. Output ONLY the final content — no explanations, no 
   }
 
   return (
-    <div className="min-h-screen bg-[#dde4ee] p-4 md:p-8">
+    <div className="min-h-screen p-4 md:p-8">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <div className="mb-8 text-center">
