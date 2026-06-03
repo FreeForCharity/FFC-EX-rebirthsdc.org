@@ -3,6 +3,7 @@ import './globals.css'
 import Header from './../components/header'
 import Footer from './../components/footer'
 import CookieConsent from './../components/cookie-consent'
+import IntakeAgent from './../components/agents/IntakeAgent'
 import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/google-tag-manager'
 import {
   openSans,
@@ -153,6 +154,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CookieConsent />
+        <IntakeAgent />
       </body>
     </html>
   )
