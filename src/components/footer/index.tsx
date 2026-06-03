@@ -198,8 +198,8 @@ const Footer: React.FC = () => {
             ))}
           </ul>
           <p className="pt-2 text-xs text-white/50">
-            Project Rebirth is a fiscally sponsored 501(c)(3) tax-exempt organization. Donations
-            are tax-deductible to the extent allowed by law.
+            Project Rebirth is a fiscally sponsored 501(c)(3) tax-exempt organization. Donations are
+            tax-deductible to the extent allowed by law.
           </p>
         </div>
 
