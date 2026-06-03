@@ -64,6 +64,8 @@ jobs:
       - name: Build with Next.js
         # No NEXT_PUBLIC_BASE_PATH: the site is served at the root of the
         # rebirthsdc.org custom domain (see public/CNAME), so assets live at /.
+        env:
+          NEXT_PUBLIC_ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npm run build
 
       - name: Upload artifact for Pages
