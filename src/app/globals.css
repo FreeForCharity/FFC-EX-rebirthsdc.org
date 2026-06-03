@@ -54,22 +54,6 @@ body::before {
   z-index: 0;
 }
 
-/* White glare on body — matches bp-grid::after exactly */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 120% 80% at 50% 40%,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.3) 45%,
-    rgba(255, 255, 255, 0.08) 75%,
-    transparent 100%
-  );
-  z-index: 0;
-}
-
 /* Prevent gap between header and hero */
 html {
   background-color: #0e0e10;
