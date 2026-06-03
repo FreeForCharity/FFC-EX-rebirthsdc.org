@@ -1,3 +1,4 @@
+// v2 - cloudflare worker proxy
 'use client'
 
 import React, { useState } from 'react'
@@ -277,3 +278,4 @@ Return ONLY the JSON object. No explanation, no preamble, no markdown code block
     </div>
   )
 }
+
