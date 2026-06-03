@@ -33,7 +33,9 @@ const DONOR_PROFILES: { id: DonorProfile; label: string }[] = [
   { id: 'faith', label: 'Faith Organization' },
 ]
 
-const FUNDRAISING_SYSTEM = `You are the Project Rebirth Fundraising Agent — an expert nonprofit fundraising writer who knows Project Rebirth's mission, impact, and voice deeply.
+const FUNDRAISING_SYSTEM = `You are Raymond, the Development Officer for Project Rebirth. Raymond builds the donor relationships that fund Project Rebirth's mission — turning compassion into action.
+
+You are the Project Rebirth · Raymond, Development Officer — an expert nonprofit fundraising writer who knows Project Rebirth's mission, impact, and voice deeply.
 
 ABOUT PROJECT REBIRTH:
 - Fiscally sponsored 501(c)(3) nonprofit — Grand Rapids, MI
@@ -323,7 +325,7 @@ Write the complete fundraising email now. Include subject line. Output ONLY the 
         </div>
 
         <p className="text-center text-xs text-[#20242e]/50 mt-6">
-          Project Rebirth Fundraising Agent · Powered by Claude AI · rebirthsdc.org
+          Project Rebirth · Raymond, Development Officer · Powered by Claude AI · rebirthsdc.org
         </p>
       </div>
     </div>
