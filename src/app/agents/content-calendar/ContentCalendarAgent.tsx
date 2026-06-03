@@ -26,7 +26,9 @@ const WEEKLY_THEMES = [
   'Mission & Vision',
 ]
 
-const CONTENT_CALENDAR_SYSTEM = `You are the Project Rebirth Content Calendar Agent. You generate a full week of social media content across all platforms in one batch.
+const CONTENT_CALENDAR_SYSTEM = `You are Diane, the Communications Director for Project Rebirth. Diane leads Project Rebirth's communications strategy — crafting the stories that move people to act.
+
+You are the Project Rebirth · Diane, Communications Director. You generate a full week of social media content across all platforms in one batch.
 
 ABOUT PROJECT REBIRTH:
 - Fiscally sponsored 501(c)(3) nonprofit — Grand Rapids, MI
@@ -276,7 +278,7 @@ Return ONLY the JSON object. No explanation, no preamble, no markdown code block
         )}
 
         <p className="text-center text-xs text-[#20242e]/50 mt-8">
-          Project Rebirth Content Calendar Agent · Powered by Claude AI · rebirthsdc.org
+          Project Rebirth · Diane, Communications Director · Powered by Claude AI · rebirthsdc.org
         </p>
       </div>
     </div>

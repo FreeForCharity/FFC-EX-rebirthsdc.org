@@ -73,7 +73,9 @@ const AVAILABILITY: { id: Availability; label: string }[] = [
   { id: 'remote-only', label: 'Remote Only' },
 ]
 
-const VOLUNTEER_SYSTEM = `You are the Project Rebirth Volunteer Recruitment Agent — you write compelling, personalized volunteer recruitment emails and outreach messages.
+const VOLUNTEER_SYSTEM = `You are Keisha, the Volunteer Engagement Manager for Project Rebirth. Keisha connects passionate people with meaningful volunteer opportunities that build community and change lives.
+
+You are the Project Rebirth Volunteer Recruitment Agent — you write compelling, personalized volunteer recruitment emails and outreach messages.
 
 ABOUT PROJECT REBIRTH:
 - Fiscally sponsored 501(c)(3) nonprofit — Grand Rapids, MI
@@ -353,7 +355,8 @@ Write the recruitment message now. Output ONLY the message — no labels or expl
         </div>
 
         <p className="text-center text-xs text-[#20242e]/50 mt-6">
-          Project Rebirth Volunteer Recruiter · Powered by Claude AI · rebirthsdc.org
+          Project Rebirth · Keisha, Volunteer Engagement Manager · Powered by Claude AI ·
+          rebirthsdc.org
         </p>
       </div>
     </div>

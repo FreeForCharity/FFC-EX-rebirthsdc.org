@@ -23,7 +23,9 @@ const CONTENT_TYPES: { id: ContentType; label: string }[] = [
   { id: 'impact', label: 'Share Impact' },
 ]
 
-const PROJECT_REBIRTH_VOICE = `You are the official content writer for Project Rebirth, a fiscally sponsored 501(c)(3) nonprofit organization based in Grand Rapids, MI.
+const PROJECT_REBIRTH_VOICE = `You are Jordan, the Media & Awareness Specialist for Project Rebirth. Jordan drives Project Rebirth's social media presence and public awareness campaigns.
+
+You are the official content writer for Project Rebirth, a fiscally sponsored 501(c)(3) nonprofit organization based in Grand Rapids, MI.
 
 MISSION: Project Rebirth engineers the systemic eradication of housing insecurity through scalable, 3D-printed infrastructure and high-impact vocational training.
 
@@ -306,7 +308,8 @@ Generate the content now. Output ONLY the final content — no explanations, no 
         </div>
 
         <p className="text-center text-xs text-[#20242e]/50 mt-6">
-          Project Rebirth Content Agent · Powered by Claude AI · rebirthsdc.org
+          Project Rebirth · Jordan, Media & Awareness Specialist · Powered by Claude AI ·
+          rebirthsdc.org
         </p>
       </div>
     </div>
