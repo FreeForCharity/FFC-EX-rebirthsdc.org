@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from './../components/header'
-import Footer from './../components/footer'
-import CookieConsent from './../components/cookie-consent'
-import IntakeAgent from './../components/agents/IntakeAgent'
+import ConditionalAppShell from './../components/ConditionalAppShell'
 import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/google-tag-manager'
 import {
   openSans,
@@ -147,14 +144,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
-        <Header />
-        {/* id="main-content" enables the skip-to-content link in the header */}
-        <main id="main-content" className="pt-[84px]">
-          {children}
-        </main>
-        <Footer />
-        <CookieConsent />
-        <IntakeAgent />
+        <ConditionalAppShell>{children}</ConditionalAppShell>
       </body>
     </html>
   )
