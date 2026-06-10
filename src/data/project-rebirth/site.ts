@@ -33,7 +33,7 @@ export const LINKS = {
   social: {
     instagram: 'https://instagram.com/sustainablecommunityproject',
     facebook: 'https://facebook.com/share/1BYV22rv6k/',
-    x: 'https://x.com/projectrebirth7',
+    x: 'https://x.com/rebirthproject7',
     tiktok: 'https://tiktok.com/@sustainablecommunity2026',
   },
 } as const
