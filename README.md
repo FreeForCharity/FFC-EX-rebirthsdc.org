@@ -87,26 +87,26 @@ public/
 Requires Node.js 20+.
 
 ```bash
-npm install        # install dependencies
-npm run dev        # dev server at http://localhost:3000 (Turbopack)
+pnpm install        # install dependencies
+pnpm run dev        # dev server at http://localhost:3000 (Turbopack)
 ```
 
 ### Build & preview the static export
 
 ```bash
-npm run build      # static export to ./out
-npm run preview    # serve ./out at http://localhost:3000
+pnpm run build      # static export to ./out
+pnpm run preview    # serve ./out at http://localhost:3000
 ```
 
 ### Quality checks
 
 ```bash
-npm run format         # Prettier (write)
-npm run lint           # ESLint
-npm test               # Jest unit tests
-npm run build          # required before e2e (Playwright serves the existing ./out)
-npm run test:e2e       # Playwright e2e (serves ./out via preview; `npx playwright install chromium` once)
-npm run check-links    # Linkinator over ./out
+pnpm run format         # Prettier (write)
+pnpm run lint           # ESLint
+pnpm test               # Jest unit tests
+pnpm run build          # required before e2e (Playwright serves the existing ./out)
+pnpm run test:e2e       # Playwright e2e (serves ./out via preview; `pnpm exec playwright install chromium` once)
+pnpm run check-links    # Linkinator over ./out
 ```
 
 A Husky pre‑commit hook runs `format:check` + `lint`, and Commitlint enforces
