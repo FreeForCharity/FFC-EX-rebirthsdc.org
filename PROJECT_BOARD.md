@@ -191,11 +191,11 @@ All Dependabot work from the security/update pass (merged individually with gree
 | #1–#5, #11, #15–#21 | earlier updates incl. `next` 16.2.6 (High security)                                              | various | 🟢 Merged (14)                    |
 | #8                  | eslint 9 → 10                                                                                    | major   | 🔴 Held (Next.js incompatibility) |
 
-**Security posture:** `npm audit` reports 14 advisories, **all in dev/build tooling**
+**Security posture:** `pnpm audit` reports 14 advisories, **all in dev/build tooling**
 (`@lhci/cli`, jest/jsdom, eslint chains) — none reach the production static bundle, and
 the only available fixes are breaking. Tracked in TECHNICAL_DEBT.md.
 
-**Verified on `main`:** `npm run build` ✅ · `npm test` (25 tests) ✅ · `npm run lint`
+**Verified on `main`:** `pnpm run build` ✅ · `pnpm test` (25 tests) ✅ · `pnpm run lint`
 0 errors ✅ · all 12 routes live (HTTP 200) with no console errors.
 
 ---
