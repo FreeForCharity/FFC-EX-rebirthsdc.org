@@ -1,8 +1,7 @@
-'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
+import CookiePreferencesButton from './CookiePreferencesButton'
 import { SITE, LINKS } from '@/data/project-rebirth/site'
 
 const EqualHousingMark: React.FC = () => (
@@ -199,16 +198,7 @@ const Footer: React.FC = () => {
               </li>
             ))}
             <li>
-              {/* Persistent consent re-entry point (withdrawing consent must
-                  stay as easy as giving it): reopens the preferences modal
-                  the cookie-consent banner registers on window. */}
-              <button
-                type="button"
-                onClick={() => window.openCookiePreferences?.()}
-                className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
-              >
-                Cookie Preferences
-              </button>
+              <CookiePreferencesButton className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors" />
             </li>
           </ul>
           <p className="pt-2 text-xs text-white/50">
