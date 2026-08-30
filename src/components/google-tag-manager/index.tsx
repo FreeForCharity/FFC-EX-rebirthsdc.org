@@ -5,17 +5,6 @@ import { useEffect } from 'react'
 // Google Tag Manager ID
 const GTM_ID = 'GTM-TQ5H8HPR'
 
-/** True if the stored cookie-consent grants analytics. */
-function hasAnalyticsConsent(): boolean {
-  try {
-    const raw = localStorage.getItem('cookie-consent')
-    if (!raw) return false
-    return JSON.parse(raw)?.analytics === true
-  } catch {
-    return false
-  }
-}
-
 /** Inject the GTM container exactly once. */
 function injectGtm() {
   if (typeof document === 'undefined' || document.getElementById('gtm-script')) return
@@ -32,20 +21,21 @@ function injectGtm() {
 }
 
 /**
- * Loads Google Tag Manager only after the user grants analytics consent.
- * Consent is read from localStorage ('cookie-consent') and the cookie-consent
- * banner dispatches a 'cookie-consent-updated' event when preferences change.
+ * Loads Google Tag Manager on every pageview. Whether the Google tags inside
+ * the container may use cookies is governed by Google Consent Mode v2: the
+ * region-scoped defaults set in the layout <head> (see
+ * src/lib/consent-mode.ts) deny storage in the EEA/UK/CH until the visitor
+ * accepts through the cookie-consent banner, and grant it everywhere else —
+ * so non-EEA visits are measured from the first pageview and EEA visits are
+ * counted cookielessly until consent.
+ *
+ * (Previously this component loaded GTM only after an explicit analytics
+ * grant, which made every visitor who ignored the banner invisible,
+ * worldwide. Consent Mode replaces load-gating with storage-gating.)
  */
 export default function GoogleTagManager() {
   useEffect(() => {
-    if (hasAnalyticsConsent()) injectGtm()
-
-    const onConsentUpdate = (e: Event) => {
-      const detail = (e as CustomEvent).detail as { analytics?: boolean } | undefined
-      if (detail?.analytics ?? hasAnalyticsConsent()) injectGtm()
-    }
-    window.addEventListener('cookie-consent-updated', onConsentUpdate)
-    return () => window.removeEventListener('cookie-consent-updated', onConsentUpdate)
+    injectGtm()
   }, [])
 
   return null

@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
@@ -196,6 +198,18 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              {/* Persistent consent re-entry point (withdrawing consent must
+                  stay as easy as giving it): reopens the preferences modal
+                  the cookie-consent banner registers on window. */}
+              <button
+                type="button"
+                onClick={() => window.openCookiePreferences?.()}
+                className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors"
+              >
+                Cookie Preferences
+              </button>
+            </li>
           </ul>
           <p className="pt-2 text-xs text-white/50">
             Project Rebirth is a fiscally sponsored 501(c)(3) tax-exempt organization. Donations are

@@ -26,7 +26,7 @@ export const LEGAL_DOCS = {
     slug: 'privacy-policy',
     title: 'Privacy Policy',
     description: 'How Project Rebirth collects, uses, and protects the information you provide.',
-    effectiveDate: 'May 28, 2026',
+    effectiveDate: 'August 30, 2026',
     sections: [
       {
         heading: '1. Introduction',
@@ -71,7 +71,28 @@ export const LEGAL_DOCS = {
         ],
       },
       {
-        heading: '7. Updates to This Policy',
+        heading: '7. Cookies and Analytics',
+        paragraphs: [
+          'Our website uses cookies. Necessary cookies are required for the site to function. For analytics we use Google Tag Manager and Google Consent Mode: if you visit from the European Economic Area, the United Kingdom, or Switzerland, Google’s tags set no cookies and read no identifiers until you accept through the cookie consent banner — until then only aggregate, cookieless measurement takes place. Everywhere else, analytics cookies are set from your first visit. Which rule applies to your visit is determined by Google from your IP address at the time of your visit; IP geolocation is approximate.',
+          'You can change or withdraw your choice at any time via the Cookie Preferences link in our footer; withdrawing consent deletes the analytics cookies this site set. This site does not read or respond to the “Do Not Track” or Global Privacy Control browser signals; we do not sell or share personal information, so there is nothing for those signals to opt out of.',
+        ],
+      },
+      {
+        heading: '8. Your Rights in the European Union, United Kingdom, and EEA (GDPR)',
+        paragraphs: [
+          'If you visit from the European Union, the United Kingdom, or the wider European Economic Area, the EU General Data Protection Regulation (GDPR) or the UK GDPR applies to our handling of your personal data. We process personal data on the basis of consent (for analytics cookies in those regions), legitimate interests (operating and securing this website), and legal obligation.',
+          'You have the right to: access the personal data we hold about you; have inaccurate data rectified; have your data erased; restrict or object to processing; receive your data in a portable format; and withdraw any consent you have given, at any time, without affecting the lawfulness of processing before withdrawal. To exercise these rights, contact us through the channels listed on our website; we will respond within the time limits the GDPR sets. You also have the right to lodge a complaint with your national data protection supervisory authority (in the UK, the Information Commissioner’s Office).',
+        ],
+      },
+      {
+        heading: '9. Your California Privacy Rights (CCPA/CPRA)',
+        paragraphs: [
+          'If you are a California resident, the California Consumer Privacy Act, as amended by the California Privacy Rights Act (CCPA/CPRA), gives you specific rights. We do not sell personal information, and do not share it for cross-context behavioral advertising, as those terms are defined by California law — and have not done so in the preceding 12 months. We do not knowingly collect or sell the personal information of anyone under 16.',
+          'You have the right to: know what personal information we collect, use, and disclose, and to access it; delete personal information we collected from you; correct inaccurate personal information; opt out of any sale or sharing of personal information (not applicable, since we do neither); limit the use of sensitive personal information; and not be discriminated against for exercising any of these rights. Submit a request through the channels listed on our website; you may use an authorized agent, and we will respond within the timeframes California law requires.',
+        ],
+      },
+      {
+        heading: '10. Updates to This Policy',
         paragraphs: [
           'We may update this Privacy Policy periodically. Changes will be posted on our official website, and the “Effective Date” will be updated accordingly.',
         ],
