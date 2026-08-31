@@ -217,6 +217,18 @@ export default function CookieConsent() {
         deleteTrackingCookies(prefs)
       }
 
+      // Push the Google Consent Mode `update` mirroring this choice. For an
+      // EEA/UK/CH visitor this is what lifts the regional denied default to
+      // granted; for everyone else it matters when they decline (storage
+      // flips to denied and GA4 falls back to cookieless pings).
+      //
+      // Queued BEFORE the custom `consent_update` event pushed below: both
+      // writes land in the same dataLayer queue and GTM processes it in order,
+      // so a container trigger keyed on that event would otherwise evaluate
+      // consent state before this choice had been applied. No test covers this
+      // ordering — keep the two in this order by hand.
+      updateGoogleConsent(prefs)
+
       // Push consent update to GTM dataLayer
       if (typeof window !== 'undefined') {
         window.dataLayer = window.dataLayer || []
@@ -231,12 +243,6 @@ export default function CookieConsent() {
         // event stays for anything else that keys off consent changes.)
         window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: prefs }))
       }
-
-      // Push the Google Consent Mode `update` mirroring this choice. For an
-      // EEA/UK/CH visitor this is what lifts the regional denied default to
-      // granted; for everyone else it matters when they decline (storage
-      // flips to denied and GA4 falls back to cookieless pings).
-      updateGoogleConsent(prefs)
 
       // Google tags load regardless of the toggle — Consent Mode (above)
       // gates whether they may use cookies. Inert with a placeholder ID.
