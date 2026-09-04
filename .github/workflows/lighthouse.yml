@@ -45,7 +45,10 @@ jobs:
       - name: Build site
         run: pnpm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /FFC_Single_Page_Template
+          # deploy.yml states it deliberately sets no NEXT_PUBLIC_BASE_PATH -- the
+          # site is served at the root. This was the template's value, not this
+          # repo's, so Lighthouse was auditing a build with unreachable assets.
+          NEXT_PUBLIC_BASE_PATH: ''
 
       - name: Run Lighthouse CI
         run: |
