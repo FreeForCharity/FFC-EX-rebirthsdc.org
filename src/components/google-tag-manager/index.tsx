@@ -23,10 +23,10 @@ function injectGtm() {
 /**
  * Loads Google Tag Manager on every pageview. Whether the Google tags inside
  * the container may use cookies is governed by Google Consent Mode v2: the
- * region-scoped defaults set in the layout <head> (see
+ * global consent defaults set in the layout <head> (see
  * src/lib/consent-mode.ts) deny storage in the EEA/UK/CH until the visitor
- * accepts through the cookie-consent banner, and grant it everywhere else —
- * so non-EEA visits are measured from the first pageview and EEA visits are
+ * accepts through the cookie-consent banner, and grant it everywhere else — so
+ * non-EEA visits are measured from the first pageview and EEA visits are
  * counted cookielessly until consent.
  *
  * (Previously this component loaded GTM only after an explicit analytics
