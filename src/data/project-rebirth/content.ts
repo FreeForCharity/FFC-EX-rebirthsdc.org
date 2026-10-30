@@ -358,3 +358,84 @@ export const PAGE_IMAGES = {
     globe: '/Images/project-rebirth/partnership-globe.png',
   },
 }
+
+/**
+ * The Rebirth Board — Project Rebirth's governing board.
+ * Two tracks: four voting officer seats and the program-department leaders.
+ * To seat a new member, add an entry to the appropriate array below.
+ */
+export type BoardMember = {
+  name: string
+  office: string
+  seat?: string
+  mandate: string
+  focus?: string[]
+  initials: string
+  portrait?: string
+}
+
+export const REBIRTH_BOARD = {
+  heading: 'The Rebirth Board',
+  intro:
+    "Project Rebirth is governed by The Rebirth Board. Its officers carry the fiduciary duties of care, loyalty, and obedience, supported by program leaders who drive the mission on the ground — together stewarding the organization's housing, workforce-development, and community-stabilization work.",
+  officers: [
+    {
+      name: 'LaQuan Alexander',
+      office: 'President & Board Chair',
+      seat: 'Seat 1',
+      mandate:
+        'Presides over the board, sets strategic direction, and serves as the primary governance authority and public-facing signatory for Project Rebirth.',
+      focus: ['Global Missions', 'Community Partnerships', 'Media & Communications'],
+      initials: 'LA',
+      portrait: '/Images/project-rebirth/director-portrait.jpg',
+    },
+    {
+      name: 'Kevin B. Hartfield Sr.',
+      office: 'Vice President & Vice Chair',
+      seat: 'Seat 2',
+      mandate:
+        "Supports the President across governance and strategy and leads the board's directorate over sustainable living, agricultural innovation, and water and energy.",
+      focus: ['Sustainable Living', 'Agricultural Innovation', 'Water & Energy'],
+      initials: 'KH',
+    },
+    {
+      name: 'LaShonda Alexander',
+      office: 'Secretary',
+      seat: 'Seat 3',
+      mandate:
+        "Maintains the board's records, minutes, and governance compliance, with directorate oversight of tech-literacy and humanitarian-logistics initiatives.",
+      focus: ['Tech Literacy', 'Humanitarian Logistics'],
+      initials: 'LA',
+    },
+    {
+      name: 'Jasmine Alexander',
+      office: 'Treasurer',
+      seat: 'Seat 4',
+      mandate:
+        'Oversees financial stewardship, budgeting, and grant compliance, with directorate oversight of vocational-training and grants-and-compliance initiatives.',
+      focus: ['Vocational Training', 'Grants & Compliance'],
+      initials: 'JA',
+    },
+  ] as BoardMember[],
+  programHeading: 'Program Leadership',
+  programIntro:
+    "Department leaders translate the board's mandate into day-to-day execution, each advancing a core pillar of the mission.",
+  programLeads: [
+    {
+      name: 'Doye Hartfield',
+      office: 'Director of Programs',
+      mandate:
+        'Coordinates every program department and reports directly to the President, ensuring each initiative advances the mission on the ground.',
+      focus: ['Program Coordination'],
+      initials: 'DH',
+    },
+    {
+      name: 'Nicolas Rahaman',
+      office: 'Director of Media & Communications',
+      mandate:
+        "Leads Project Rebirth's storytelling, outreach, and public communications across every channel.",
+      focus: ['Media', 'Communications', 'Outreach'],
+      initials: 'NR',
+    },
+  ] as BoardMember[],
+} as const
