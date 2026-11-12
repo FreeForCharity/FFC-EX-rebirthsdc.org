@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { assetPath } from '@/lib/assetPath'
+import CookiePreferencesButton from './CookiePreferencesButton'
 import { SITE, LINKS } from '@/data/project-rebirth/site'
 
 const EqualHousingMark: React.FC = () => (
@@ -196,6 +197,9 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              <CookiePreferencesButton className="text-sm text-white/80 hover:text-[var(--pr-flame)] transition-colors" />
+            </li>
           </ul>
           <p className="pt-2 text-xs text-white/50">
             Project Rebirth is a fiscally sponsored 501(c)(3) tax-exempt organization. Donations are

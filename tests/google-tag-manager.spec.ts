@@ -4,9 +4,10 @@ import { testConfig } from './test.config'
 /**
  * Google Tag Manager (GTM) Tests
  *
- * GTM is consent-gated: the container is only injected after the user grants
- * analytics consent via the cookie banner. Tests therefore accept consent first,
- * then wait for the `gtm-script` element + `dataLayer`.
+ * GTM loads on every pageview; whether its tags may use cookies is governed by
+ * Google Consent Mode v2 (global consent defaults set in the layout <head>,
+ * lifted or lowered by `consent update` pushes from the cookie banner). The
+ * container itself is therefore present before any consent interaction.
  */
 
 const GTM_TIMEOUT = 15000
@@ -27,12 +28,35 @@ async function waitForGtm(page: Page) {
 }
 
 test.describe('Google Tag Manager Integration', () => {
-  test('should NOT load GTM before consent', async ({ page }) => {
+  test('loads GTM before any consent, with Consent Mode defaults queued first', async ({
+    page,
+  }) => {
     await page.goto('/')
-    // Banner is shown; no consent yet -> GTM must not be injected.
+    // Banner is shown; no consent yet -> GTM is already injected (Consent
+    // Mode gates cookie storage, not loading).
     await expect(page.locator('[role="region"][aria-label="Cookie consent notice"]')).toBeVisible()
-    await page.waitForTimeout(2000)
-    await expect(page.locator('script#gtm-script')).toHaveCount(0)
+    await waitForGtm(page)
+
+    // The layout <head> bootstrap pushed exactly ONE `consent default` call
+    // -- unscoped, denying -- onto the dataLayer before any user
+    // interaction. A second call, or a `region` on this one, would
+    // reintroduce a class of visitor measured before they consented, so
+    // both the count and the absence of `region` are asserted. gtag()
+    // pushes an `arguments` object, so entries are inspected positionally.
+    const defaults = await page.evaluate(() => {
+      const dl = (window as { dataLayer?: unknown }).dataLayer
+      if (!Array.isArray(dl)) return []
+      return dl
+        .filter((item) => {
+          const args = item as { [key: number]: unknown }
+          return Boolean(args) && args[0] === 'consent' && args[1] === 'default'
+        })
+        .map((item) => (item as { [key: number]: unknown })[2] as Record<string, unknown>)
+    })
+    expect(defaults).toHaveLength(1)
+    expect(defaults[0].analytics_storage).toBe('denied')
+    expect(defaults[0].ad_storage).toBe('denied')
+    expect(defaults[0].region).toBeUndefined()
   })
 
   test('should initialize dataLayer after consent', async ({ page }) => {
